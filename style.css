@@ -304,6 +304,21 @@ footer {
     grid-template-columns: 1fr;
     padding: 28px 24px;
   }
+@media (max-width: 768px) {
+
+  .pincode-check {
+    padding: 80px 24px;
+  }
+
+  .pincode-box {
+    flex-direction: column;
+  }
+
+  .pincode-box input,
+  .pincode-box button {
+    width: 100%;
+  }
+}
 
   .brand {
     border-right: none;
