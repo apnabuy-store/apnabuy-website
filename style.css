@@ -1,3 +1,11 @@
+:root {
+  --primary: #2563eb;
+  --dark: #0f172a;
+  --light: #f8fafc;
+  --muted: #64748b;
+  --card: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,9 +15,11 @@
 
 
 body {
-  background: #f8f9fc;
-  color: #222;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
 }
+
 
 header {
   background: #0f172a;
