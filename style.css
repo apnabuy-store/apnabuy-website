@@ -14,15 +14,20 @@ body {
 header {
   background: #0f172a;
   color: white;
-  padding: 20px;
+  padding: 24px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
 header p {
   font-size: 14px;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 nav a {
@@ -32,25 +37,45 @@ nav a {
 }
 
 .hero {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
-  background: white;
+  background: linear-gradient(180deg, #ffffff, #f3f6ff);
 }
 
 .hero h2 {
-  font-size: 32px;
+  font-size: 36px;
+  font-weight: 600;
+  max-width: 700px;
+  margin: auto;
 }
 
 .hero p {
-  margin: 10px 0 20px;
+  margin: 16px 0 28px;
+  font-size: 16px;
+  color: #555;
 }
-
 .btn {
   background: #2563eb;
   color: white;
-  padding: 12px 22px;
-  border-radius: 25px;
+  padding: 14px 28px;
+  border-radius: 30px;
   text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #1e4fd8;
+}
+
+.btn-small {
+  background: #2563eb;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-size: 14px;
+  display: inline-block;
 }
 
 .products {
@@ -66,10 +91,30 @@ nav a {
 
 .product-card {
   background: white;
-  padding: 15px;
-  border-radius: 12px;
+  padding: 18px;
+  border-radius: 16px;
   text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
 }
+
+.product-card h3 {
+  font-size: 16px;
+  margin-top: 12px;
+}
+
+.product-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 8px 0;
+}
+
+.product-card span {
+  display: block;
+  margin: 10px 0;
+  font-weight: 600;
+  color: #2563eb;
+}
+
 
 .product-card img {
   width: 100%;
@@ -103,3 +148,12 @@ footer {
   text-align: center;
   padding: 15px;
 }
+
+.products h2,
+.policy h2,
+.contact h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
