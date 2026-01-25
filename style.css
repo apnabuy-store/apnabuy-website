@@ -33,6 +33,10 @@ header {
   top: 0;
   z-index: 100;
 }
+.logo {
+  height: 42px;
+  margin-bottom: 4px;
+}
 
 .brand h1 {
   font-size: 28px;
