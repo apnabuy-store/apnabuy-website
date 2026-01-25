@@ -21,40 +21,50 @@ body {
 
 /* HEADER */
 .main-header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  padding: 32px 96px;
-  background: rgba(12,15,20,0.9);
+  padding: 40px 96px;
+  background: rgba(12,15,20,0.95);
   backdrop-filter: blur(12px);
+  column-gap: 60px;
 }
+
 
 .brand {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
+  padding-right: 40px;
+  border-right: 1px solid rgba(212,175,55,0.25);
 }
+
 
 .brand img {
-  height: 72px;
+  height: 110px;     /* PROFESSIONAL BRAND SIZE */
+  width: auto;
+  display: block;
 }
 
+
 .brand span {
-  font-size: 13px;
+  margin-top: 6px;
+  font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold);
 }
 
-nav a {
-  color: var(--text-main);
-  margin-left: 32px;
-  text-decoration: none;
-  font-weight: 500;
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
-nav a:hover {
-  color: var(--gold);
+nav a {
+  margin-left: 36px;
+  font-weight: 500;
 }
 
 /* HERO */
@@ -242,23 +252,26 @@ footer {
 
 @media (max-width: 768px) {
 
-  /* HEADER */
   .main-header {
-    padding: 20px 24px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+  }
+
+  .brand {
+    border-right: none;
+    padding-right: 0;
+    align-items: center;
+  }
+
+  .brand img {
+    height: 88px;
   }
 
   nav {
-    width: 100%;
+    justify-content: center;
+    margin-top: 16px;
   }
-
-  nav a {
-    margin-left: 0;
-    margin-right: 20px;
-    font-size: 14px;
-  }
+}
 
   /* HERO */
   .hero {
@@ -321,4 +334,4 @@ footer {
     padding: 32px 20px;
     font-size: 14px;
   }
-}
+
