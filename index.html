@@ -138,6 +138,34 @@
 <footer>
   <p>© 2026 ApnaBuy · A local brand built with pride</p>
 </footer>
+<script>
+  const serviceablePincodes = [
+    "444601",
+    "444602",
+    "444603",
+    "444604",
+    "444607"
+  ];
+
+  function checkPincode() {
+    const input = document.getElementById("pincodeInput").value;
+    const result = document.getElementById("pincodeResult");
+
+    if (input.length !== 6) {
+      result.style.color = "orange";
+      result.textContent = "Please enter a valid 6-digit pincode.";
+      return;
+    }
+
+    if (serviceablePincodes.includes(input)) {
+      result.style.color = "lightgreen";
+      result.textContent = "✅ Great news! ApnaBuy is available in your area.";
+    } else {
+      result.style.color = "tomato";
+      result.textContent = "❌ Sorry, we are not available in your area yet. Coming soon!";
+    }
+  }
+</script>
 
 </body>
 </html>
