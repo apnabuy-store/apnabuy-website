@@ -143,12 +143,12 @@
     "444601",
     "444602",
     "444603",
-    "444604",
-    "444607"
+    "444604"
   ];
 
   function checkPincode() {
-    const input = document.getElementById("pincodeInput").value;
+    const inputField = document.getElementById("pincodeInput");
+    const input = inputField.value.trim();
     const result = document.getElementById("pincodeResult");
 
     if (input.length !== 6) {
@@ -164,8 +164,15 @@
       result.style.color = "tomato";
       result.textContent = "❌ Sorry, we are not available in your area yet. Coming soon!";
     }
+
+    // ✅ Clear input
+    inputField.value = "";
+
+    // ✅ Smooth scroll to next section after short delay
+    setTimeout(() => {
+      document.getElementById("about").scrollIntoView({
+        behavior: "smooth"
+      });
+    }, 800); // delay so user sees the message first
   }
 </script>
-
-</body>
-</html>
