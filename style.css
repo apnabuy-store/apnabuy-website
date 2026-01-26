@@ -23,6 +23,10 @@ body {
   line-height: 1.7;
   overflow-x: hidden;
 }
+body {
+  padding-top: 120px;
+}
+
 
 /* ---------------- HEADER ---------------- */
 .header {
