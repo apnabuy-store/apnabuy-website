@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ApnaBuy | Realme 65W SuperDart Charger</title>
+  <title>ApnaBuy – Buy from trusted local stores near you</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <link rel="stylesheet" href="style.css" />
@@ -15,130 +15,70 @@
     <div class="logo">ApnaBuy</div>
     <nav class="nav">
       <a href="#">Home</a>
-      <a href="#">Products</a>
+      <a href="#">How It Works</a>
       <a href="#">Contact</a>
     </nav>
   </header>
 
-  <!-- MAIN -->
-  <main class="container">
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Buy from trusted local stores near you</h1>
+    <p class="subtitle">
+      Discover verified local shops, check availability in your area,
+      and order easily on WhatsApp.
+    </p>
 
-    <!-- PRODUCT -->
-    <section class="product">
+    <!-- PINCODE CHECK -->
+    <div class="pincode-box">
+      <input
+        type="number"
+        id="pincodeInput"
+        placeholder="Enter your pincode"
+      />
+      <button onclick="checkService()">Check Service</button>
+    </div>
 
-      <div class="product-image">
-        <img src="product.jpg" alt="Realme 65W SuperDart Charger">
+    <p id="pincodeMessage"></p>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-it-works">
+    <h2>How ApnaBuy Works</h2>
+
+    <div class="steps">
+      <div class="step">
+        <span>1</span>
+        <h3>Enter Your Pincode</h3>
+        <p>Check if ApnaBuy is available in your city.</p>
       </div>
 
-      <div class="product-info">
-        <h1>Realme 65W SuperDart Charger</h1>
-        <p class="brand">Brand: Realme | Model: 65W SuperDart</p>
-
-        <p class="price">₹2,499</p>
-        <p class="stock">🟢 In Stock</p>
-
-        <!-- PINCODE CHECK -->
-        <div class="pincode-box">
-          <label for="pincode">Check delivery in your area</label>
-          <div class="pincode-input">
-            <input type="number" id="pincode" placeholder="Enter pincode">
-            <button onclick="checkPincode()">Check</button>
-          </div>
-          <p id="pincodeResult"></p>
-        </div>
-
-        <a href="https://wa.me/919730572143" class="btn whatsapp">Order on WhatsApp</a>
-        <a href="tel:9730572143" class="btn call">Call Now</a>
-
-        <ul class="features">
-          <li>✔️ 100% Original Product</li>
-          <li>⚡ 65W SuperDart Fast Charging</li>
-          <li>🔒 Safe & BIS Certified</li>
-          <li>📦 Box Packed & Sealed</li>
-        </ul>
+      <div class="step">
+        <span>2</span>
+        <h3>Discover Local Shops</h3>
+        <p>See verified stores registered in your area.</p>
       </div>
-    </section>
 
-    <!-- DESCRIPTION -->
-    <section class="section">
-      <h2>Product Description</h2>
-      <p>
-        The Realme 65W SuperDart Charger delivers ultra-fast and safe charging
-        for Realme smartphones and compatible USB-C devices.
-      </p>
-    </section>
+      <div class="step">
+        <span>3</span>
+        <h3>Order on WhatsApp</h3>
+        <p>Contact the shop directly and place your order.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- SPECIFICATIONS -->
-    <section class="section">
-      <h2>Specifications</h2>
-      <table>
-        <tr><td>Output Power</td><td>65W</td></tr>
-        <tr><td>Connector Type</td><td>Type-C</td></tr>
-        <tr><td>Cable Included</td><td>Yes</td></tr>
-        <tr><td>Warranty</td><td>Brand Warranty</td></tr>
-      </table>
-    </section>
+  <!-- TRUST SECTION -->
+  <section class="trust">
+    <div class="trust-item">✅ Verified Local Sellers</div>
+    <div class="trust-item">🚚 Fast Local Delivery</div>
+    <div class="trust-item">💬 WhatsApp Ordering</div>
+    <div class="trust-item">📍 City-Based Availability</div>
+  </section>
 
-    <!-- TRUST -->
-    <section class="trust-box">
-      <h3>Sold & Fulfilled By</h3>
-      <p>🏪 Shree Mobile Shop</p>
-      <p>📍 Local Market, Your City</p>
-      <p>📞 9730572143</p>
-      <p class="verified">✅ Verified Local Seller</p>
-    </section>
-
-    <!-- DELIVERY -->
-    <section class="section">
-      <h2>Delivery & Payment</h2>
-      <ul>
-        <li>🚚 Same / Next-day local delivery</li>
-        <li>💰 Cash on Delivery available</li>
-        <li>🏬 Store pickup available</li>
-      </ul>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section faq">
-      <h2>FAQs</h2>
-      <p><strong>Is this product original?</strong><br>Yes, 100% original.</p>
-      <p><strong>Is COD available?</strong><br>Yes.</p>
-    </section>
-
-  </main>
-
+  <!-- FOOTER -->
   <footer class="footer">
-    © ApnaBuy | Supporting Local Businesses
+    © ApnaBuy — Supporting Local Businesses
   </footer>
 
-  <!-- PINCODE SCRIPT -->
-  <script>
-    const serviceablePincodes = [
-      "444601",
-      "444602",
-      "444603",
-      "444604"
-    ];
-
-    function checkPincode() {
-      const pin = document.getElementById("pincode").value;
-      const result = document.getElementById("pincodeResult");
-
-      if (pin.length !== 6) {
-        result.style.color = "red";
-        result.innerText = "Please enter a valid 6-digit pincode.";
-        return;
-      }
-
-      if (serviceablePincodes.includes(pin)) {
-        result.style.color = "green";
-        result.innerText = "✅ Delivery available in your area.";
-      } else {
-        result.style.color = "red";
-        result.innerText = "❌ Delivery not available in this area yet.";
-      }
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
