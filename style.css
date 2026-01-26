@@ -198,6 +198,21 @@ footer {
     gap: 16px;
     padding: 20px;
   }
+@media (max-width: 768px) {
+
+  .brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    height: 64px;   /* Strong but not oversized on mobile */
+  }
+
+  nav {
+    justify-content: center;
+  }
+}
 
   nav a {
     margin-left: 16px;
