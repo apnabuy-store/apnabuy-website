@@ -6,6 +6,39 @@
   --text-muted: #a1a1aa;
 }
 
+.shops {
+  padding: 120px 96px;
+  background: #0f131d;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+
+.shop-card {
+  background: var(--dark-soft);
+  padding: 28px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.shop-card:hover {
+  transform: translateY(-6px);
+}
+
+.shop-card h3 {
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.shop-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
 * {
   margin: 0;
   padding: 0;
