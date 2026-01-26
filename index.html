@@ -2,285 +2,143 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ApnaBuy | Local Shops, Trusted Products</title>
+  <title>ApnaBuy | Realme 65W SuperDart Charger</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header class="header">
-  <div class="brand">
-  <img src="images/logo.png" alt="ApnaBuy Logo" class="logo">
-  <span class="tagline">Buy local. Live local.</span>
-</div>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">ApnaBuy</div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
 
+  <!-- MAIN -->
+  <main class="container">
 
-  <nav>
-    <a href="#how">How it works</a>
-    <a href="#shops">Shops</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+    <!-- PRODUCT -->
+    <section class="product">
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Your city’s trusted local marketplace</h1>
-  <p>Discover genuine products from verified shops near you.</p>
-</section>
+      <div class="product-image">
+        <img src="product.jpg" alt="Realme 65W SuperDart Charger">
+      </div>
 
-<!-- PINCODE CHECK -->
-<section class="pincode-section">
-  <h2>Check availability in your area</h2>
+      <div class="product-info">
+        <h1>Realme 65W SuperDart Charger</h1>
+        <p class="brand">Brand: Realme | Model: 65W SuperDart</p>
 
-  <div class="pincode-box">
-    <input id="pincodeInput" type="number" placeholder="Enter your pincode">
-    <button onclick="checkPincode()">Check</button>
-  </div>
+        <p class="price">₹2,499</p>
+        <p class="stock">🟢 In Stock</p>
 
-  <p id="pincodeResult"></p>
-</section>
+        <!-- PINCODE CHECK -->
+        <div class="pincode-box">
+          <label for="pincode">Check delivery in your area</label>
+          <div class="pincode-input">
+            <input type="number" id="pincode" placeholder="Enter pincode">
+            <button onclick="checkPincode()">Check</button>
+          </div>
+          <p id="pincodeResult"></p>
+        </div>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
-  <h2>How ApnaBuy works</h2>
+        <a href="https://wa.me/919730572143" class="btn whatsapp">Order on WhatsApp</a>
+        <a href="tel:9730572143" class="btn call">Call Now</a>
 
-  <div class="steps">
-    <div>
-      <strong>1</strong>
-      <p>Enter your city pincode</p>
-    </div>
-    <div>
-      <strong>2</strong>
-      <p>Choose a trusted local shop</p>
-    </div>
-    <div>
-      <strong>3</strong>
-      <p>Order products via WhatsApp</p>
-    </div>
-  </div>
-</section>
+        <ul class="features">
+          <li>✔️ 100% Original Product</li>
+          <li>⚡ 65W SuperDart Fast Charging</li>
+          <li>🔒 Safe & BIS Certified</li>
+          <li>📦 Box Packed & Sealed</li>
+        </ul>
+      </div>
+    </section>
 
-<!-- SHOPS -->
-<section class="shops" id="shops" style="display:none;">
-  <h2>Shops available in your city</h2>
-  <div class="shop-grid"></div>
-</section>
+    <!-- DESCRIPTION -->
+    <section class="section">
+      <h2>Product Description</h2>
+      <p>
+        The Realme 65W SuperDart Charger delivers ultra-fast and safe charging
+        for Realme smartphones and compatible USB-C devices.
+      </p>
+    </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <h2>Products</h2>
-  <div class="product-grid"></div>
-</section>
-<div class="product-page">
+    <!-- SPECIFICATIONS -->
+    <section class="section">
+      <h2>Specifications</h2>
+      <table>
+        <tr><td>Output Power</td><td>65W</td></tr>
+        <tr><td>Connector Type</td><td>Type-C</td></tr>
+        <tr><td>Cable Included</td><td>Yes</td></tr>
+        <tr><td>Warranty</td><td>Brand Warranty</td></tr>
+      </table>
+    </section>
 
-  <div class="product-images">
-    <img src="product1.jpg" alt="Realme 65W Charger">
-  </div>
+    <!-- TRUST -->
+    <section class="trust-box">
+      <h3>Sold & Fulfilled By</h3>
+      <p>🏪 Shree Mobile Shop</p>
+      <p>📍 Local Market, Your City</p>
+      <p>📞 9730572143</p>
+      <p class="verified">✅ Verified Local Seller</p>
+    </section>
 
-  <div class="product-info">
-    <h1>Realme 65W SuperDart Charger</h1>
-    <p class="price">₹2,499 <span>In Stock</span></p>
+    <!-- DELIVERY -->
+    <section class="section">
+      <h2>Delivery & Payment</h2>
+      <ul>
+        <li>🚚 Same / Next-day local delivery</li>
+        <li>💰 Cash on Delivery available</li>
+        <li>🏬 Store pickup available</li>
+      </ul>
+    </section>
 
-    <a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp">Order on WhatsApp</a>
-    <a href="tel:9XXXXXXXXX" class="btn call">Call Now</a>
+    <!-- FAQ -->
+    <section class="section faq">
+      <h2>FAQs</h2>
+      <p><strong>Is this product original?</strong><br>Yes, 100% original.</p>
+      <p><strong>Is COD available?</strong><br>Yes.</p>
+    </section>
 
-    <ul class="features">
-      <li>✔️ 100% Original Product</li>
-      <li>⚡ Fast Charging Supported</li>
-      <li>🔒 Safe & Certified</li>
-      <li>📦 Box Packed</li>
-    </ul>
-  </div>
+  </main>
 
-  <div class="section">
-    <h2>Product Description</h2>
-    <p>Realme 65W SuperDart Charger delivers ultra-fast and safe charging for compatible devices.</p>
-  </div>
+  <footer class="footer">
+    © ApnaBuy | Supporting Local Businesses
+  </footer>
 
-  <div class="section">
-    <h2>Specifications</h2>
-    <table>
-      <tr><td>Output</td><td>65W</td></tr>
-      <tr><td>Connector</td><td>Type-C</td></tr>
-      <tr><td>Cable</td><td>Included</td></tr>
-    </table>
-  </div>
+  <!-- PINCODE SCRIPT -->
+  <script>
+    const serviceablePincodes = [
+      "444601",
+      "444602",
+      "444603",
+      "444604"
+    ];
 
-  <div class="trust-box">
-    <h3>Sold by Shree Mobile Shop</h3>
-    <p>📍 Local Market, Your City</p>
-    <p>📞 9730572143</p>
-  </div>
+    function checkPincode() {
+      const pin = document.getElementById("pincode").value;
+      const result = document.getElementById("pincodeResult");
 
-</div>
+      if (pin.length !== 6) {
+        result.style.color = "red";
+        result.innerText = "Please enter a valid 6-digit pincode.";
+        return;
+      }
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Contact & Support</h2>
-  <p>📍 Amravati, Maharashtra</p>
-  <p>⏰ 10 AM – 9 PM</p>
-  <a href="https://wa.me/919730572143" class="cta">Chat on WhatsApp</a>
-</section>
-
-<footer>
-  <p>© 2026 ApnaBuy. A local brand build with pride.</p>
-</footer>
-
-<!-- SCRIPT -->
-<script>
-/* =========================
-   DATA (TEMP DATABASE)
-   ========================= */
-
-const shopsData = {
-  "444601"
-  "444602"
-  "444603"
-  "444604"
-  "444605": [
-    {
-      name: "Shree Mobile Shop",
-      owner: "Ramesh Patil",
-      products: [
-        {
-          name: "Realme 65W SuperDart Charger",
-          price: "₹2,499",
-          image: "images/realme65w.jpg"
-        },
-        {
-          name: "Type-C Fast Charging Cable",
-          price: "₹399",
-          image: "images/realme65w.jpg"
-        }
-      ]
-    },
-    {
-      name: "Sai Electronics",
-      owner: "Amit Sharma",
-      products: [
-        {
-          name: "Bluetooth Neckband",
-          price: "₹1,299",
-          image: "images/realme65w.jpg"
-        }
-      ]
+      if (serviceablePincodes.includes(pin)) {
+        result.style.color = "green";
+        result.innerText = "✅ Delivery available in your area.";
+      } else {
+        result.style.color = "red";
+        result.innerText = "❌ Delivery not available in this area yet.";
+      }
     }
-  ]
-};
-
-/* =========================
-   FUNCTIONS
-   ========================= */
-
-function checkPincode() {
-  const inputField = document.getElementById("pincodeInput");
-  const pincode = inputField.value.trim();
-  const result = document.getElementById("pincodeResult");
-  const shopsSection = document.getElementById("shops");
-  const shopGrid = document.querySelector(".shop-grid");
-
-  shopGrid.innerHTML = "";
-
-  if (pincode.length !== 6) {
-    result.textContent = "Please enter a valid 6-digit pincode.";
-    result.style.color = "#d97706";
-    return;
-  }
-
-  if (!shopsData[pincode]) {
-    result.textContent = "Sorry, we are not available in your area yet.";
-    result.style.color = "#dc2626";
-    return;
-  }
-
-  result.textContent = "Great! Shops are available in your area.";
-  result.style.color = "#16a34a";
-  inputField.value = "";
-
-  shopsData[pincode].forEach((shop, index) => {
-    const card = document.createElement("div");
-    card.className = "shop-card";
-    card.innerHTML = `
-      <h3>${shop.name}</h3>
-      <p>Owner: ${shop.owner}</p>
-      <p>${shop.products.length} products</p>
-    `;
-    card.onclick = () => showProducts(pincode, index);
-    shopGrid.appendChild(card);
-  });
-
-  shopsSection.style.display = "block";
-  shopsSection.scrollIntoView({ behavior: "smooth" });
-}
-
-function showProducts(pincode, shopIndex) {
-  const productGrid = document.querySelector(".product-grid");
-  const productsSection = document.getElementById("products");
-
-  productGrid.innerHTML = "";
-
-  const shop = shopsData[pincode][shopIndex];
-
-  shop.products.forEach(product => {
-
-    const message = `
-Hello ApnaBuy Team 👋
-
-I want to order the following product:
-
-📦 Product: ${product.name}
-💰 Price: ${product.price}
-🏪 Shop: ${shop.name}
-📍 Pincode: ${pincode}
-
-Please confirm availability and next steps.
-`.trim();
-
-    const whatsappURL =
-      `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(message)}`;
-
-    const card = document.createElement("div");
-    card.className = "product-card";
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h4>${product.name}</h4>
-      <strong>${product.price}</strong>
-      <a href="${whatsappURL}" target="_blank">
-        Order on WhatsApp
-      </a>
-    `;
-
-    productGrid.appendChild(card);
-  });
-
-  productsSection.scrollIntoView({ behavior: "smooth" });
-}
-
-  const APNABUY_WHATSAPP = "919730572143"; // replace with your number
-
-</script>
+  </script>
 
 </body>
 </html>
-<script>
-  let lastScrollTop = 0;
-  const header = document.querySelector(".header");
-
-  window.addEventListener("scroll", () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      // scrolling down
-      header.classList.add("hide");
-    } else {
-      // scrolling up
-      header.classList.remove("hide");
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
-</script>
