@@ -180,19 +180,42 @@ function showProducts(pincode, shopIndex) {
   const shop = shopsData[pincode][shopIndex];
 
   shop.products.forEach(product => {
+
+    const message = `
+Hello ApnaBuy Team 👋
+
+I want to order the following product:
+
+📦 Product: ${product.name}
+💰 Price: ${product.price}
+🏪 Shop: ${shop.name}
+📍 Pincode: ${pincode}
+
+Please confirm availability and next steps.
+`.trim();
+
+    const whatsappURL =
+      `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(message)}`;
+
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${product.image}">
+      <img src="${product.image}" alt="${product.name}">
       <h4>${product.name}</h4>
       <strong>${product.price}</strong>
-      <a href="https://wa.me/919730572143">Order from ${shop.name}</a>
+      <a href="${whatsappURL}" target="_blank">
+        Order on WhatsApp
+      </a>
     `;
+
     productGrid.appendChild(card);
   });
 
   productsSection.scrollIntoView({ behavior: "smooth" });
 }
+
+  const APNABUY_WHATSAPP = "919730572143"; // replace with your number
+
 </script>
 
 </body>
