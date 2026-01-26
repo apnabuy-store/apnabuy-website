@@ -29,7 +29,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 96px;
+  padding: 32px 96px;
   background: rgba(11,15,26,0.85);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-soft);
@@ -38,15 +38,27 @@ body {
   z-index: 100;
 }
 
-.brand img {
-  height: 64px;
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
 }
 
-.brand span {
+/* BIG, PROFESSIONAL LOGO */
+.logo {
+  height: 84px;           /* Premium desktop size */
+  width: auto;
+  display: block;
+}
+
+/* Tagline styling */
+.tagline {
   font-size: 12px;
-  letter-spacing: 1.5px;
-  color: var(--gold);
+  letter-spacing: 2px;
   text-transform: uppercase;
+  color: var(--gold);
 }
 
 nav a {
@@ -284,5 +296,20 @@ footer {
   .pincode-box input,
   .pincode-box button {
     width: 100%;
+  }
+}
+@media (max-width: 768px) {
+
+  .brand {
+    align-items: center;
+    text-align: center;
+  }
+
+  .logo {
+    height: 64px;   /* Strong but not oversized on mobile */
+  }
+
+  nav {
+    justify-content: center;
   }
 }
