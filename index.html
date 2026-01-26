@@ -2,208 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ApnaBuy | Buy from trusted local stores near you</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApnaBuy | Local Shops, Trusted Products</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- HEADER / BRAND -->
+<!-- HEADER -->
 <header class="header">
   <div class="brand">
-    <div class="logo">ApnaBuy</div>
-    <div class="tagline">Buy from trusted local stores near you</div>
+    <img src="images/logo.png" alt="ApnaBuy Logo">
+    <span>Buy local. Live local.</span>
   </div>
+
+  <nav>
+    <a href="#how">How it works</a>
+    <a href="#shops">Shops</a>
+    <a href="#contact">Contact</a>
+  </nav>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Your local shopping, made simple</h1>
-  <p>
-    ApnaBuy connects you with verified local shops in your city.
-    Check availability, explore products, and order directly on WhatsApp.
-  </p>
-
-  <div class="pincode-box">
-    <input type="number" id="pincodeInput" placeholder="Enter your pincode" />
-    <button onclick="checkPincode()">Check Service</button>
-  </div>
-
-  <p id="statusMessage"></p>
+  <h1>Your city’s trusted local marketplace</h1>
+  <p>Discover genuine products from verified shops near you.</p>
 </section>
 
-<!-- RESULTS -->
-<section id="results" class="container" style="display:none;">
+<!-- PINCODE CHECK -->
+<section class="pincode-section">
+  <h2>Check availability in your area</h2>
 
-  <h2 id="cityTitle"></h2>
-
-  <!-- SHOPS -->
-  <div class="section">
-    <h3>Registered Shops</h3>
-    <div id="shopsList" class="cards"></div>
+  <div class="pincode-box">
+    <input id="pincodeInput" type="number" placeholder="Enter your pincode">
+    <button onclick="checkPincode()">Check</button>
   </div>
 
-  <!-- PRODUCTS -->
-  <div class="section" id="productsSection" style="display:none;">
-    <h3 id="shopTitle"></h3>
-    <div id="productsList" class="cards"></div>
-  </div>
-
-  <!-- PRODUCT DETAILS -->
-  <div class="section" id="productSection" style="display:none;">
-    <h3>Product Details</h3>
-    <div id="productDetail" class="product-detail"></div>
-  </div>
-
+  <p id="pincodeResult"></p>
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-it-works">
-  <h2>How ApnaBuy Works</h2>
+<section class="how" id="how">
+  <h2>How ApnaBuy works</h2>
+
   <div class="steps">
-    <div class="step">1️⃣ Enter your pincode</div>
-    <div class="step">2️⃣ Discover local shops</div>
-    <div class="step">3️⃣ Order directly on WhatsApp</div>
+    <div>
+      <strong>1</strong>
+      <p>Enter your city pincode</p>
+    </div>
+    <div>
+      <strong>2</strong>
+      <p>Choose a trusted local shop</p>
+    </div>
+    <div>
+      <strong>3</strong>
+      <p>Order products via WhatsApp</p>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact">
-  <h2>Contact Us</h2>
-  <p>📞 WhatsApp: <strong>+91 9730572143</strong></p>
-  <p>📧 Email: support@apnabuy.in</p>
+<!-- SHOPS -->
+<section class="shops" id="shops" style="display:none;">
+  <h2>Shops available in your city</h2>
+  <div class="shop-grid"></div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
-  © ApnaBuy | Supporting Local Businesses
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <h2>Products</h2>
+  <div class="product-grid"></div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Contact & Support</h2>
+  <p>📍 Amravati, Maharashtra</p>
+  <p>⏰ 10 AM – 9 PM</p>
+  <a href="https://wa.me/91XXXXXXXXXX" class="cta">Chat on WhatsApp</a>
+</section>
+
+<footer>
+  <p>© 2026 ApnaBuy. Supporting local businesses.</p>
 </footer>
 
+<!-- SCRIPT -->
 <script>
-/* ---------------- DATA ---------------- */
+/* =========================
+   DATA (TEMP DATABASE)
+   ========================= */
 
-const pincodeCityMap = {
-  "441001": "Nagpur",
-  "444601": "Amravati"
-};
-
-const data = {
-  Nagpur: [
+const shopsData = {
+  "444601": [
     {
       name: "Shree Mobile Shop",
-      area: "Sitabuldi, Nagpur",
-      whatsapp: "919999999999",
+      owner: "Ramesh Patil",
       products: [
         {
           name: "Realme 65W SuperDart Charger",
-          price: 2499,
-          description: "100% original Realme charger with fast and safe charging."
+          price: "₹2,499",
+          image: "images/realme65w.jpg"
+        },
+        {
+          name: "Type-C Fast Charging Cable",
+          price: "₹399",
+          image: "images/realme65w.jpg"
         }
       ]
-    }
-  ],
-  Amravati: [
+    },
     {
-      name: "Amravati Mobile Store",
-      area: "Rajapeth, Amravati",
-      whatsapp: "919888888888",
+      name: "Sai Electronics",
+      owner: "Amit Sharma",
       products: [
         {
-          name: "Samsung 25W Fast Charger",
-          price: 1799,
-          description: "Original Samsung fast charger with BIS certification."
+          name: "Bluetooth Neckband",
+          price: "₹1,299",
+          image: "images/realme65w.jpg"
         }
       ]
     }
   ]
 };
 
-/* ---------------- LOGIC ---------------- */
+/* =========================
+   FUNCTIONS
+   ========================= */
 
 function checkPincode() {
-  const pin = document.getElementById("pincodeInput").value;
-  const msg = document.getElementById("statusMessage");
+  const inputField = document.getElementById("pincodeInput");
+  const pincode = inputField.value.trim();
+  const result = document.getElementById("pincodeResult");
+  const shopsSection = document.getElementById("shops");
+  const shopGrid = document.querySelector(".shop-grid");
 
-  if (pin.length !== 6) {
-    msg.style.color = "red";
-    msg.innerText = "Please enter a valid 6-digit pincode.";
+  shopGrid.innerHTML = "";
+
+  if (pincode.length !== 6) {
+    result.textContent = "Please enter a valid 6-digit pincode.";
+    result.style.color = "#d97706";
     return;
   }
 
-  const city = pincodeCityMap[pin];
-  if (!city) {
-    msg.style.color = "red";
-    msg.innerText = "Sorry, we are not available in your area yet.";
+  if (!shopsData[pincode]) {
+    result.textContent = "Sorry, we are not available in your area yet.";
+    result.style.color = "#dc2626";
     return;
   }
 
-  msg.style.color = "green";
-  msg.innerText = `Service available in ${city}`;
-  showShops(city);
-}
+  result.textContent = "Great! Shops are available in your area.";
+  result.style.color = "#16a34a";
+  inputField.value = "";
 
-function showShops(city) {
-  document.getElementById("results").style.display = "block";
-  document.getElementById("cityTitle").innerText = `Available in ${city}`;
-
-  const shopsList = document.getElementById("shopsList");
-  shopsList.innerHTML = "";
-
-  document.getElementById("productsSection").style.display = "none";
-  document.getElementById("productSection").style.display = "none";
-
-  data[city].forEach((shop, index) => {
+  shopsData[pincode].forEach((shop, index) => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "shop-card";
     card.innerHTML = `
-      <h4>${shop.name}</h4>
-      <p>${shop.area}</p>
-      <button onclick="showProducts('${city}', ${index})">View Products</button>
+      <h3>${shop.name}</h3>
+      <p>Owner: ${shop.owner}</p>
+      <p>${shop.products.length} products</p>
     `;
-    shopsList.appendChild(card);
+    card.onclick = () => showProducts(pincode, index);
+    shopGrid.appendChild(card);
   });
+
+  shopsSection.style.display = "block";
+  shopsSection.scrollIntoView({ behavior: "smooth" });
 }
 
-function showProducts(city, shopIndex) {
-  const shop = data[city][shopIndex];
-  document.getElementById("productsSection").style.display = "block";
-  document.getElementById("shopTitle").innerText = shop.name;
+function showProducts(pincode, shopIndex) {
+  const productGrid = document.querySelector(".product-grid");
+  const productsSection = document.getElementById("products");
 
-  const productsList = document.getElementById("productsList");
-  productsList.innerHTML = "";
-  document.getElementById("productSection").style.display = "none";
+  productGrid.innerHTML = "";
 
-  shop.products.forEach((product, index) => {
+  const shop = shopsData[pincode][shopIndex];
+
+  shop.products.forEach(product => {
     const card = document.createElement("div");
-    card.className = "card";
+    card.className = "product-card";
     card.innerHTML = `
+      <img src="${product.image}">
       <h4>${product.name}</h4>
-      <p>₹${product.price}</p>
-      <button onclick="showProductDetail('${city}', ${shopIndex}, ${index})">
-        View Details
-      </button>
+      <strong>${product.price}</strong>
+      <a href="https://wa.me/919730572143">Order from ${shop.name}</a>
     `;
-    productsList.appendChild(card);
+    productGrid.appendChild(card);
   });
-}
 
-function showProductDetail(city, shopIndex, productIndex) {
-  const shop = data[city][shopIndex];
-  const product = shop.products[productIndex];
-
-  document.getElementById("productSection").style.display = "block";
-  document.getElementById("productDetail").innerHTML = `
-    <h4>${product.name}</h4>
-    <p><strong>Price:</strong> ₹${product.price}</p>
-    <p>${product.description}</p>
-    <p><strong>Sold by:</strong> ${shop.name}</p>
-    <p>${shop.area}</p>
-    <a class="btn whatsapp"
-      href="https://wa.me/${shop.whatsapp}?text=Hi, I want to order ${product.name}">
-      Order on WhatsApp
-    </a>
-  `;
+  productsSection.scrollIntoView({ behavior: "smooth" });
 }
 </script>
 
