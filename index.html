@@ -37,7 +37,147 @@
       />
       <button onclick="checkService()">Check Service</button>
     </div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Local Shops | ApnaBuy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<header class="header">
+  <div class="logo">ApnaBuy</div>
+</header>
+
+<main class="container">
+  <h1 id="cityTitle"></h1>
+  <div id="shopList" class="cards"></div>
+</main>
+
+<script src="data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const city = params.get("city");
+
+  document.getElementById("cityTitle").innerText =
+    `Shops available in ${city}`;
+
+  const shops = data[city]?.shops || [];
+  const shopList = document.getElementById("shopList");
+
+  shops.forEach(shop => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h3>${shop.name}</h3>
+      <p>${shop.area}</p>
+      <a href="products.html?city=${city}&shop=${shop.id}">
+        View Products →
+      </a>
+    `;
+    shopList.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Products | ApnaBuy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">ApnaBuy</div>
+</header>
+
+<main class="container">
+  <h1 id="shopTitle"></h1>
+  <div id="productList" class="cards"></div>
+</main>
+
+<script src="data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const city = params.get("city");
+  const shopId = params.get("shop");
+
+  const shop = data[city].shops.find(s => s.id === shopId);
+  document.getElementById("shopTitle").innerText = shop.name;
+
+  const list = document.getElementById("productList");
+
+  shop.products.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <img src="${p.image}" style="width:100%;border-radius:8px">
+      <h3>${p.name}</h3>
+      <p>₹${p.price}</p>
+      <a href="product.html?city=${city}&shop=${shopId}&product=${p.id}">
+        View Details →
+      </a>
+    `;
+    list.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product | ApnaBuy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">ApnaBuy</div>
+</header>
+
+<main class="container">
+  <div id="productDetail"></div>
+</main>
+
+<script src="data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const city = params.get("city");
+  const shopId = params.get("shop");
+  const productId = params.get("product");
+
+  const shop = data[city].shops.find(s => s.id === shopId);
+  const product = shop.products.find(p => p.id === productId);
+
+  const specsHtml = Object.entries(product.specs)
+    .map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`)
+    .join("");
+
+  document.getElementById("productDetail").innerHTML = `
+    <img src="${product.image}" style="width:300px;border-radius:10px">
+    <h1>${product.name}</h1>
+    <h2>₹${product.price}</h2>
+    <p>${product.description}</p>
+
+    <h3>Specifications</h3>
+    <table>${specsHtml}</table>
+
+    <h3>Sold by</h3>
+    <p><strong>${shop.name}</strong><br>${shop.area}</p>
+
+    <a class="btn whatsapp"
+      href="https://wa.me/${shop.whatsapp}?text=Hi, I want to order ${product.name}">
+      Order on WhatsApp
+    </a>
+  `;
+</script>
+
+</body>
+</html>
+    
     <p id="pincodeMessage"></p>
   </section>
 
