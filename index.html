@@ -220,3 +220,21 @@ Please confirm availability and next steps.
 
 </body>
 </html>
+<script>
+  let lastScrollTop = 0;
+  const header = document.querySelector(".header");
+
+  window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+      // scrolling down
+      header.classList.add("hide");
+    } else {
+      // scrolling up
+      header.classList.remove("hide");
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+</script>
