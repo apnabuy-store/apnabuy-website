@@ -154,10 +154,15 @@
     "444604"
   ];
 
+ <script>
   function checkPincode() {
     const inputField = document.getElementById("pincodeInput");
     const input = inputField.value.trim();
     const result = document.getElementById("pincodeResult");
+    const shopsSection = document.getElementById("shops");
+    const shopGrid = document.querySelector(".shop-grid");
+
+    shopGrid.innerHTML = "";
 
     if (input.length !== 6) {
       result.style.color = "orange";
@@ -165,14 +170,62 @@
       return;
     }
 
-    if (serviceablePincodes.includes(input)) {
-      result.style.color = "lightgreen";
-      result.textContent = "✅ Great news! ApnaBuy is available in your area.";
-    } else {
+    if (!shopsData[input]) {
       result.style.color = "tomato";
-      result.textContent = "❌ Sorry, we are not available in your area yet. Coming soon!";
+      result.textContent = "❌ No registered shops in your area yet.";
+      return;
     }
 
+    result.style.color = "lightgreen";
+    result.textContent = "✅ Shops found in your area!";
+    inputField.value = "";
+
+    shopsData[input].forEach((shop, index) => {
+      const shopCard = document.createElement("div");
+      shopCard.className = "shop-card";
+      shopCard.innerHTML = `
+        <h3>${shop.name}</h3>
+        <p>Owner: ${shop.owner}</p>
+        <p>${shop.products.length} Products Available</p>
+      `;
+
+      shopCard.onclick = () => showShopProducts(input, index);
+      shopGrid.appendChild(shopCard);
+    });
+
+    shopsSection.style.display = "block";
+
+    setTimeout(() => {
+      shopsSection.scrollIntoView({ behavior: "smooth" });
+    }, 500);
+  }
+</script>
+<script>
+  function showShopProducts(pincode, shopIndex) {
+    const productsSection = document.getElementById("products");
+    const productGrid = document.querySelector(".product-grid");
+
+    productGrid.innerHTML = "";
+
+    const shop = shopsData[pincode][shopIndex];
+
+    shop.products.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${product.image}">
+        <h3>${product.name}</h3>
+        <strong>${product.price}</strong>
+        <a href="https://wa.me/91XXXXXXXXXX">Order from ${shop.name}</a>
+      `;
+      productGrid.appendChild(card);
+    });
+
+    productsSection.scrollIntoView({ behavior: "smooth" });
+  }
+</script>
+
+  
     // ✅ Clear input
     inputField.value = "";
 
