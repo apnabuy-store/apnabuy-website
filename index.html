@@ -115,6 +115,7 @@ const shopsData = {
   "444601": [
     {
       name: "Shree Mobile Shop",
+      image: "images/shree-mobile-shop.jpg",
       products: [
         { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg" },
         { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
@@ -122,6 +123,7 @@ const shopsData = {
     },
     {
       name: "Sai Electronics",
+      image: "images/sai-electronics.jpg",
       products: [
         { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg" }
       ]
@@ -160,12 +162,16 @@ function checkPincode() {
     const card = document.createElement("div");
     card.className = "shop-card";
     card.innerHTML = `
-      <div class="shop-header">
-        <h3 class="shop-name">${shop.name}</h3>
-        <span class="verified-badge">✔ Verified</span>
-      </div>
-      <p>${shop.products.length} products available</p>
-    `;
+  <img src="${shop.image}" alt="${shop.name}" class="shop-image">
+
+  <div class="shop-header">
+    <h3 class="shop-name">${shop.name}</h3>
+    <span class="verified-badge">✔ Verified</span>
+  </div>
+
+  <p>${shop.products.length} products available</p>
+`;
+
     card.onclick = () => showProducts(pin, index);
     shopGrid.appendChild(card);
   });
