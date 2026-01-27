@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop Profile | ApnaBuy</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="brand">
+    <img src="images/logo.png" class="logo">
+    <div class="brand-text">
+      <span class="brand-name">ApnaBuy</span>
+      <span class="tagline">Buy local. Live local.</span>
+    </div>
+  </div>
+</header>
+
+<section class="shop-profile">
+  <img id="shopImage" class="shop-banner">
+
+  <h1 id="shopName"></h1>
+  <div id="shopMeta"></div>
+
+  <p id="shopAddress"></p>
+  <p id="shopTiming"></p>
+  <a id="mapLink" target="_blank" class="map-link">📍 View on Map</a>
+</section>
+
+<section class="products">
+  <h2>Products</h2>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<section class="reviews">
+  <h2>Customer Reviews</h2>
+  <div id="reviewGrid"></div>
+</section>
+
+<script>
+const shopsData = {
+  "444601": [
+    {
+      name: "Shree Mobile Shop",
+      image: "images/shree-mobile-shop.jpg",
+      rating: 4.6,
+      address: "Main Road, Amravati",
+      timing: "10 AM – 9 PM",
+      map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
+      products: [
+        { name: "Realme 65W Charger", price: "₹2,499", image: "images/realme65w.jpg" }
+      ],
+      reviews: [
+        { name: "Rahul P", rating: 5, text: "Genuine shop and fast service." },
+        { name: "Anjali S", rating: 4, text: "Good pricing." }
+      ]
+    }
+  ]
+};
+
+const params = new URLSearchParams(window.location.search);
+const pin = params.get("pin");
+const index = params.get("shop");
+
+const shop = shopsData[pin][index];
+
+document.getElementById("shopImage").src = shop.image;
+document.getElementById("shopName").innerText = shop.name;
+document.getElementById("shopMeta").innerText = `⭐ ${shop.rating} / 5`;
+document.getElementById("shopAddress").innerText = `📍 ${shop.address}`;
+document.getElementById("shopTiming").innerText = `⏰ ${shop.timing}`;
+document.getElementById("mapLink").href = shop.map;
+
+// Products
+const productGrid = document.getElementById("productGrid");
+shop.products.forEach(p => {
+  productGrid.innerHTML += `
+    <div class="product-card">
+      <img src="${p.image}">
+      <h4>${p.name}</h4>
+      <strong>${p.price}</strong>
+    </div>
+  `;
+});
+
+// Reviews
+const reviewGrid = document.getElementById("reviewGrid");
+shop.reviews.forEach(r => {
+  reviewGrid.innerHTML += `
+    <div class="review-card">
+      ⭐ ${r.rating} – <strong>${r.name}</strong>
+      <p>${r.text}</p>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
