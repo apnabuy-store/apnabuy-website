@@ -407,39 +407,58 @@ nav a {
   }
 }
 /* =========================
-   MOBILE HEADER FIX
-   ========================= */
-/* =========================
-   MOBILE HEADER – FINAL FIX
+   MOBILE HEADER – TRUE FIX
    ========================= */
 @media (max-width: 768px) {
 
-  .header {
-    position: relative;
-    justify-content: center;
-    padding: 12px 16px;
+  body {
+    padding-top: 84px; /* match header height */
   }
 
-  /* BRAND CENTERED */
+  .header {
+    height: 84px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .brand {
     flex-direction: column;
     align-items: center;
+    gap: 4px;
     text-align: center;
-    gap: 6px;
   }
 
   .brand .logo {
-    height: 56px;
+    height: 40px;
   }
 
   .brand-name {
-    font-size: 18px;
+    font-size: 17px;
+    line-height: 1.1;
   }
 
   .tagline {
     font-size: 10px;
-    letter-spacing: 1.6px;
+    letter-spacing: 1.5px;
   }
+
+  /* HAMBURGER – LOCKED TO CORNER */
+  .menu-toggle {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 24px;
+  }
+
+  /* MOBILE MENU DROPDOWN */
+  nav {
+    top: 84px; /* exactly below header */
+    right: 14px;
+  }
+}
+  
 
   /* HAMBURGER – FORCE TOP RIGHT */
   .menu-toggle {
