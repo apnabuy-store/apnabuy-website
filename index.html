@@ -199,14 +199,22 @@ Please confirm availability and next steps.
 
     const card = document.createElement("div");
     card.className = "product-card";
-    card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h4>${product.name}</h4>
-      <strong>${product.price}</strong>
-      <a href="${whatsappURL}" target="_blank">
-        Order on WhatsApp
-      </a>
-    `;
+  card.innerHTML = `
+  <div class="shop-header">
+    <h3>${shop.name}</h3>
+    <span class="verified-badge">✔ Verified</span>
+  </div>
+
+  <ul class="trust-points">
+    <li>Genuine products</li>
+    <li>Local verified shop</li>
+    <li>Cash / UPI on delivery</li>
+  </ul>
+
+  <p class="product-count">${shop.products.length} products available</p>
+`;
+
+
 
     productGrid.appendChild(card);
   });
