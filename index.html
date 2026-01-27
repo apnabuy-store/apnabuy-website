@@ -170,27 +170,34 @@ function checkPincode() {
     const card = document.createElement("div");
     card.className = "shop-card";
     card.innerHTML = `
-      <img src="${shop.image}" class="shop-image">
+  <img src="${shop.image}" class="shop-image">
 
-      <div class="shop-header">
-        <h3 class="shop-name">${shop.name}</h3>
-        <span class="verified-badge">✔ Verified</span>
-      </div>
+  <div class="shop-header">
+    <h3 class="shop-name">${shop.name}</h3>
+    <span class="verified-badge">✔ Verified</span>
+  </div>
 
-      <div class="shop-rating">⭐ ${shop.rating} / 5</div>
-      <div class="shop-status ${open ? 'open' : 'closed'}">
-        ${open ? '🟢 Open Now' : '🔴 Closed'}
-      </div>
+  <div class="shop-rating">⭐ ${shop.rating} / 5</div>
+  <div class="shop-status ${open ? 'open' : 'closed'}">
+    ${open ? '🟢 Open Now' : '🔴 Closed'}
+  </div>
 
-      <p>👤 ${shop.owner}</p>
-      <p>📍 ${shop.address}</p>
-      <p>⏰ ${shop.timing}</p>
-      <p>📞 ${shop.phone}</p>
+  <p>👤 ${shop.owner}</p>
+  <p>📍 ${shop.address}</p>
+  <p>⏰ ${shop.timing}</p>
+  <p>📞 ${shop.phone}</p>
 
-      <a href="${shop.map}" target="_blank" class="map-link">📍 View on Map</a>
+  <a href="${shop.map}" target="_blank" class="map-link">
+    📍 View on Map
+  </a>
 
-      <p><strong>${shop.products.length}</strong> products available</p>
-    `;
+  <p><strong>${shop.products.length}</strong> products available</p>
+
+  <a href="shop.html?pin=${pin}&shop=${index}" class="profile-btn">
+    View Shop Profile →
+  </a>
+`;
+
 
     card.onclick = () => showProducts(pin, index);
     shopGrid.appendChild(card);
