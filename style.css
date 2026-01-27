@@ -338,6 +338,15 @@ footer {
   color: var(--text-muted);
   border-top: 1px solid var(--border-soft);
 }
+.request {
+  padding: 120px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
+}
+
 .request p {
   color: var(--text-muted);
   margin-top: 12px;
@@ -345,19 +354,16 @@ footer {
 
 .request-btn {
   display: inline-block;
-  margin-top: 24px;
-  padding: 14px 36px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 20px 60px rgba(59,130,246,0.4);
-  transition: transform 0.2s ease;
+  margin: 28px auto 0;
 }
+
 
 .request-btn:hover {
   transform: translateY(-3px);
+}
+.request > * {
+  max-width: 640px;
+  width: 100%;
 }
 
 /* ---------------- MOBILE ---------------- */
@@ -514,5 +520,18 @@ footer {
   .why-grid p {
     font-size: 14px;
     line-height: 1.6;
+  }
+}
+@media (max-width: 768px) {
+  .request {
+    padding: 64px 16px;
+  }
+
+  .request h2 {
+    font-size: 22px;
+  }
+
+  .request p {
+    font-size: 14px;
   }
 }
