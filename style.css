@@ -318,6 +318,24 @@ nav a:hover::after {
   background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
 }
 
+/* ---------------- CONTACT ---------------- */
+.contact {
+  padding: 120px 24px;
+  text-align: center;
+  background: var(--bg-soft);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 15px 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 15px 50px rgba(59,130,246,0.4);
+}
 .request p {
   color: var(--text-muted);
   margin-top: 12px;
@@ -338,26 +356,6 @@ nav a:hover::after {
 
 .request-btn:hover {
   transform: translateY(-3px);
-}
-
-
-/* ---------------- CONTACT ---------------- */
-.contact {
-  padding: 120px 24px;
-  text-align: center;
-  background: var(--bg-soft);
-}
-
-.cta {
-  display: inline-block;
-  margin-top: 24px;
-  padding: 15px 40px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  box-shadow: 0 15px 50px rgba(59,130,246,0.4);
 }
 
 /* ---------------- FOOTER ---------------- */
