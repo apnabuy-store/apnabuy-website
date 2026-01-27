@@ -312,6 +312,35 @@ nav a:hover::after {
   font-weight: 600;
 }
 
+.request {
+  padding: 120px 24px;
+  text-align: center;
+  background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
+}
+
+.request p {
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.request-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 20px 60px rgba(59,130,246,0.4);
+  transition: transform 0.2s ease;
+}
+
+.request-btn:hover {
+  transform: translateY(-3px);
+}
+
+
 /* ---------------- CONTACT ---------------- */
 .contact {
   padding: 120px 24px;
