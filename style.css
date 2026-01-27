@@ -1,34 +1,18 @@
 :root {
-  /* ===== BRAND COLORS ===== */
-  --bg-main: #0b1020;
-  --bg-secondary: #0f172a;
-  --bg-gradient: radial-gradient(
-    1200px circle at top,
-    #111a3a 0%,
-    #0b1020 45%,
-    #070b17 100%
-  );
+  --bg-main: #0b0f1a;
+  --bg-soft: #12172a;
+  --card-bg: #171c33;
+  --primary: #3b82f6;
+  --accent: #22d3ee;
+  --gold: #facc15;
 
-  /* ===== SURFACE / CARDS ===== */
-  --card-bg: rgba(17, 24, 56, 0.72);
-  --card-border: rgba(255, 255, 255, 0.06);
-
-  /* ===== TEXT ===== */
-  --text-main: #f8fafc;
+  --text-main: #e5e7eb;
   --text-muted: #9ca3af;
 
-  /* ===== BRAND ACCENT ===== */
-  --accent: #22d3ee;
-  --accent-soft: rgba(34, 211, 238, 0.18);
-
-  /* ===== TRUST / VERIFIED ===== */
-  --verified-bg: rgba(16, 185, 129, 0.18);
-  --verified-text: #10b981;
-
-  /* ===== SHADOWS ===== */
-  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.45);
+  --border-soft: rgba(255,255,255,0.08);
+  --shadow-soft: 0 20px 50px rgba(0,0,0,0.45);
+  --shadow-hover: 0 30px 70px rgba(0,0,0,0.6);
 }
-
 
 * {
   margin: 0;
@@ -37,11 +21,12 @@
 }
 
 body {
-  background: var(--bg-gradient);
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(1200px 600px at top, #18204a, var(--bg-main));
   color: var(--text-main);
-  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  padding-top: 110px;
 }
-
 
 /* ================= HEADER ================= */
 .header {
@@ -181,10 +166,8 @@ nav a {
 }
 
 .shop-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .shop-card:hover {
@@ -221,22 +204,30 @@ nav a {
 }
 
 .verified-badge {
-  background: var(--verified-bg);
-  color: var(--verified-text);
-  border-radius: 999px;
-  font-weight: 600;
-}
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
+  height: 22px;
+  padding: 0 10px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  border-radius: 999px;
+  background: rgba(34, 211, 238, 0.15);
+  color: #22d3ee;
+
+  white-space: nowrap;
+}
 
 
 /* ================= PRODUCTS ================= */
-.product-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(10px);
+.product-card img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 16px;
 }
-
 
 .quantity-box {
   display: flex;
@@ -261,17 +252,15 @@ nav a {
 
 /* BUY BUTTON */
 .buy-btn {
-  background: linear-gradient(
-    135deg,
-    #22d3ee,
-    #38bdf8
-  );
-  color: #021018;
-  font-weight: 600;
+  margin-top: 12px;
+  padding: 12px 26px;
+  border-radius: 999px;
   border: none;
-  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
+  cursor: pointer;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  font-weight: 600;
 }
-
 
 /* ================= REQUEST ================= */
 .request {
@@ -287,16 +276,10 @@ nav a {
 }
 
 .request-btn {
-  background: linear-gradient(
-    135deg,
-    #22d3ee,
-    #38bdf8
-  );
-  color: #021018;
-  font-weight: 600;
-  border: none;
-  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
+  display: block;
+  margin: 24px auto 0;
 }
+
 
 /* ================= CONTACT / FOOTER ================= */
 .contact {
