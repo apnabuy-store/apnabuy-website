@@ -281,6 +281,29 @@ nav a:hover::after {
   color: var(--primary);
   font-weight: 600;
 }
+.quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.qty-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text-main);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.qty-value {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 600;
+}
 
 /* ---------------- CONTACT ---------------- */
 .contact {
@@ -611,5 +634,8 @@ nav a:hover::after {
     font-size: 14px;
     line-height: 1.6;
   }
+}
+.quantity-box {
+  justify-content: center;
 }
 
