@@ -37,12 +37,11 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background: radial-gradient(1200px 600px at top, #18204a, var(--bg-main));
+  background: var(--bg-gradient);
   color: var(--text-main);
-  line-height: 1.7;
-  padding-top: 110px;
+  font-family: 'Inter', sans-serif;
 }
+
 
 /* ================= HEADER ================= */
 .header {
@@ -182,8 +181,10 @@ nav a {
 }
 
 .shop-card {
-  cursor: pointer;
-  transition: transform 0.3s ease;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
 }
 
 .shop-card:hover {
@@ -220,30 +221,22 @@ nav a {
 }
 
 .verified-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  height: 22px;
-  padding: 0 10px;
-
-  font-size: 11px;
-  font-weight: 600;
-
+  background: var(--verified-bg);
+  color: var(--verified-text);
   border-radius: 999px;
-  background: rgba(34, 211, 238, 0.15);
-  color: #22d3ee;
-
-  white-space: nowrap;
+  font-weight: 600;
 }
+
 
 
 /* ================= PRODUCTS ================= */
-.product-card img {
-  width: 100%;
-  border-radius: 16px;
-  margin-bottom: 16px;
+.product-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(10px);
 }
+
 
 .quantity-box {
   display: flex;
@@ -268,15 +261,17 @@ nav a {
 
 /* BUY BUTTON */
 .buy-btn {
-  margin-top: 12px;
-  padding: 12px 26px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: white;
+  background: linear-gradient(
+    135deg,
+    #22d3ee,
+    #38bdf8
+  );
+  color: #021018;
   font-weight: 600;
+  border: none;
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
 }
+
 
 /* ================= REQUEST ================= */
 .request {
@@ -292,10 +287,16 @@ nav a {
 }
 
 .request-btn {
-  display: block;
-  margin: 24px auto 0;
+  background: linear-gradient(
+    135deg,
+    #22d3ee,
+    #38bdf8
+  );
+  color: #021018;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 10px 30px rgba(34, 211, 238, 0.35);
 }
-
 
 /* ================= CONTACT / FOOTER ================= */
 .contact {
