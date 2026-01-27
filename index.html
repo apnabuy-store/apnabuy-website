@@ -243,9 +243,16 @@ Please confirm availability and next steps.
     <button onclick="changeQty(this,1)">+</button>
   </div>
 
-  <a href="#" class="buy-btn" onclick="buyProduct(...)">
-    Buy on WhatsApp
-  </a>
+ <button class="buy-btn" onclick="buyProduct(
+  '${product.name}',
+  '${product.price}',
+  '${shop.name}',
+  '${pincode}',
+  this
+)">
+  Buy on WhatsApp
+</button>
+
 `;
 
 
