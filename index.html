@@ -233,13 +233,58 @@ Please confirm availability and next steps.
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-      <img src="${product.image}" alt="${product.name}">
-      <h4>${product.name}</h4>
-      <strong>${product.price}</strong>
-      <a href="${whatsappURL}" target="_blank">
-        Order on WhatsApp
-      </a>
-    `;
+  <img src="${product.image}">
+  <h4>${product.name}</h4>
+  <strong>${product.price}</strong>
+
+  <div class="quantity-box">
+    <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
+    <span class="qty-value">1</span>
+    <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
+  </div>
+
+  <a href="#" class="buy-btn" onclick="buyProduct(event, '${product.name}', '${product.price}', '${shop.name}', '${pincode}', this)">
+    Buy on WhatsApp
+  </a>
+`;
+<script>
+  function changeQty(button, delta) {
+    const qtySpan = button.parentElement.querySelector(".qty-value");
+    let qty = parseInt(qtySpan.textContent);
+
+    qty = qty + delta;
+    if (qty < 1) qty = 1;
+
+    qtySpan.textContent = qty;
+  }
+
+  function buyProduct(event, productName, price, shopName, pincode, btn) {
+    event.preventDefault();
+
+    const qty =
+      btn.parentElement.querySelector(".qty-value").textContent;
+
+    const message = `
+Hello ApnaBuy Team 👋
+
+I want to buy the following product:
+
+📦 Product: ${productName}
+🔢 Quantity: ${qty}
+💰 Price: ${price}
+🏪 Shop: ${shopName}
+📍 Pincode: ${pincode}
+
+Please confirm availability and next steps.
+`.trim();
+
+    const whatsappURL =
+      `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+  }
+</script>
+
 
     productGrid.appendChild(card);
   });
