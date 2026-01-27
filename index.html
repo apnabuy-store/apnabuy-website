@@ -186,13 +186,19 @@ function checkPincode() {
     const card = document.createElement("div");
     card.className = "shop-card";
     card.innerHTML = `
-      <h3>${shop.name}</h3>
-      <p>Owner: ${shop.owner}</p>
-      <p>${shop.products.length} products</p>
-    `;
-    card.onclick = () => showProducts(pincode, index);
-    shopGrid.appendChild(card);
-  });
+  <div class="shop-header">
+    <h3 class="shop-name">${shop.name}</h3>
+    <span class="verified-badge">✔ Verified</span>
+  </div>
+
+  <ul class="trust-points">
+    <li>Genuine products</li>
+    <li>Local verified shop</li>
+    <li>Cash / UPI on delivery</li>
+  </ul>
+
+  <p class="product-count">${shop.products.length} products available</p>
+`;
 
   shopsSection.style.display = "block";
   shopsSection.scrollIntoView({ behavior: "smooth" });
