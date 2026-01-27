@@ -466,3 +466,42 @@ nav a {
     line-height: 1.6;
   }
 }
+/* =========================
+   SHOPS & PRODUCTS – MOBILE ALIGN FIX
+   ========================= */
+@media (max-width: 768px) {
+
+  .shops,
+  .products {
+    padding: 56px 16px;
+    text-align: center;
+  }
+
+  .shop-grid,
+  .product-grid {
+    grid-template-columns: 1fr;   /* one card per row */
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .shop-card,
+  .product-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 24px;
+  }
+
+  .shop-header {
+    justify-content: center;
+  }
+
+  .product-card img {
+    max-width: 100%;
+  }
+
+  .buy-btn {
+    width: 100%;
+    max-width: 280px;
+    margin: 14px auto 0;
+  }
+}
