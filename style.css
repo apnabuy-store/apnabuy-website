@@ -598,3 +598,34 @@ footer {
     font-size: 14px;
   }
 }
+
+/* ======================================
+   REQUEST SECTION – MOBILE PERFECT FIX
+   ====================================== */
+@media (max-width: 768px) {
+
+  .request {
+    padding: 56px 16px;
+    text-align: center;
+  }
+
+  .request h2 {
+    font-size: 22px;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .request p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .request-btn {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 14px 0;
+    font-size: 14px;
+  }
+}
