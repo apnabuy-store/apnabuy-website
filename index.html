@@ -22,7 +22,7 @@
   </div>
 </div>
 
-  <nav>
+  <nav id="mainNav">
     <a href="#how">How it works</a>
     <a href="#shops">Shops</a>
     <a href="#contact">Contact</a>
@@ -107,9 +107,7 @@
 <!-- SCRIPT -->
 <script>
 /* ================= CONFIG ================= */
-function toggleMenu() {
-  document.getElementById("mainNav").classList.toggle("show");
-}
+
   const APNABUY_WHATSAPP = "919730572143";
 
 /* ================= DATA ================= */
@@ -240,7 +238,9 @@ Please confirm availability and next steps.
   );
 }
 
-  
+ function toggleMenu() {
+  document.getElementById("mainNav").classList.toggle("show");
+} 
 </script>
 
 </body>
