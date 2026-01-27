@@ -429,4 +429,31 @@ footer {
     padding: 64px 16px;
   }
 }
+.why {
+  padding: 120px 96px;
+  text-align: center;
+}
+
+.why h2 {
+  margin-bottom: 48px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 36px;
+}
+
+.why-grid div {
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: 22px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.why-grid h3 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
 
