@@ -338,89 +338,60 @@ footer {
   color: var(--text-muted);
   border-top: 1px solid var(--border-soft);
 }
+/* ==============================
+   REQUEST SECTION – FINAL FIX
+   ============================== */
 .request {
-  padding: 120px 24px;
+  padding: 96px 24px;
+  background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.request-inner {
+  max-width: 640px;
+  width: 100%;
   text-align: center;
-  background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
+}
+
+.request h2 {
+  font-size: 28px;
+  line-height: 1.35;
+  margin-bottom: 12px;
 }
 
 .request p {
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--text-muted);
-  margin-top: 12px;
+  margin-bottom: 28px;
 }
 
 .request-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
 
-  margin: 28px auto 0;
   padding: 14px 42px;
-
   border-radius: 999px;
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.3px;
 
   color: #ffffff;
   text-decoration: none;
 
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--accent)
-  );
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: 0 16px 40px rgba(59,130,246,0.35);
 
-  box-shadow:
-    0 12px 30px rgba(59,130,246,0.35),
-    inset 0 1px 0 rgba(255,255,255,0.2);
-
-  position: relative;
-  overflow: hidden;
-
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
-
 
 .request-btn:hover {
   transform: translateY(-3px);
-  box-shadow:
-    0 20px 50px rgba(59,130,246,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.25);
+  box-shadow: 0 24px 60px rgba(59,130,246,0.45);
 }
 
-.request-btn:active {
-  transform: translateY(0);
-  box-shadow:
-    0 10px 25px rgba(59,130,246,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.15);
-}
-.request-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.35),
-    transparent
-  );
-  transition: left 0.6s ease;
-}
-
-.request-btn:hover::after {
-  left: 140%;
-}
 
 
 /* ---------------- MOBILE ---------------- */
@@ -605,27 +576,25 @@ footer {
 @media (max-width: 768px) {
 
   .request {
-    padding: 56px 16px;
-    text-align: center;
+    padding: 64px 16px;
+  }
+
+  .request-inner {
+    max-width: 100%;
   }
 
   .request h2 {
     font-size: 22px;
-    line-height: 1.35;
-    margin-bottom: 12px;
   }
 
   .request p {
     font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
 
   .request-btn {
     width: 100%;
     max-width: 320px;
-    margin: 0 auto;
     padding: 14px 0;
-    font-size: 14px;
   }
 }
