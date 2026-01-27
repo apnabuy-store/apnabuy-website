@@ -330,6 +330,14 @@ nav a:hover::after {
   font-weight: 600;
   box-shadow: 0 15px 50px rgba(59,130,246,0.4);
 }
+
+/* ---------------- FOOTER ---------------- */
+footer {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-soft);
+}
 .request p {
   color: var(--text-muted);
   margin-top: 12px;
@@ -350,14 +358,6 @@ nav a:hover::after {
 
 .request-btn:hover {
   transform: translateY(-3px);
-}
-
-/* ---------------- FOOTER ---------------- */
-footer {
-  padding: 40px;
-  text-align: center;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border-soft);
 }
 
 /* ---------------- MOBILE ---------------- */
