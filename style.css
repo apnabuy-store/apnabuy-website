@@ -319,3 +319,43 @@ nav a {
     max-width: 320px;
   }
 }
+/* =========================
+   HEADER – MOBILE ALIGN FIX
+   ========================= */
+@media (max-width: 768px) {
+
+  .header {
+    padding: 14px 16px;
+  }
+
+  .brand {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand .logo {
+    height: 56px;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .brand-name {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  .tagline {
+    font-size: 10px;
+    letter-spacing: 1.6px;
+    margin-top: 2px;
+  }
+
+  nav {
+    display: none;
+  }
+}
