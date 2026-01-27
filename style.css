@@ -364,7 +364,45 @@ nav a {
     letter-spacing: 1.6px;
   }
 
+/* =========================
+   MOBILE MENU STYLES
+   ========================= */
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* Mobile only */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
   nav {
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 12px 16px;
     display: none;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    margin: 0;
+    font-size: 14px;
   }
 }
