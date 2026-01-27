@@ -267,6 +267,36 @@ nav a {
   background: rgba(56,189,248,0.18);
   color: var(--accent);
 }
+/* ===== SHOP DETAILS (NEW) ===== */
+
+.shop-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 6px;
+  line-height: 1.5;
+}
+
+.trust-points {
+  margin-top: 14px;
+  padding-left: 18px;
+}
+
+.trust-points li {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  list-style: none;
+  position: relative;
+  padding-left: 18px;
+}
+
+.trust-points li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
 
 /* ================= PRODUCTS ================= */
 .product-card img {
