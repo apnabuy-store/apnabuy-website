@@ -49,20 +49,35 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .brand .logo {
-  height: 84px;
+  height: 72px;
+  width: auto;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
 }
 
 .tagline {
   font-size: 12px;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gold);
   margin-top: 4px;
 }
+
 
 
 nav a {
