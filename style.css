@@ -42,17 +42,28 @@ body {
   width: 100%;
   z-index: 100;
 }
+.header {
+  padding: 16px 48px;
+}
 
-.logo {
-  height: 96px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand .logo {
+  height: 84px;
 }
 
 .tagline {
   font-size: 12px;
-  letter-spacing: 2px;
+  letter-spacing: 1.8px;
   text-transform: uppercase;
   color: var(--gold);
+  margin-top: 4px;
 }
+
 
 nav a {
   margin-left: 36px;
@@ -87,21 +98,17 @@ nav a {
   background: var(--bg-soft);
 }
 
-.pincode-box {
+.pincode-section {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
+  flex-direction: column;
+  align-items: center;
 }
 
-.pincode-box input {
-  padding: 15px 18px;
-  width: 240px;
-  border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  background: #0e1330;
-  color: var(--text-main);
+.pincode-box {
+  max-width: 420px;
+  width: 100%;
 }
+
 
 .pincode-box button {
   padding: 15px 36px;
@@ -147,6 +154,20 @@ nav a {
 
 .shop-card:hover {
   transform: translateY(-6px);
+}
+
+.shop-card .verified-badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34,211,238,0.15);
+  color: #22d3ee;
+  font-weight: 600;
+}
+.shop-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .shop-card .verified-badge {
