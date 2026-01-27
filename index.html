@@ -14,13 +14,12 @@
 <!-- HEADER -->
 <header class="header">
   <div class="brand">
-  <img src="images/logo.png" alt="ApnaBuy Logo" class="logo">
-
-  <div class="brand-text">
-    <span class="brand-name">ApnaBuy</span>
-    <span class="tagline">Buy local. Live local.</span>
+    <img src="images/logo.png" alt="ApnaBuy Logo" class="logo">
+    <div class="brand-text">
+      <span class="brand-name">ApnaBuy</span>
+      <span class="tagline">Buy local. Live local.</span>
+    </div>
   </div>
-</div>
 
   <nav id="mainNav">
     <a href="#how">How it works</a>
@@ -28,7 +27,6 @@
     <a href="#contact">Contact</a>
   </nav>
   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
 </header>
 
 <!-- HERO -->
@@ -106,15 +104,17 @@
 
 <!-- SCRIPT -->
 <script>
-/* ================= CONFIG ================= */
-
-  const APNABUY_WHATSAPP = "919730572143";
+const APNABUY_WHATSAPP = "919730572143";
 
 /* ================= DATA ================= */
 const shopsData = {
   "444601": [
     {
       name: "Shree Mobile Shop",
+      owner: "Ramesh Patil",
+      address: "Main Road, Amravati",
+      timing: "10 AM – 9 PM",
+      phone: "+91 9XXXXXXXXX",
       image: "images/shree-mobile-shop.jpg",
       products: [
         { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg" },
@@ -123,6 +123,10 @@ const shopsData = {
     },
     {
       name: "Sai Electronics",
+      owner: "Amit Sharma",
+      address: "Market Area, Amravati",
+      timing: "9:30 AM – 8:30 PM",
+      phone: "+91 9XXXXXXXXX",
       image: "images/sai-electronics.jpg",
       products: [
         { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg" }
@@ -155,22 +159,32 @@ function checkPincode() {
 
   result.textContent = "Shops available in your area";
   result.style.color = "lightgreen";
-
   document.getElementById("shops").style.display = "block";
 
   shopsData[pin].forEach((shop, index) => {
     const card = document.createElement("div");
     card.className = "shop-card";
     card.innerHTML = `
-  <img src="${shop.image}" alt="${shop.name}" class="shop-image">
+      <img src="${shop.image}" class="shop-image">
 
-  <div class="shop-header">
-    <h3 class="shop-name">${shop.name}</h3>
-    <span class="verified-badge">✔ Verified</span>
-  </div>
+      <div class="shop-header">
+        <h3 class="shop-name">${shop.name}</h3>
+        <span class="verified-badge">✔ Verified</span>
+      </div>
 
-  <p>${shop.products.length} products available</p>
-`;
+      <p>👤 Owner: ${shop.owner}</p>
+      <p>📍 ${shop.address}</p>
+      <p>⏰ ${shop.timing}</p>
+      <p>📞 ${shop.phone}</p>
+
+      <ul class="trust-points">
+        <li>✔ Genuine products</li>
+        <li>✔ Local verified shop</li>
+        <li>✔ Cash / UPI available</li>
+      </ul>
+
+      <p><strong>${shop.products.length}</strong> products available</p>
+    `;
 
     card.onclick = () => showProducts(pin, index);
     shopGrid.appendChild(card);
@@ -200,13 +214,7 @@ function showProducts(pin, index) {
         <button onclick="changeQty(this,1)">+</button>
       </div>
 
-      <button class="buy-btn" onclick="buyProduct(
-        '${p.name}',
-        '${p.price}',
-        '${shop.name}',
-        '${pin}',
-        this
-      )">
+      <button class="buy-btn" onclick="buyProduct('${p.name}','${p.price}','${shop.name}','${pin}',this)">
         Buy on WhatsApp
       </button>
     `;
@@ -238,16 +246,15 @@ Hello ApnaBuy Team 👋
 Please confirm availability and next steps.
 `.trim();
 
-  window.open(
-    `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`,
-    "_blank"
-  );
+  window.open(`https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
 }
 
- function toggleMenu() {
+function toggleMenu() {
   document.getElementById("mainNav").classList.toggle("show");
-} 
+}
 </script>
 
 </body>
 </html>
+
+  
