@@ -2,135 +2,220 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ApnaBuy | Buy from trusted local stores near you</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ApnaBuy | Local Shops, Trusted Products</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header class="header">
   <div class="brand">
-    <h1 class="logo">ApnaBuy</h1>
-    <span class="tagline">Buy from trusted local stores near you</span>
+    <img src="images/logo.png" alt="ApnaBuy Logo" class="logo">
+    <span class="tagline">Buy local. Live local.</span>
   </div>
+
   <nav>
     <a href="#how">How it works</a>
+    <a href="#shops">Shops</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<section class="hero fade-up">
-  <h2>Your city’s trusted local marketplace</h2>
+<!-- HERO -->
+<section class="hero">
+  <h1>Your city’s trusted local marketplace</h1>
   <p>Discover genuine products from verified shops near you.</p>
 </section>
 
-<section class="pincode fade-up">
-  <h3>Check availability in your area</h3>
+<!-- PINCODE -->
+<section class="pincode-section">
+  <h2>Check availability in your area</h2>
   <div class="pincode-box">
-    <input id="pincodeInput" type="number" placeholder="Enter pincode">
+    <input id="pincodeInput" type="number" placeholder="Enter your pincode">
     <button onclick="checkPincode()">Check</button>
   </div>
   <p id="pincodeResult"></p>
 </section>
 
-<section id="shops" class="section fade-up" style="display:none;">
-  <h3>Available shops</h3>
-  <div id="shopGrid" class="grid"></div>
-</section>
-
-<section id="products" class="section fade-up" style="display:none;">
-  <h3 id="productTitle"></h3>
-  <div id="productGrid" class="grid"></div>
-</section>
-
-<section id="productDetail" class="section fade-up" style="display:none;"></section>
-
-<section id="how" class="how fade-up">
-  <h3>How ApnaBuy works</h3>
+<!-- HOW -->
+<section class="how" id="how">
+  <h2>How ApnaBuy works</h2>
   <div class="steps">
-    <div class="step">1️⃣ Enter pincode</div>
-    <div class="step">2️⃣ Choose local shop</div>
-    <div class="step">3️⃣ Order via WhatsApp</div>
+    <div><strong>1</strong><p>Enter your pincode</p></div>
+    <div><strong>2</strong><p>Select a trusted shop</p></div>
+    <div><strong>3</strong><p>Order via WhatsApp</p></div>
   </div>
 </section>
 
-<section id="contact" class="contact fade-up">
-  <h3>Contact & Support</h3>
+<!-- WHY -->
+<section class="why">
+  <h2>Why ApnaBuy?</h2>
+  <div class="why-grid">
+    <div><h3>Local & Trusted</h3><p>Verified local sellers only.</p></div>
+    <div><h3>Fast Delivery</h3><p>Products from nearby shops.</p></div>
+    <div><h3>WhatsApp Support</h3><p>Simple ordering, real support.</p></div>
+    <div><h3>No Fake Sellers</h3><p>Curated & trusted partners.</p></div>
+  </div>
+</section>
+
+<!-- SHOPS -->
+<section class="shops" id="shops" style="display:none;">
+  <h2>Shops available in your city</h2>
+  <div class="shop-grid"></div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <h2>Products</h2>
+  <div class="product-grid"></div>
+</section>
+
+<!-- REQUEST -->
+<section class="request">
+  <div class="request-inner">
+    <h2>Didn’t find what you’re looking for?</h2>
+    <p>Tell us the product you need and we’ll check with local shops.</p>
+    <a href="https://wa.me/919730572143" target="_blank" class="request-btn">
+      Request a Product
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Contact & Support</h2>
   <p>📍 Amravati, Maharashtra</p>
+  <p>⏰ 10 AM – 9 PM</p>
   <a href="https://wa.me/919730572143" class="cta">Chat on WhatsApp</a>
 </section>
 
-<footer>© ApnaBuy — Supporting Local Businesses</footer>
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 ApnaBuy. Empowering trusted local businesses.</p>
+</footer>
 
-<!-- LOGIC (UNCHANGED) -->
+<!-- SCRIPT -->
 <script>
+/* ================= CONFIG ================= */
 const APNABUY_WHATSAPP = "919730572143";
 
-const data = {
+/* ================= DATA ================= */
+const shopsData = {
   "444601": [
     {
       name: "Shree Mobile Shop",
       products: [
-        { name: "Realme 65W SuperDart Charger", price: "₹2,499" },
-        { name: "Type-C Fast Charging Cable", price: "₹399" }
+        { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg" },
+        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
+      ]
+    },
+    {
+      name: "Sai Electronics",
+      products: [
+        { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg" }
       ]
     }
   ]
 };
 
+/* ================= PINCODE ================= */
 function checkPincode() {
-  const pin = pincodeInput.value.trim();
+  const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
-  const shopGrid = document.getElementById("shopGrid");
+  const shopGrid = document.querySelector(".shop-grid");
+
   shopGrid.innerHTML = "";
 
-  if (!data[pin]) {
-    result.textContent = "Service not available in your area yet.";
-    result.style.color = "#f87171";
+  if (!shopsData[pin]) {
+    result.textContent = "Sorry, we are not available in your area yet.";
+    result.style.color = "red";
     return;
   }
 
-  result.textContent = "Great! Shops found in your area.";
-  result.style.color = "#4ade80";
+  result.textContent = "Shops available in your area:";
+  result.style.color = "lightgreen";
   document.getElementById("shops").style.display = "block";
 
-  data[pin].forEach((shop, i) => {
+  shopsData[pin].forEach((shop, index) => {
     const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `<h4>${shop.name}</h4><p>${shop.products.length} products</p>`;
-    card.onclick = () => showProducts(pin, i);
+    card.className = "shop-card";
+    card.innerHTML = `
+      <div class="shop-header">
+        <h3 class="shop-name">${shop.name}</h3>
+        <span class="verified-badge">✔ Verified</span>
+      </div>
+      <p>${shop.products.length} products available</p>
+    `;
+    card.onclick = () => showProducts(pin, index);
     shopGrid.appendChild(card);
   });
 }
 
+/* ================= PRODUCTS ================= */
 function showProducts(pin, index) {
-  const shop = data[pin][index];
-  const grid = document.getElementById("productGrid");
+  const grid = document.querySelector(".product-grid");
   grid.innerHTML = "";
-  document.getElementById("products").style.display = "block";
-  document.getElementById("productTitle").innerText = shop.name;
 
-  shop.products.forEach(p => {
+  shopsData[pin][index].products.forEach(p => {
     const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `<h4>${p.name}</h4><p>${p.price}</p>`;
-    card.onclick = () => showDetail(p, shop.name, pin);
+    card.className = "product-card";
+    card.innerHTML = `
+      <img src="${p.image}">
+      <h4>${p.name}</h4>
+      <strong>${p.price}</strong>
+
+      <div class="quantity-box">
+        <button onclick="changeQty(this,-1)">−</button>
+        <span class="qty-value">1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+
+      <button class="buy-btn" onclick="buyProduct(
+        '${p.name}',
+        '${p.price}',
+        '${shopsData[pin][index].name}',
+        '${pin}',
+        this
+      )">
+        Buy on WhatsApp
+      </button>
+    `;
     grid.appendChild(card);
   });
+
+  document.getElementById("products").scrollIntoView({ behavior: "smooth" });
 }
 
-function showDetail(product, shop, pin) {
-  document.getElementById("productDetail").style.display = "block";
-  document.getElementById("productDetail").innerHTML = `
-    <h3>${product.name}</h3>
-    <p>${product.price}</p>
-    <p>Sold by ${shop}</p>
-    <a class="cta"
-      href="https://wa.me/${APNABUY_WHATSAPP}?text=I want to order ${product.name} from ${shop}, pincode ${pin}">
-      Order on WhatsApp
-    </a>
-  `;
+/* ================= QTY ================= */
+function changeQty(btn, delta) {
+  const span = btn.parentElement.querySelector(".qty-value");
+  span.textContent = Math.max(1, parseInt(span.textContent) + delta);
+}
+
+/* ================= BUY ================= */
+function buyProduct(name, price, shop, pin, btn) {
+  const qty = btn.parentElement.querySelector(".qty-value").textContent;
+
+  const msg = `
+Hello ApnaBuy Team 👋
+
+📦 Product: ${name}
+🔢 Quantity: ${qty}
+💰 Price: ${price}
+🏪 Shop: ${shop}
+📍 Pincode: ${pin}
+
+Please confirm availability and next steps.
+`.trim();
+
+  window.open(
+    `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`,
+    "_blank"
+  );
 }
 </script>
 
