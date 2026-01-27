@@ -127,8 +127,16 @@ function checkPincode() {
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
+  const productGrid = document.querySelector(".product-grid");
 
   shopGrid.innerHTML = "";
+  productGrid.innerHTML = "";
+
+  if (pin.length !== 6) {
+    result.textContent = "Please enter a valid 6-digit pincode.";
+    result.style.color = "orange";
+    return;
+  }
 
   if (!shopsData[pin]) {
     result.textContent = "Sorry, we are not available in your area yet.";
@@ -136,8 +144,9 @@ function checkPincode() {
     return;
   }
 
-  result.textContent = "Shops available in your area:";
+  result.textContent = "Shops available in your area";
   result.style.color = "lightgreen";
+
   document.getElementById("shops").style.display = "block";
 
   shopsData[pin].forEach((shop, index) => {
@@ -153,6 +162,8 @@ function checkPincode() {
     card.onclick = () => showProducts(pin, index);
     shopGrid.appendChild(card);
   });
+
+  document.getElementById("shops").scrollIntoView({ behavior: "smooth" });
 }
 
 /* ================= PRODUCTS ================= */
@@ -160,7 +171,9 @@ function showProducts(pin, index) {
   const grid = document.querySelector(".product-grid");
   grid.innerHTML = "";
 
-  shopsData[pin][index].products.forEach(p => {
+  const shop = shopsData[pin][index];
+
+  shop.products.forEach(p => {
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
@@ -177,7 +190,7 @@ function showProducts(pin, index) {
       <button class="buy-btn" onclick="buyProduct(
         '${p.name}',
         '${p.price}',
-        '${shopsData[pin][index].name}',
+        '${shop.name}',
         '${pin}',
         this
       )">
