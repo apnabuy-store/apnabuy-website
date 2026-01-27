@@ -485,3 +485,41 @@ nav a {
 .map-link:hover {
   text-decoration: underline;
 }
+/* ================= SHOP PROFILE PAGE ================= */
+
+.shop-profile {
+  padding: 120px 24px;
+  text-align: center;
+}
+
+.shop-banner {
+  width: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 18px;
+  margin-bottom: 24px;
+}
+
+.reviews {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.review-card {
+  max-width: 420px;
+  margin: 16px auto;
+  padding: 18px;
+  border-radius: 14px;
+  background: var(--card-bg);
+  box-shadow: var(--shadow-soft);
+  font-size: 14px;
+}
+
+.profile-btn {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
