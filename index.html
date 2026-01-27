@@ -62,7 +62,7 @@
     <div><h3>Local & Trusted</h3><p>Verified local sellers only.</p></div>
     <div><h3>Fast Delivery</h3><p>Products from nearby shops.</p></div>
     <div><h3>WhatsApp Support</h3><p>Simple ordering, real support.</p></div>
-    <div><h3>No Fake Sellers</h3><p>verified & trusted partners.</p></div>
+    <div><h3>No Fake Sellers</h3><p>Verified & trusted partners.</p></div>
   </div>
 </section>
 
@@ -102,11 +102,16 @@
   <p>© 2026 ApnaBuy. Empowering trusted local businesses.</p>
 </footer>
 
-<!-- SCRIPT -->
 <script>
 const APNABUY_WHATSAPP = "919730572143";
 
-/* ================= DATA ================= */
+/* ===== OPEN / CLOSED LOGIC ===== */
+function isShopOpen() {
+  const hour = new Date().getHours();
+  return hour >= 10 && hour < 21;
+}
+
+/* ===== DATA ===== */
 const shopsData = {
   "444601": [
     {
@@ -115,6 +120,8 @@ const shopsData = {
       address: "Main Road, Amravati",
       timing: "10 AM – 9 PM",
       phone: "+91 9730572143",
+      rating: 4.6,
+      map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
       image: "images/shree-mobile-shop.jpg",
       products: [
         { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg" },
@@ -127,6 +134,8 @@ const shopsData = {
       address: "Market Area, Amravati",
       timing: "9:30 AM – 8:30 PM",
       phone: "+91 9730572143",
+      rating: 4.3,
+      map: "https://www.google.com/maps/search/Sai+Electronics+Amravati",
       image: "images/sai-electronics.jpg",
       products: [
         { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg" }
@@ -135,7 +144,7 @@ const shopsData = {
   ]
 };
 
-/* ================= PINCODE ================= */
+/* ===== PINCODE ===== */
 function checkPincode() {
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
@@ -144,12 +153,6 @@ function checkPincode() {
 
   shopGrid.innerHTML = "";
   productGrid.innerHTML = "";
-
-  if (pin.length !== 6) {
-    result.textContent = "Please enter a valid 6-digit pincode.";
-    result.style.color = "orange";
-    return;
-  }
 
   if (!shopsData[pin]) {
     result.textContent = "Sorry, we are not available in your area yet.";
@@ -162,6 +165,8 @@ function checkPincode() {
   document.getElementById("shops").style.display = "block";
 
   shopsData[pin].forEach((shop, index) => {
+    const open = isShopOpen();
+
     const card = document.createElement("div");
     card.className = "shop-card";
     card.innerHTML = `
@@ -172,16 +177,17 @@ function checkPincode() {
         <span class="verified-badge">✔ Verified</span>
       </div>
 
-      <p>👤 Owner: ${shop.owner}</p>
+      <div class="shop-rating">⭐ ${shop.rating} / 5</div>
+      <div class="shop-status ${open ? 'open' : 'closed'}">
+        ${open ? '🟢 Open Now' : '🔴 Closed'}
+      </div>
+
+      <p>👤 ${shop.owner}</p>
       <p>📍 ${shop.address}</p>
       <p>⏰ ${shop.timing}</p>
       <p>📞 ${shop.phone}</p>
 
-      <ul class="trust-points">
-        <li>✔ Genuine products</li>
-        <li>✔ Local verified shop</li>
-        <li>✔ Cash / UPI available</li>
-      </ul>
+      <a href="${shop.map}" target="_blank" class="map-link">📍 View on Map</a>
 
       <p><strong>${shop.products.length}</strong> products available</p>
     `;
@@ -193,7 +199,7 @@ function checkPincode() {
   document.getElementById("shops").scrollIntoView({ behavior: "smooth" });
 }
 
-/* ================= PRODUCTS ================= */
+/* ===== PRODUCTS ===== */
 function showProducts(pin, index) {
   const grid = document.querySelector(".product-grid");
   grid.innerHTML = "";
@@ -224,29 +230,15 @@ function showProducts(pin, index) {
   document.getElementById("products").scrollIntoView({ behavior: "smooth" });
 }
 
-/* ================= QTY ================= */
 function changeQty(btn, delta) {
   const span = btn.parentElement.querySelector(".qty-value");
   span.textContent = Math.max(1, parseInt(span.textContent) + delta);
 }
 
-/* ================= BUY ================= */
 function buyProduct(name, price, shop, pin, btn) {
   const qty = btn.parentElement.querySelector(".qty-value").textContent;
-
-  const msg = `
-Hello ApnaBuy Team 👋
-
-📦 Product: ${name}
-🔢 Quantity: ${qty}
-💰 Price: ${price}
-🏪 Shop: ${shop}
-📍 Pincode: ${pin}
-
-Please confirm availability and next steps.
-`.trim();
-
-  window.open(`https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
+  const msg = `Product: ${name}\nQty: ${qty}\nPrice: ${price}\nShop: ${shop}\nPincode: ${pin}`;
+  window.open(`https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`);
 }
 
 function toggleMenu() {
@@ -256,5 +248,3 @@ function toggleMenu() {
 
 </body>
 </html>
-
-  
