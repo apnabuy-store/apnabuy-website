@@ -1,213 +1,282 @@
 :root {
-  --bg-main: radial-gradient(1200px 600px at top, #1e293b, #020617);
-  --glass: rgba(255,255,255,0.06);
-  --border: rgba(255,255,255,0.12);
-  --primary: #38bdf8;
+  --bg-main: #0b0f1a;
+  --bg-soft: #12172a;
+  --card-bg: #171c33;
+  --primary: #3b82f6;
   --accent: #22d3ee;
+  --gold: #facc15;
+
   --text-main: #e5e7eb;
   --text-muted: #9ca3af;
+
+  --border-soft: rgba(255,255,255,0.08);
+  --shadow-soft: 0 20px 50px rgba(0,0,0,0.45);
+  --shadow-hover: 0 30px 70px rgba(0,0,0,0.6);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Inter, system-ui, sans-serif;
 }
 
 body {
-  background: var(--bg-main);
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(1200px 600px at top, #18204a, var(--bg-main));
   color: var(--text-main);
+  line-height: 1.7;
+  padding-top: 110px;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 18px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(16px);
-  background: rgba(2,6,23,0.6);
-  border-bottom: 1px solid var(--border);
+  padding: 16px 96px;
+  background: rgba(11,15,26,0.85);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-soft);
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 100;
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--primary);
+  height: 96px;
 }
 
 .tagline {
   font-size: 12px;
-  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
 }
 
 nav a {
-  margin-left: 24px;
-  color: var(--text-main);
+  margin-left: 36px;
   text-decoration: none;
-  position: relative;
+  color: var(--text-main);
+  font-weight: 500;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* SECTIONS */
-.hero, .pincode, .how, .contact, footer {
-  padding: 140px 24px 80px;
+/* ================= HERO ================= */
+.hero {
+  padding: 120px 24px 100px;
   text-align: center;
-  max-width: 1100px;
-  margin: auto;
 }
 
-.hero h2 {
+.hero h1 {
   font-size: 52px;
-  background: linear-gradient(90deg, #fff, var(--accent));
+  background: linear-gradient(90deg, #ffffff, var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-  margin-top: 16px;
-  color: var(--text-muted);
+  margin-top: 18px;
   font-size: 18px;
+  color: var(--text-muted);
 }
 
-/* PINCODE */
+/* ================= PINCODE ================= */
+.pincode-section {
+  padding: 100px 24px;
+  text-align: center;
+  background: var(--bg-soft);
+}
+
 .pincode-box {
   display: flex;
   justify-content: center;
-  gap: 12px;
-  margin-top: 28px;
+  gap: 16px;
+  margin-top: 24px;
 }
 
 .pincode-box input {
-  padding: 16px;
-  width: 220px;
+  padding: 15px 18px;
+  width: 240px;
   border-radius: 12px;
-  background: var(--glass);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-soft);
+  background: #0e1330;
   color: var(--text-main);
 }
 
 .pincode-box button {
-  padding: 16px 36px;
+  padding: 15px 36px;
   border-radius: 12px;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #020617;
   font-weight: 600;
-  transition: transform 0.25s ease;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
 }
 
-.pincode-box button:hover {
-  transform: translateY(-3px);
+/* ================= HOW / WHY ================= */
+.how, .why, .shops, .products {
+  padding: 120px 96px;
 }
 
-/* GRID & CARDS */
-.grid {
+.steps, .why-grid, .shop-grid, .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 28px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 36px;
+  margin-top: 48px;
 }
 
-.card {
-  background: var(--glass);
-  border: 1px solid var(--border);
-  padding: 28px;
-  border-radius: 18px;
+.steps div, .why-grid div, .shop-card, .product-card {
+  background: var(--card-bg);
+  padding: 36px;
+  border-radius: 22px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ================= SHOPS ================= */
+.shop-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shop-card {
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+.shop-card:hover {
+  transform: translateY(-6px);
 }
 
-/* STEPS */
-.steps {
+.shop-card .verified-badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(34,211,238,0.15);
+  color: #22d3ee;
+  font-weight: 600;
+}
+
+/* ================= PRODUCTS ================= */
+.product-card img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.quantity-box button {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  background: transparent;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.qty-value {
+  font-weight: 600;
+}
+
+/* BUY BUTTON */
+.buy-btn {
+  margin-top: 12px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  font-weight: 600;
+}
+
+/* ================= REQUEST ================= */
+.request {
+  padding: 96px 24px;
   display: flex;
   justify-content: center;
-  gap: 24px;
-  margin-top: 32px;
+  background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
 }
 
-.step {
-  background: var(--glass);
-  border: 1px solid var(--border);
-  padding: 20px 28px;
-  border-radius: 14px;
+.request-inner {
+  max-width: 640px;
+  text-align: center;
 }
 
-/* CTA */
+.request-btn {
+  display: inline-flex;
+  margin-top: 28px;
+  padding: 14px 42px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 16px 40px rgba(59,130,246,0.35);
+}
+
+/* ================= CONTACT / FOOTER ================= */
+.contact {
+  padding: 120px 24px;
+  text-align: center;
+  background: var(--bg-soft);
+}
+
 .cta {
   display: inline-block;
   margin-top: 24px;
-  padding: 16px 42px;
+  padding: 15px 40px;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #020617;
+  color: white;
   text-decoration: none;
-  font-weight: 600;
 }
 
-/* FOOTER */
-footer {
+.site-footer {
+  padding: 32px;
+  text-align: center;
+  font-size: 13px;
   color: var(--text-muted);
-  font-size: 14px;
+  border-top: 1px solid var(--border-soft);
 }
 
-/* ANIMATIONS */
-.fade-up {
-  animation: fadeUp 0.8s ease both;
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE */
+/* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .hero h2 {
-    font-size: 34px;
+
+  .header {
+    padding: 14px 20px;
+  }
+
+  .logo {
+    height: 64px;
+  }
+
+  body {
+    padding-top: 96px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .how, .why, .shops, .products {
+    padding: 64px 16px;
   }
 
   .pincode-box {
     flex-direction: column;
   }
 
-  .pincode-box input,
-  .pincode-box button {
+  .request-btn {
     width: 100%;
-  }
-
-  .steps {
-    flex-direction: column;
+    max-width: 320px;
   }
 }
