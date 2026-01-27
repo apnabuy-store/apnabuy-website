@@ -312,12 +312,6 @@ nav a:hover::after {
   font-weight: 600;
 }
 
-.request {
-  padding: 120px 24px;
-  text-align: center;
-  background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
-}
-
 /* ---------------- CONTACT ---------------- */
 .contact {
   padding: 120px 24px;
