@@ -27,6 +27,8 @@
     <a href="#shops">Shops</a>
     <a href="#contact">Contact</a>
   </nav>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
 </header>
 
 <!-- HERO -->
@@ -234,6 +236,10 @@ Please confirm availability and next steps.
     "_blank"
   );
 }
+function toggleMenu() {
+  document.getElementById("mainNav").classList.toggle("show");
+}
+  
 </script>
 
 </body>
