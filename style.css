@@ -450,3 +450,38 @@ nav a {
     margin: 14px auto 0;
   }
 }
+/* ================= SHOP META (NEW FEATURES) ================= */
+
+.shop-rating {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #facc15;
+}
+
+.shop-status {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.shop-status.open {
+  color: #22c55e;
+}
+
+.shop-status.closed {
+  color: #ef4444;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
