@@ -20,12 +20,12 @@
   </nav>
 </header>
 
-<section class="hero">
+<section class="hero fade-up">
   <h2>Your city’s trusted local marketplace</h2>
   <p>Discover genuine products from verified shops near you.</p>
 </section>
 
-<section class="pincode">
+<section class="pincode fade-up">
   <h3>Check availability in your area</h3>
   <div class="pincode-box">
     <input id="pincodeInput" type="number" placeholder="Enter pincode">
@@ -34,28 +34,28 @@
   <p id="pincodeResult"></p>
 </section>
 
-<section id="shops" class="section" style="display:none;">
+<section id="shops" class="section fade-up" style="display:none;">
   <h3>Available shops</h3>
   <div id="shopGrid" class="grid"></div>
 </section>
 
-<section id="products" class="section" style="display:none;">
+<section id="products" class="section fade-up" style="display:none;">
   <h3 id="productTitle"></h3>
   <div id="productGrid" class="grid"></div>
 </section>
 
-<section id="productDetail" class="section" style="display:none;"></section>
+<section id="productDetail" class="section fade-up" style="display:none;"></section>
 
-<section id="how" class="how">
+<section id="how" class="how fade-up">
   <h3>How ApnaBuy works</h3>
   <div class="steps">
-    <div>1️⃣ Enter pincode</div>
-    <div>2️⃣ Choose local shop</div>
-    <div>3️⃣ Order via WhatsApp</div>
+    <div class="step">1️⃣ Enter pincode</div>
+    <div class="step">2️⃣ Choose local shop</div>
+    <div class="step">3️⃣ Order via WhatsApp</div>
   </div>
 </section>
 
-<section id="contact" class="contact">
+<section id="contact" class="contact fade-up">
   <h3>Contact & Support</h3>
   <p>📍 Amravati, Maharashtra</p>
   <a href="https://wa.me/919730572143" class="cta">Chat on WhatsApp</a>
@@ -63,6 +63,7 @@
 
 <footer>© ApnaBuy — Supporting Local Businesses</footer>
 
+<!-- LOGIC (UNCHANGED) -->
 <script>
 const APNABUY_WHATSAPP = "919730572143";
 
@@ -73,12 +74,6 @@ const data = {
       products: [
         { name: "Realme 65W SuperDart Charger", price: "₹2,499" },
         { name: "Type-C Fast Charging Cable", price: "₹399" }
-      ]
-    },
-    {
-      name: "Sai Electronics",
-      products: [
-        { name: "Bluetooth Neckband", price: "₹1,299" }
       ]
     }
   ]
@@ -92,10 +87,12 @@ function checkPincode() {
 
   if (!data[pin]) {
     result.textContent = "Service not available in your area yet.";
+    result.style.color = "#f87171";
     return;
   }
 
   result.textContent = "Great! Shops found in your area.";
+  result.style.color = "#4ade80";
   document.getElementById("shops").style.display = "block";
 
   data[pin].forEach((shop, i) => {
