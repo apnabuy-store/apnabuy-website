@@ -1,38 +1,43 @@
+/* ================= THEME VARIABLES ================= */
 :root {
-  /* ===== BACKGROUND COLORS ===== */
-  --bg-main: #f7f8fa;        /* soft premium light grey */
-  --bg-secondary: #ffffff;  /* clean white surface */
+  /* ===== BACKGROUND ===== */
+  --bg-main: #0e1224;
+  --bg-soft: #141a35;
 
-  /* ===== CARD / SURFACE ===== */
-  --card-bg: #ffffff;
-  --card-border: #e5e7eb;
+  /* ===== SURFACES ===== */
+  --card-bg: #1b2142;
+  --border-soft: rgba(255,255,255,0.10);
 
-  /* ===== TEXT COLORS ===== */
-  --text-main: #0f172a;     /* deep navy (easy on eyes) */
-  --text-muted: #475569;   /* soft grey for descriptions */
+  /* ===== BRAND ===== */
+  --primary: #4f7cff;
+  --accent: #38bdf8;
+  --gold: #facc15;
 
-  /* ===== BRAND COLOR ===== */
-  --accent: #2563eb;       /* professional blue */
-  --accent-soft: #e0e7ff;  /* very light blue */
+  /* ===== TEXT ===== */
+  --text-main: #f8fafc;
+  --text-muted: #b6bdd6;
 
-  /* ===== VERIFIED BADGE ===== */
-  --verified-bg: #ecfdf5;
-  --verified-text: #047857;
-
-  /* ===== SHADOW ===== */
-  --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.08);
+  /* ===== SHADOWS ===== */
+  --shadow-soft: 0 18px 45px rgba(0,0,0,0.45);
+  --shadow-hover: 0 28px 70px rgba(0,0,0,0.6);
 }
 
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ================= BODY ================= */
 body {
-  background-color: var(--bg-main);
+  font-family: "Inter", sans-serif;
+  background:
+    radial-gradient(1000px 500px at top, #1a2250 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-main), #0a0d1a);
   color: var(--text-main);
-  font-family: 'Inter', sans-serif;
+  line-height: 1.7;
+  padding-top: 110px;
 }
 
 /* ================= HEADER ================= */
@@ -40,20 +45,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 96px;
-  background: rgba(11,15,26,0.85);
+  padding: 16px 48px;
+  background: rgba(14,18,36,0.75);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-soft);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
-}
-.header {
-  padding: 16px 48px;
-}
-.header {
-  align-items: center;
 }
 
 .brand {
@@ -70,13 +69,11 @@ body {
 
 .brand .logo {
   height: 72px;
-  width: auto;
 }
 
 .brand-name {
   font-size: 20px;
   font-weight: 700;
-  color: var(--text-main);
   line-height: 1.1;
 }
 
@@ -87,8 +84,6 @@ body {
   color: var(--gold);
   margin-top: 4px;
 }
-
-
 
 nav a {
   margin-left: 36px;
@@ -121,9 +116,6 @@ nav a {
   padding: 100px 24px;
   text-align: center;
   background: var(--bg-soft);
-}
-
-.pincode-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,7 +126,6 @@ nav a {
   width: 100%;
 }
 
-
 .pincode-box button {
   padding: 15px 36px;
   border-radius: 12px;
@@ -143,9 +134,10 @@ nav a {
   font-weight: 600;
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: white;
+  box-shadow: 0 10px 28px rgba(79,124,255,0.35);
 }
 
-/* ================= HOW / WHY ================= */
+/* ================= SECTIONS ================= */
 .how, .why, .shops, .products {
   padding: 120px 96px;
 }
@@ -158,7 +150,12 @@ nav a {
 }
 
 .steps div, .why-grid div, .shop-card, .product-card {
-  background: var(--card-bg);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    );
   padding: 36px;
   border-radius: 22px;
   border: 1px solid var(--border-soft);
@@ -169,19 +166,18 @@ nav a {
 .shop-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .shop-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  box-shadow: var(--shadow-soft);
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .shop-card:hover {
   transform: translateY(-6px);
 }
+
 .shop-image {
   width: 100%;
   height: 160px;
@@ -191,41 +187,29 @@ nav a {
   border: 1px solid var(--border-soft);
 }
 
-.shop-card .verified-badge {
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(34,211,238,0.15);
-  color: #22d3ee;
-  font-weight: 600;
-}
-.shop-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 8px;
-}
-
 .shop-name {
   font-size: 18px;
   font-weight: 600;
-  line-height: 1.2;
 }
 
 .verified-badge {
-   background-color: var(--verified-bg);
-  color: var(--verified-text);
-  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  padding: 0 10px;
+  font-size: 11px;
   font-weight: 600;
+  border-radius: 999px;
+  background: rgba(56,189,248,0.18);
+  color: var(--accent);
 }
-
 
 /* ================= PRODUCTS ================= */
 .product-card img {
-   background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
+  width: 100%;
   border-radius: 16px;
-  box-shadow: var(--shadow-soft)
+  margin-bottom: 16px;
 }
 
 .quantity-box {
@@ -249,13 +233,15 @@ nav a {
   font-weight: 600;
 }
 
-/* BUY BUTTON */
 .buy-btn {
-  background-color: var(--accent);
-  color: #ffffff;
-  border-radius: 12px;
+  margin-top: 12px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
   font-weight: 600;
-  transition: background-color 0.2s ease;
 }
 
 /* ================= REQUEST ================= */
@@ -266,36 +252,16 @@ nav a {
 }
 
 .request-inner {
-  width: 100%;
   max-width: 420px;
   text-align: center;
 }
 
 .request-btn {
- background-color: var(--accent);
-  color: #ffffff;
-  border-radius: 12px;
-  font-weight: 600;
-  transition: background-color 0.2s ease;
-}
-section {
-  background-color: transparent;
+  display: block;
+  margin: 24px auto 0;
 }
 
-.hero,
-.why,
-.request {
-  background-color: var(--bg-secondary);
-}
-
-.how,
-.shops,
-.products {
-  background-color: var(--bg-main);
-}
-
-
-/* ================= CONTACT / FOOTER ================= */
+/* ================= CONTACT & FOOTER ================= */
 .contact {
   padding: 120px 24px;
   text-align: center;
@@ -310,6 +276,7 @@ section {
   background: linear-gradient(135deg, var(--primary), var(--accent));
   color: white;
   text-decoration: none;
+  box-shadow: 0 10px 28px rgba(79,124,255,0.35);
 }
 
 .site-footer {
@@ -319,26 +286,17 @@ section {
   color: var(--text-muted);
   border-top: 1px solid var(--border-soft);
 }
-/* ===================================
-   MOBILE HEADER – HARD RESET & FIX
-   =================================== */
-@media (max-width: 768px) {
 
-  /* REMOVE FIXED HEADER BEHAVIOR */
-  body {
-    padding-top: 0 !important;
-  }
+/* ================= MOBILE (UNCHANGED LOGIC) ================= */
+@media (max-width: 768px) {
+  body { padding-top: 0 !important; }
 
   .header {
-    position: relative;   /* NOT fixed */
-    height: auto;
+    position: static;
     padding: 14px 16px;
-    display: flex;
-    align-items: center;
     justify-content: center;
   }
 
-  /* BRAND CENTERED */
   .brand {
     flex-direction: column;
     align-items: center;
@@ -346,21 +304,15 @@ section {
     text-align: center;
   }
 
-  .brand .logo {
-    height: 38px;
-  }
+  .brand .logo { height: 38px; }
 
-  .brand-name {
-    font-size: 16px;
-    line-height: 1.1;
-  }
+  .brand-name { font-size: 16px; }
 
   .tagline {
     font-size: 10px;
     letter-spacing: 1.5px;
   }
 
-  /* HAMBURGER – TRUE CORNER */
   .menu-toggle {
     position: absolute;
     top: 14px;
@@ -368,7 +320,6 @@ section {
     font-size: 24px;
   }
 
-  /* MOBILE MENU */
   nav {
     position: absolute;
     top: 100%;
@@ -382,143 +333,22 @@ section {
     box-shadow: var(--shadow-soft);
   }
 
-  nav.show {
-    display: flex;
-  }
-}
-/* =====================================
-   MOBILE HEADER – FINAL OVERRIDE (REAL FIX)
-   ===================================== */
-@media (max-width: 768px) {
+  nav.show { display: flex; }
 
-  /* Disable fixed header ONLY on mobile */
-  .header {
-    position: static !important;
-    height: auto;
-    padding: 14px 16px;
-  }
-
-  /* Remove desktop offset */
-  body {
-    padding-top: 0 !important;
-  }
-
-  /* Brand alignment */
-  .brand {
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    text-align: center;
-  }
-
-  .brand .logo {
-    height: 38px;
-  }
-
-  .brand-name {
-    font-size: 16px;
-    line-height: 1.1;
-  }
-
-  .tagline {
-    font-size: 10px;
-    letter-spacing: 1.5px;
-  }
-
-  /* Hamburger fixed inside header */
-  .menu-toggle {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    font-size: 24px;
-  }
-
-  /* Mobile menu dropdown */
-  nav {
-    position: absolute;
-    top: 100%;
-    right: 14px;
-    display: none;
-    flex-direction: column;
-    gap: 12px;
-    background: var(--card-bg);
-    padding: 14px 16px;
-    border-radius: 14px;
-    box-shadow: var(--shadow-soft);
-  }
-
-  nav.show {
-    display: flex;
-  }
-}
-/* =========================
-   HOW & WHY – MOBILE ALIGN FIX
-   ========================= */
-@media (max-width: 768px) {
-
-  .how,
-  .why {
+  .how, .why, .shops, .products {
     padding: 56px 16px;
     text-align: center;
   }
 
-  .steps,
-  .why-grid {
-    grid-template-columns: 1fr;   /* one card per row */
+  .steps, .why-grid, .shop-grid, .product-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
     justify-items: center;
   }
 
-  .steps > div,
-  .why-grid > div {
-    width: 100%;
+  .shop-card, .product-card {
     max-width: 360px;
     padding: 24px;
-  }
-
-  .steps strong {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 18px;
-  }
-
-  .steps p,
-  .why-grid p {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-}
-/* =========================
-   SHOPS & PRODUCTS – MOBILE ALIGN FIX
-   ========================= */
-@media (max-width: 768px) {
-
-  .shops,
-  .products {
-    padding: 56px 16px;
-    text-align: center;
-  }
-
-  .shop-grid,
-  .product-grid {
-    grid-template-columns: 1fr;   /* one card per row */
-    gap: 20px;
-    justify-items: center;
-  }
-
-  .shop-card,
-  .product-card {
-    width: 100%;
-    max-width: 360px;
-    padding: 24px;
-  }
-
-  .shop-header {
-    justify-content: center;
-  }
-
-  .product-card img {
-    max-width: 100%;
   }
 
   .buy-btn {
