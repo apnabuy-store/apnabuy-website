@@ -342,6 +342,63 @@ footer {
     width: 100%;
   }
 }
+.why {
+  padding: 120px 96px;
+  text-align: center;
+}
+
+.why h2 {
+  margin-bottom: 48px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  gap: 36px;
+}
+
+.why-grid div {
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: 22px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.why-grid h3 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.request {
+  padding: 120px 24px;
+  text-align: center;
+  background: radial-gradient(800px 400px at center, #1e293b, var(--bg-main));
+}
+
+.request p {
+  color: var(--text-muted);
+  margin-top: 12px;
+}
+
+.request-btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 36px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 20px 60px rgba(59,130,246,0.4);
+  transition: transform 0.2s ease;
+}
+
+.request-btn:hover {
+  transform: translateY(-3px);
+}
+
+
 /* =========================
    TABLET OPTIMIZATION
    ========================= */
@@ -429,31 +486,3 @@ footer {
     padding: 64px 16px;
   }
 }
-.why {
-  padding: 120px 96px;
-  text-align: center;
-}
-
-.why h2 {
-  margin-bottom: 48px;
-}
-
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-  gap: 36px;
-}
-
-.why-grid div {
-  background: var(--card-bg);
-  padding: 32px;
-  border-radius: 22px;
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
-
-.why-grid h3 {
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
