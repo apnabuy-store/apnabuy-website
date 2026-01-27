@@ -429,3 +429,40 @@ nav a {
     display: flex;
   }
 }
+/* =========================
+   HOW & WHY – MOBILE ALIGN FIX
+   ========================= */
+@media (max-width: 768px) {
+
+  .how,
+  .why {
+    padding: 56px 16px;
+    text-align: center;
+  }
+
+  .steps,
+  .why-grid {
+    grid-template-columns: 1fr;   /* one card per row */
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .steps > div,
+  .why-grid > div {
+    width: 100%;
+    max-width: 360px;
+    padding: 24px;
+  }
+
+  .steps strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+
+  .steps p,
+  .why-grid p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+}
