@@ -14,10 +14,9 @@
 <!-- HEADER -->
 <header class="header">
   <div class="brand">
-  <img src="images/logo.png" alt="ApnaBuy Logo" class="logo">
-  <span class="tagline">Buy local. Live local.</span>
-</div>
-
+    <img src="images/logo.png" alt="ApnaBuy Logo" class="logo">
+    <span class="tagline">Buy local. Live local.</span>
+  </div>
 
   <nav>
     <a href="#how">How it works</a>
@@ -32,60 +31,34 @@
   <p>Discover genuine products from verified shops near you.</p>
 </section>
 
-<!-- PINCODE CHECK -->
+<!-- PINCODE -->
 <section class="pincode-section">
   <h2>Check availability in your area</h2>
-
   <div class="pincode-box">
     <input id="pincodeInput" type="number" placeholder="Enter your pincode">
     <button onclick="checkPincode()">Check</button>
   </div>
-
   <p id="pincodeResult"></p>
 </section>
 
-<!-- HOW IT WORKS -->
+<!-- HOW -->
 <section class="how" id="how">
   <h2>How ApnaBuy works</h2>
-
   <div class="steps">
-    <div>
-      <strong>1</strong>
-      <p>Enter your city pincode</p>
-    </div>
-    <div>
-      <strong>2</strong>
-      <p>Choose a trusted local shop</p>
-    </div>
-    <div>
-      <strong>3</strong>
-      <p>Order products via WhatsApp</p>
-    </div>
+    <div><strong>1</strong><p>Enter your city pincode</p></div>
+    <div><strong>2</strong><p>Choose a trusted local shop</p></div>
+    <div><strong>3</strong><p>Order products via WhatsApp</p></div>
   </div>
 </section>
+
+<!-- WHY -->
 <section class="why">
   <h2>Why ApnaBuy?</h2>
-
   <div class="why-grid">
-    <div>
-      <h3>Local & Trusted</h3>
-      <p>All shops are locally verified to ensure genuine products and fair pricing.</p>
-    </div>
-
-    <div>
-      <h3>Faster Delivery</h3>
-      <p>Get products delivered quickly from nearby shops in your city.</p>
-    </div>
-
-    <div>
-      <h3>Easy WhatsApp Support</h3>
-      <p>No complex checkout. Order directly via WhatsApp with human support.</p>
-    </div>
-
-    <div>
-      <h3>No Fake Sellers</h3>
-      <p>We list only trusted shop partners — no unknown third-party sellers.</p>
-    </div>
+    <div><h3>Local & Trusted</h3><p>All shops are locally verified.</p></div>
+    <div><h3>Faster Delivery</h3><p>Get products quickly.</p></div>
+    <div><h3>Easy WhatsApp Support</h3><p>No complex checkout.</p></div>
+    <div><h3>No Fake Sellers</h3><p>Only verified partners.</p></div>
   </div>
 </section>
 
@@ -109,198 +82,93 @@
   <a href="https://wa.me/91XXXXXXXXXX" class="cta">Chat on WhatsApp</a>
 </section>
 
+<!-- REQUEST -->
+<section class="request">
+  <h2>Didn’t find what you’re looking for?</h2>
+  <p>Tell us the product you need and we’ll check with local shops.</p>
+  <a href="https://wa.me/919730572143" target="_blank" class="request-btn">
+    Request a Product on WhatsApp
+  </a>
+</section>
 
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>© 2026 ApnaBuy. Empowering trusted local businesses.</p>
+</footer>
 
 <!-- SCRIPT -->
 <script>
-/* =========================
-   DATA (TEMP DATABASE)
-   ========================= */
+const APNABUY_WHATSAPP = "919730572143";
 
 const shopsData = {
   "444601": [
     {
       name: "Shree Mobile Shop",
-      owner: "Ramesh Patil",
       products: [
-        {
-          name: "Realme 65W SuperDart Charger",
-          price: "₹2,499",
-          image: "images/realme65w.jpg"
-        },
-        {
-          name: "Type-C Fast Charging Cable",
-          price: "₹399",
-          image: "images/realme65w.jpg"
-        }
-      ]
-    },
-    {
-      name: "Sai Electronics",
-      owner: "Amit Sharma",
-      products: [
-        {
-          name: "Bluetooth Neckband",
-          price: "₹1,299",
-          image: "images/realme65w.jpg"
-        }
+        { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg" },
+        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
       ]
     }
   ]
 };
 
-/* =========================
-   FUNCTIONS
-   ========================= */
-<script>
 function checkPincode() {
-  const inputField = document.getElementById("pincodeInput");
-  const pincode = inputField.value.trim();
-  const result = document.getElementById("pincodeResult");
-  const shopsSection = document.getElementById("shops");
-  const shopGrid = document.querySelector(".shop-grid");
-
+  const pincode = pincodeInput.value.trim();
   shopGrid.innerHTML = "";
 
-  if (pincode.length !== 6) {
-    result.textContent = "Please enter a valid 6-digit pincode.";
-    result.style.color = "#d97706";
-    return;
-  }
-
   if (!shopsData[pincode]) {
-    result.textContent = "Sorry, we are not available in your area yet.";
-    result.style.color = "#dc2626";
+    pincodeResult.textContent = "Sorry, we are not available in your area yet.";
     return;
   }
 
-  result.textContent = "Great! Shops are available in your area.";
-  result.style.color = "#16a34a";
-  inputField.value = "";
+  pincodeResult.textContent = "Great! Shops are available in your area.";
+  shops.style.display = "block";
 
   shopsData[pincode].forEach((shop, index) => {
     const card = document.createElement("div");
     card.className = "shop-card";
-    card.innerHTML = `
-  <div class="shop-header">
-    <h3>${shop.name}</h3>
-    <span class="verified-badge">✔ Verified</span>
-  </div>
-
-  <ul class="trust-points">
-    <li>Genuine products</li>
-    <li>Local verified shop</li>
-    <li>Cash / UPI on delivery</li>
-  </ul>
-
-  <p class="product-count">${shop.products.length} products available</p>
-`;
-
+    card.innerHTML = `<h3>${shop.name}</h3>`;
     card.onclick = () => showProducts(pincode, index);
     shopGrid.appendChild(card);
   });
-
-  shopsSection.style.display = "block";
-  shopsSection.scrollIntoView({ behavior: "smooth" });
 }
 
 function showProducts(pincode, shopIndex) {
-  const productGrid = document.querySelector(".product-grid");
-  const productsSection = document.getElementById("products");
-
   productGrid.innerHTML = "";
-
   const shop = shopsData[pincode][shopIndex];
 
   shop.products.forEach(product => {
-
-    const message = `
-Hello ApnaBuy Team 👋
-
-I want to order the following product:
-
-📦 Product: ${product.name}
-💰 Price: ${product.price}
-🏪 Shop: ${shop.name}
-📍 Pincode: ${pincode}
-
-Please confirm availability and next steps.
-`.trim();
-
-    const whatsappURL =
-      `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(message)}`;
-
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
-  <img src="${product.image}">
-  <h4>${product.name}</h4>
-  <strong>${product.price}</strong>
-
-  <div class="quantity-box">
-    <button class="qty-btn" onclick="changeQty(this, -1)">−</button>
-    <span class="qty-value">1</span>
-    <button class="qty-btn" onclick="changeQty(this, 1)">+</button>
-  </div>
-
-  <a href="#" class="buy-btn" onclick="buyProduct(event, '${product.name}', '${product.price}', '${shop.name}', '${pincode}', this)">
-    Buy on WhatsApp
-  </a>
-`;
-
-const APNABUY_WHATSAPP = "919730572143";
-
-function changeQty(button, delta) {
-  const qtySpan = button.parentElement.querySelector(".qty-value");
-  let qty = parseInt(qtySpan.textContent);
-  qty = qty + delta;
-  if (qty < 1) qty = 1;
-  qtySpan.textContent = qty;
+      <img src="${product.image}">
+      <h4>${product.name}</h4>
+      <strong>${product.price}</strong>
+      <div class="quantity-box">
+        <button onclick="changeQty(this,-1)">−</button>
+        <span class="qty-value">1</span>
+        <button onclick="changeQty(this,1)">+</button>
+      </div>
+      <a href="#" onclick="buyProduct(event,'${product.name}','${product.price}','${shop.name}','${pincode}',this)">
+        Buy on WhatsApp
+      </a>
+    `;
+    productGrid.appendChild(card);
+  });
 }
 
-function buyProduct(event, productName, price, shopName, pincode, btn) {
-  event.preventDefault();
+function changeQty(btn, delta) {
+  const span = btn.parentElement.querySelector(".qty-value");
+  span.textContent = Math.max(1, parseInt(span.textContent) + delta);
+}
 
+function buyProduct(e, name, price, shop, pin, btn) {
+  e.preventDefault();
   const qty = btn.parentElement.querySelector(".qty-value").textContent;
-
-  const message = `
-Hello ApnaBuy Team 👋
-
-I want to buy the following product:
-
-📦 Product: ${productName}
-🔢 Quantity: ${qty}
-💰 Price: ${price}
-🏪 Shop: ${shopName}
-📍 Pincode: ${pincode}
-
-Please confirm availability and next steps.
-`.trim();
-
-  const whatsappURL =
-    `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(message)}`;
-
-  window.open(whatsappURL, "_blank");
+  const msg = `Product: ${name}\nQty: ${qty}\nPrice: ${price}\nShop: ${shop}\nPincode: ${pin}`;
+  window.open(`https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`);
 }
 </script>
-<section class="request">
-  <h2>Didn’t find what you’re looking for?</h2>
-  <p>Tell us the product you need and we’ll check with local shops.</p>
 
-  <a 
-    href="https://wa.me/919730572143?text=I%20am%20looking%20for%20a%20product%20in%20my%20area."
-    target="_blank"
-    class="request-btn"
-  >
-    Request a Product on WhatsApp
-  </a>
-</section>
-<footer class="site-footer">
-  <p>© 2026 ApnaBuy. Empowering trusted local businesses.</p>
-</footer>
-  
 </body>
 </html>
-
-
-  
