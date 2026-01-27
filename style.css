@@ -409,33 +409,62 @@ nav a {
 /* =========================
    MOBILE HEADER FIX
    ========================= */
+/* =========================
+   MOBILE HEADER – FINAL FIX
+   ========================= */
 @media (max-width: 768px) {
 
   .header {
     position: relative;
     justify-content: center;
+    padding: 12px 16px;
   }
 
+  /* BRAND CENTERED */
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .brand .logo {
+    height: 56px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .tagline {
+    font-size: 10px;
+    letter-spacing: 1.6px;
+  }
+
+  /* HAMBURGER – FORCE TOP RIGHT */
   .menu-toggle {
     position: absolute;
-    top: 50%;
-    right: 16px;
-    transform: translateY(-50%);
+    top: 12px;
+    right: 12px;
+    transform: none; /* VERY IMPORTANT */
+    font-size: 26px;
   }
-}
-nav {
-  position: absolute;
-  top: 100%;
-  right: 16px;
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 12px 16px;
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-  box-shadow: var(--shadow-soft);
-}
 
-nav.show {
-  display: flex;
+  /* MOBILE NAV MENU */
+  nav {
+    position: absolute;
+    top: 56px;
+    right: 12px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--card-bg);
+    padding: 14px 16px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+  }
+
+  nav.show {
+    display: flex;
+  }
 }
