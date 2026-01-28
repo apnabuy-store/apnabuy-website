@@ -457,6 +457,41 @@ nav a {
   display: block;
   margin: 24px auto 0;
 }
+/* ===== Availability Truth Meter ===== */
+.availability {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.availability .label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.availability .meter {
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.availability.high .meter {
+  color: #22c55e;
+}
+
+.availability.medium .meter {
+  color: #facc15;
+}
+
+.availability.low .meter {
+  color: #ef4444;
+}
+
+.availability .text {
+  display: block;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
 
 /* ================= CONTACT & FOOTER ================= */
 .contact {
