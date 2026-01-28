@@ -225,6 +225,72 @@ nav a {
   box-shadow: var(--shadow-soft);
 }
 
+/* ================= ABOUT APNABUY ================= */
+.about {
+  padding: 120px 96px;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.04),
+    rgba(255,255,255,0.01)
+  );
+  border-top: 1px solid var(--border-soft);
+}
+
+.about h2 {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.about-content p {
+  margin-bottom: 18px;
+}
+
+.about-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap: 28px;
+  margin: 40px 0;
+}
+
+.about-highlights div {
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-highlights h4 {
+  margin-bottom: 8px;
+  color: var(--text-main);
+}
+
+.about-founder {
+  margin-top: 28px;
+  font-style: italic;
+  color: var(--text-main);
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .about {
+    padding: 56px 16px;
+    text-align: center;
+  }
+
+  .about-content {
+    font-size: 14px;
+  }
+}
+
 /* ================= SHOPS ================= */
 .shop-header {
   display: flex;
