@@ -69,8 +69,19 @@
 <!-- SHOPS -->
 <section class="shops" id="shops" style="display:none;">
   <h2>Shops available in your city</h2>
+
+  <!-- SHOP SEARCH -->
+  <input
+    type="text"
+    id="shopSearch"
+    placeholder="🔍 Search shops by name or area"
+    oninput="filterShops()"
+    class="shop-search"
+  />
+
   <div class="shop-grid"></div>
 </section>
+
 
 <!-- PRODUCTS -->
 <section class="products" id="products">
@@ -205,7 +216,17 @@ function checkPincode() {
 
   document.getElementById("shops").scrollIntoView({ behavior: "smooth" });
 }
+function filterShops() {
+  const query = document.getElementById("shopSearch").value.toLowerCase();
+  const cards = document.querySelectorAll(".shop-card");
 
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(query) ? "block" : "none";
+  });
+}
+
+  
 /* ===== PRODUCTS ===== */
 function showProducts(pin, index) {
   const grid = document.querySelector(".product-grid");
