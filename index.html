@@ -188,6 +188,7 @@ const shopsData = {
     {
       name: "Shree Mobile Shop",
       owner: "Ramesh Patil",
+      sameDay: true,
       address: "Main Road, Amravati",
       timing: "10 AM – 9 PM",
       phone: "+91 9730572143",
@@ -202,6 +203,7 @@ const shopsData = {
     {
       name: "Sai Electronics",
       owner: "Amit Sharma",
+      sameDay: true,
       address: "Market Area, Amravati",
       timing: "9:30 AM – 8:30 PM",
       phone: "+91 9730572143",
@@ -247,7 +249,15 @@ function checkPincode() {
     <h3 class="shop-name">${shop.name}</h3>
     <span class="verified-badge">✔ Verified</span>
   </div>
-
+ ${shop.sameDay ? `
+    <div class="same-day-badge">
+      ⚡ Same-day delivery available
+    </div>
+  ` : `
+    <div class="same-day-badge muted">
+      🕒 Standard local delivery
+    </div>
+  `}
   <div class="shop-rating">⭐ ${shop.rating} / 5</div>
   <div class="shop-status ${open ? 'open' : 'closed'}">
     ${open ? '🟢 Open Now' : '🔴 Closed'}
