@@ -423,6 +423,24 @@ nav a {
   font-weight: 600;
 }
 
+/* ================= CITY PRESENCE ================= */
+.city-presence {
+  text-align: center;
+  padding: 18px 12px;
+  background: rgba(79,124,255,0.08);
+  border-bottom: 1px solid var(--border-soft);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.city-presence strong {
+  color: var(--text-main);
+}
+
+.city-presence span {
+  opacity: 0.8;
+}
+
 /* ================= REQUEST ================= */
 .request {
   padding: 80px 16px;
