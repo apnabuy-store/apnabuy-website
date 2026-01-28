@@ -195,8 +195,8 @@ const shopsData = {
       map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
       image: "images/shree-mobile-shop.jpg",
       products: [
-        { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg" },
-        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
+        { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg",availability: "high" },
+        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg",availability: "high" }
       ]
     },
     {
@@ -209,7 +209,7 @@ const shopsData = {
       map: "https://www.google.com/maps/search/Sai+Electronics+Amravati",
       image: "images/sai-electronics.jpg",
       products: [
-        { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg" }
+        { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg",availability: "high" }
       ]
     }
   ]
@@ -301,6 +301,15 @@ function showProducts(pin, index) {
       <img src="${p.image}">
       <h4>${p.name}</h4>
       <strong>${p.price}</strong>
+<div class="availability ${p.availability}">
+  <span class="label">📦 Availability</span>
+  <span class="meter">
+    ${getAvailabilityDots(p.availability)}
+  </span>
+  <span class="text">
+    ${getAvailabilityText(p.availability)}
+  </span>
+</div>
 
       <div class="quantity-box">
         <button onclick="changeQty(this,-1)">−</button>
@@ -316,6 +325,17 @@ function showProducts(pin, index) {
   });
 
   document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+}
+function getAvailabilityDots(level) {
+  if (level === "high") return "● ● ● ● ○";
+  if (level === "medium") return "● ● ● ○ ○";
+  return "● ● ○ ○ ○";
+}
+
+function getAvailabilityText(level) {
+  if (level === "high") return "High (Usually in stock)";
+  if (level === "medium") return "Medium (Stock may vary)";
+  return "Limited (Ask before ordering)";
 }
 
 function changeQty(btn, delta) {
@@ -333,7 +353,8 @@ function toggleMenu() {
   document.getElementById("mainNav").classList.toggle("show");
 }
 </script>
-<script>
+  
+  <script>
   // Always load page from top
   window.onload = function () {
     if (window.location.hash) {
