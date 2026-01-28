@@ -252,6 +252,14 @@ function toggleMenu() {
   document.getElementById("mainNav").classList.toggle("show");
 }
 </script>
+<script>
+  // Always load page from top
+  window.onload = function () {
+    if (window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  };
+</script>
 
 </body>
 </html>
