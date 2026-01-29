@@ -181,6 +181,19 @@ function isShopOpen() {
   const hour = new Date().getHours();
   return hour >= 10 && hour < 21;
 }
+function getPeakStatus() {
+  const hour = new Date().getHours();
+
+  if ((hour >= 11 && hour <= 14) || (hour >= 18 && hour <= 21)) {
+    return { text: "🔥 High demand right now", class: "peak-high" };
+  }
+
+  if (hour >= 10 && hour < 22) {
+    return { text: "🟢 Normal activity", class: "peak-normal" };
+  }
+
+  return { text: "🌙 Low activity right now", class: "peak-low" };
+}
 
 /* ===== DATA ===== */
 const shopsData = {
@@ -239,6 +252,8 @@ function checkPincode() {
 
   shopsData[pin].forEach((shop, index) => {
     const open = isShopOpen();
+    const peak = getPeakStatus();
+
 
     const card = document.createElement("div");
     card.className = "shop-card";
@@ -262,6 +277,9 @@ function checkPincode() {
   <div class="shop-status ${open ? 'open' : 'closed'}">
     ${open ? '🟢 Open Now' : '🔴 Closed'}
   </div>
+<div class="peak-status ${peak.class}">
+  ${peak.text}
+</div>
 
   <p>👤 ${shop.owner}</p>
   <p>📍 ${shop.address}</p>
