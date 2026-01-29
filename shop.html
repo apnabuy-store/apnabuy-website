@@ -55,7 +55,16 @@ const shopsData = {
       timing: "10 AM – 9 PM",
       map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
       products: [
-        { name: "Realme 65W Charger", price: "₹2,499", image: "images/realme65w.jpg" }
+        {
+          name: "Realme 65W Charger",
+          price: "₹2,499",
+          image: "images/realme65w.jpg"
+        },
+        {
+          name: "Type-C Fast Charging Cable",
+          price: "₹399",
+          image: "images/typec-cable.jpg"
+        }
       ],
       reviews: [
         { name: "Rahul P", rating: 5, text: "Genuine shop and fast service." },
@@ -70,7 +79,11 @@ const shopsData = {
       timing: "9:30 AM – 8:30 PM",
       map: "https://www.google.com/maps/search/Sai+Electronics+Amravati",
       products: [
-        { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg" }
+        {
+          name: "Bluetooth Neckband",
+          price: "₹1,299",
+          image: "images/realme65w.jpg"
+        }
       ],
       reviews: [
         { name: "Suresh K", rating: 4, text: "Nice collection and fair prices." },
@@ -85,8 +98,6 @@ const shopsData = {
 const params = new URLSearchParams(window.location.search);
 const pin = params.get("pin");
 const shopIndex = Number(params.get("shop"));
-
-/* ================= SAFETY CHECK (FIX #2) ================= */
 
 if (!shopsData[pin] || isNaN(shopIndex) || !shopsData[pin][shopIndex]) {
   document.body.innerHTML = `
