@@ -123,6 +123,9 @@ document.getElementById("mapLink").href = shop.map;
 
 const productGrid = document.getElementById("productGrid");
 shop.products.forEach(p => {
+  productGrid.innerHTML = "";
+
+shop.products.forEach(p => {
   productGrid.innerHTML += `
     <div class="product-card">
       <img src="${p.image}">
@@ -131,6 +134,7 @@ shop.products.forEach(p => {
     </div>
   `;
 });
+
 
 /* ================= REVIEWS ================= */
 
