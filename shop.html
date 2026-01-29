@@ -56,8 +56,7 @@ const shopsData = {
       map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
       products: [
         { name: "Realme 65W Charger", price: "₹2,499", image: "images/realme65w.jpg" }
-        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
-]
+      ],
       reviews: [
         { name: "Rahul P", rating: 5, text: "Genuine shop and fast service." },
         { name: "Anjali S", rating: 4, text: "Good pricing." }
@@ -84,29 +83,20 @@ const shopsData = {
 /* ================= URL PARAMS ================= */
 
 const params = new URLSearchParams(window.location.search);
-  const pin = params.get("pin");
-const shopIndex = Number(params.get("shop"));
-
 const pin = params.get("pin");
 const shopIndex = Number(params.get("shop"));
 
 /* ================= SAFETY CHECK (FIX #2) ================= */
 
-if (
-  !pin ||
-  !shopsData[pin] ||
-  isNaN(shopIndex) ||
-  !shopsData[pin][shopIndex]
-) {
+if (!shopsData[pin] || isNaN(shopIndex) || !shopsData[pin][shopIndex]) {
   document.body.innerHTML = `
     <div style="padding:40px;text-align:center;">
       <h2>Shop not found</h2>
       <p>Please go back and select a valid shop.</p>
     </div>
   `;
-  throw new Error("Invalid shop");
+  throw new Error("Invalid shop index");
 }
-
 
 const shop = shopsData[pin][shopIndex];
 
@@ -123,9 +113,6 @@ document.getElementById("mapLink").href = shop.map;
 
 const productGrid = document.getElementById("productGrid");
 shop.products.forEach(p => {
-  productGrid.innerHTML = "";
-
-shop.products.forEach(p => {
   productGrid.innerHTML += `
     <div class="product-card">
       <img src="${p.image}">
@@ -134,7 +121,6 @@ shop.products.forEach(p => {
     </div>
   `;
 });
-
 
 /* ================= REVIEWS ================= */
 
