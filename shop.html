@@ -84,20 +84,29 @@ const shopsData = {
 /* ================= URL PARAMS ================= */
 
 const params = new URLSearchParams(window.location.search);
+  const pin = params.get("pin");
+const shopIndex = Number(params.get("shop"));
+
 const pin = params.get("pin");
 const shopIndex = Number(params.get("shop"));
 
 /* ================= SAFETY CHECK (FIX #2) ================= */
 
-if (!shopsData[pin] || isNaN(shopIndex) || !shopsData[pin][shopIndex]) {
+if (
+  !pin ||
+  !shopsData[pin] ||
+  isNaN(shopIndex) ||
+  !shopsData[pin][shopIndex]
+) {
   document.body.innerHTML = `
     <div style="padding:40px;text-align:center;">
       <h2>Shop not found</h2>
       <p>Please go back and select a valid shop.</p>
     </div>
   `;
-  throw new Error("Invalid shop index");
+  throw new Error("Invalid shop");
 }
+
 
 const shop = shopsData[pin][shopIndex];
 
