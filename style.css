@@ -536,6 +536,26 @@ nav a {
   color: var(--text-muted);
 }
 
+/* ================= PEAK HOURS ================= */
+
+.peak-status {
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.peak-high {
+  color: #f97316; /* orange */
+}
+
+.peak-normal {
+  color: #22c55e; /* green */
+}
+
+.peak-low {
+  color: #94a3b8; /* gray */
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
