@@ -578,6 +578,31 @@ nav a {
   transition: opacity 0.4s ease;
 }
 
+/* ================= TRENDING PRODUCTS ================= */
+
+.trending-section {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.trending-section.hidden {
+  display: none;
+}
+
+.trending-card {
+  animation: fadeSlide 0.6s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
