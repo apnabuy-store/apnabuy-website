@@ -555,6 +555,29 @@ nav a {
 .peak-low {
   color: #94a3b8; /* gray */
 }
+/* ================= ACTIVITY FEED ================= */
+
+.activity {
+  padding: 80px 24px;
+  text-align: center;
+}
+
+.activity-box {
+  max-width: 520px;
+  margin: 24px auto 0;
+  padding: 18px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+#activityText {
+  transition: opacity 0.4s ease;
+}
+
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
