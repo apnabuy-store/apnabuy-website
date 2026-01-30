@@ -34,11 +34,10 @@
   <h1>Your city’s trusted local marketplace</h1>
   <p>Discover genuine products from verified shops near you.</p>
 </section>
-
 <!-- CITY PRESENCE -->
 <section class="city-presence">
   <p>
-    📍 Live in <strong>Amravati</strong>
+    📍 Live in <strong>Amravati</strong>  
     <span>• Coming soon: Nagpur • Akola • Yavatmal</span>
   </p>
 </section>
@@ -62,7 +61,6 @@
     <div><strong>3</strong><p>Order via WhatsApp</p></div>
   </div>
 </section>
-
 <!-- ACTIVITY FEED -->
 <section class="activity">
   <h2>Live Local Activity</h2>
@@ -75,6 +73,7 @@
 <section class="shops" id="shops" style="display:none;">
   <h2>Shops available in your city</h2>
 
+  <!-- SHOP SEARCH -->
   <input
     type="text"
     id="shopSearch"
@@ -86,13 +85,7 @@
   <div class="shop-grid"></div>
 </section>
 
-<!-- 🔥 TRENDING PRODUCTS (VISIBLE BEFORE PINCODE) -->
-<section class="products trending-section" id="trendingSection">
-  <h2>🔥 Trending in Your City</h2>
-  <div class="product-grid" id="trendingGrid"></div>
-</section>
-
-<!-- PRODUCTS (SHOP PRODUCTS ONLY) -->
+<!-- PRODUCTS -->
 <section class="products" id="products">
   <h2>Products</h2>
   <div class="product-grid"></div>
@@ -108,7 +101,70 @@
     </a>
   </div>
 </section>
+<!-- WHY -->
+<section class="why">
+  <h2>Why ApnaBuy?</h2>
+  <div class="why-grid">
+    <div><h3>Local & Trusted</h3><p>Verified local sellers only.</p></div>
+    <div><h3>Fast Delivery</h3><p>Products from nearby shops.</p></div>
+    <div><h3>WhatsApp Support</h3><p>Simple ordering, real support.</p></div>
+    <div><h3>No Fake Sellers</h3><p>Verified & trusted partners.</p></div>
+  </div>
+</section>
+<!-- ABOUT APNABUY -->
+<section class="about">
+  <h2>About ApnaBuy</h2>
 
+  <div class="about-content">
+    <p>
+      <strong>ApnaBuy</strong> was started with a simple belief —
+      <em>local shop owners deserve the same digital reach as big platforms,
+      without losing their identity.</em>
+    </p>
+
+    <p>
+      Customers often face fake sellers, delayed deliveries, and no real support
+      on large marketplaces. At the same time, genuine local shops lose customers
+      despite offering better products and faster availability.
+    </p>
+
+    <p>
+      ApnaBuy bridges this gap by connecting customers directly with
+      <strong>real, verified shops in their own city</strong>.
+    </p>
+
+    <div class="about-highlights">
+      <div>
+        <h4>🏙 City-First Focus</h4>
+        <p>
+          ApnaBuy grows one city at a time. Every listed shop is a physical store,
+          verified before onboarding.
+        </p>
+      </div>
+
+      <div>
+        <h4>🤝 Supporting Local Businesses</h4>
+        <p>
+          Orders are placed directly with shop owners via WhatsApp —
+          keeping communication transparent and human.
+        </p>
+      </div>
+
+      <div>
+        <h4>🛡 Trust & Accountability</h4>
+        <p>
+          No fake sellers. No unknown third parties.
+          Just trusted local shops you can rely on.
+        </p>
+      </div>
+    </div>
+
+    <p class="about-founder">
+      ApnaBuy is independently built and managed by a local team with
+      hands-on experience in retail and digital commerce.
+    </p>
+  </div>
+</section>
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <h2>Contact & Support</h2>
@@ -125,12 +181,32 @@
 <script>
 const APNABUY_WHATSAPP = "919730572143";
 
+/* ===== OPEN / CLOSED LOGIC ===== */
+function isShopOpen() {
+  const hour = new Date().getHours();
+  return hour >= 10 && hour < 21;
+}
+function getPeakStatus() {
+  const hour = new Date().getHours();
+
+  if ((hour >= 11 && hour <= 14) || (hour >= 18 && hour <= 21)) {
+    return { text: "🔥 High demand right now", class: "peak-high" };
+  }
+
+  if (hour >= 10 && hour < 22) {
+    return { text: "🟢 Normal activity", class: "peak-normal" };
+  }
+
+  return { text: "🌙 Low activity right now", class: "peak-low" };
+}
+
 /* ===== DATA ===== */
 const shopsData = {
   "444601": [
     {
       name: "Shree Mobile Shop",
       owner: "Ramesh Patil",
+      sameDay: true,
       address: "Main Road, Amravati",
       timing: "10 AM – 9 PM",
       phone: "+91 9730572143",
@@ -138,8 +214,22 @@ const shopsData = {
       map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
       image: "images/shree-mobile-shop.jpg",
       products: [
-        { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg" },
-        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
+        { name: "Realme 65W SuperDart Charger", price: "₹2,499", image: "images/realme65w.jpg",availability: "high" },
+        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg",availability: "high" }
+      ]
+    },
+    {
+      name: "Sai Electronics",
+      owner: "Amit Sharma",
+      sameDay: true,
+      address: "Market Area, Amravati",
+      timing: "9:30 AM – 8:30 PM",
+      phone: "+91 9730572143",
+      rating: 4.3,
+      map: "https://www.google.com/maps/search/Sai+Electronics+Amravati",
+      image: "images/sai-electronics.jpg",
+      products: [
+        { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg",availability: "high" }
       ]
     }
   ]
@@ -150,7 +240,7 @@ function checkPincode() {
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
-  const productGrid = document.querySelector("#products .product-grid");
+  const productGrid = document.querySelector(".product-grid");
 
   shopGrid.innerHTML = "";
   productGrid.innerHTML = "";
@@ -163,84 +253,174 @@ function checkPincode() {
 
   result.textContent = "Shops available in your area";
   result.style.color = "lightgreen";
-
   document.getElementById("shops").style.display = "block";
-  document.getElementById("trendingSection").style.display = "none";
 
   shopsData[pin].forEach((shop, index) => {
+    const open = isShopOpen();
+    const peak = getPeakStatus();
+
+
     const card = document.createElement("div");
     card.className = "shop-card";
     card.innerHTML = `
-      <img src="${shop.image}" class="shop-image">
-      <h3>${shop.name}</h3>
-      <p>${shop.products.length} products available</p>
-    `;
+  <img src="${shop.image}" class="shop-image">
+
+  <div class="shop-header">
+    <h3 class="shop-name">${shop.name}</h3>
+    <span class="verified-badge">✔ Verified</span>
+  </div>
+ ${shop.sameDay ? `
+    <div class="same-day-badge">
+      ⚡ Same-day delivery available
+    </div>
+  ` : `
+    <div class="same-day-badge muted">
+      🕒 Standard local delivery
+    </div>
+  `}
+  <div class="shop-rating">⭐ ${shop.rating} / 5</div>
+  <div class="shop-status ${open ? 'open' : 'closed'}">
+    ${open ? '🟢 Open Now' : '🔴 Closed'}
+  </div>
+<div class="peak-status ${peak.class}">
+  ${peak.text}
+</div>
+
+  <p>👤 ${shop.owner}</p>
+  <p>📍 ${shop.address}</p>
+  <p>⏰ ${shop.timing}</p>
+  <p>📞 ${shop.phone}</p>
+
+  <a href="${shop.map}" target="_blank" class="map-link">
+    📍 View on Map
+  </a>
+
+  <p><strong>${shop.products.length}</strong> products available</p>
+
+  <a href="shop.html?pin=${pin}&shop=${index}" class="profile-btn">
+    View Shop Profile →
+  </a>
+`;
+
+
     card.onclick = () => showProducts(pin, index);
     shopGrid.appendChild(card);
   });
+
+  document.getElementById("shops").scrollIntoView({ behavior: "smooth" });
+}
+function filterShops() {
+  const query = document.getElementById("shopSearch").value.toLowerCase();
+  const cards = document.querySelectorAll(".shop-card");
+
+  cards.forEach(card => {
+    const text = card.innerText.toLowerCase();
+    card.style.display = text.includes(query) ? "block" : "none";
+  });
 }
 
+  
 /* ===== PRODUCTS ===== */
 function showProducts(pin, index) {
-  const grid = document.querySelector("#products .product-grid");
+  const grid = document.querySelector(".product-grid");
   grid.innerHTML = "";
 
   const shop = shopsData[pin][index];
 
   shop.products.forEach(p => {
-    grid.innerHTML += `
-      <div class="product-card">
-        <img src="${p.image}">
-        <h4>${p.name}</h4>
-        <strong>${p.price}</strong>
-        <button class="buy-btn"
-          onclick="buyProduct('${p.name}','${p.price}','${shop.name}','${pin}')">
-          Buy on WhatsApp
-        </button>
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.innerHTML = `
+      <img src="${p.image}">
+      <h4>${p.name}</h4>
+      <strong>${p.price}</strong>
+<div class="availability ${p.availability}">
+  <span class="label">📦 Availability</span>
+  <span class="meter">
+    ${getAvailabilityDots(p.availability)}
+  </span>
+  <span class="text">
+    ${getAvailabilityText(p.availability)}
+  </span>
+</div>
+
+      <div class="quantity-box">
+        <button onclick="changeQty(this,-1)">−</button>
+        <span class="qty-value">1</span>
+        <button onclick="changeQty(this,1)">+</button>
       </div>
+
+      <button class="buy-btn" onclick="buyProduct('${p.name}','${p.price}','${shop.name}','${pin}',this)">
+        Buy on WhatsApp
+      </button>
     `;
+    grid.appendChild(card);
   });
 
   document.getElementById("products").scrollIntoView({ behavior: "smooth" });
 }
+function getAvailabilityDots(level) {
+  if (level === "high") return "● ● ● ● ○";
+  if (level === "medium") return "● ● ● ○ ○";
+  return "● ● ○ ○ ○";
+}
 
-function buyProduct(name, price, shop, pin) {
-  const msg = `Product: ${name}\nPrice: ${price}\nShop: ${shop}\nPincode: ${pin}`;
+function getAvailabilityText(level) {
+  if (level === "high") return "High (Usually in stock)";
+  if (level === "medium") return "Medium (Stock may vary)";
+  return "Limited (Ask before ordering)";
+}
+
+function changeQty(btn, delta) {
+  const span = btn.parentElement.querySelector(".qty-value");
+  span.textContent = Math.max(1, parseInt(span.textContent) + delta);
+}
+
+function buyProduct(name, price, shop, pin, btn) {
+  const qty = btn.parentElement.querySelector(".qty-value").textContent;
+  const msg = `Product: ${name}\nQty: ${qty}\nPrice: ${price}\nShop: ${shop}\nPincode: ${pin}`;
   window.open(`https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`);
 }
-
-/* ===== TRENDING PRODUCTS ===== */
-const trendingProducts = [
-  { name: "Bluetooth Neckband", price: "₹1,299", image: "images/trending-neckband.jpg" },
-  { name: "Power Bank 10,000mAh", price: "₹1,499", image: "images/trending-powerbank.jpg" },
-  { name: "Type-C Cable", price: "₹399", image: "images/trending-cable.jpg" },
-  { name: "Bluetooth Speaker", price: "₹2,499", image: "images/trending-speaker.jpg" }
-];
-
-let trendingIndex = 0;
-function renderTrendingProducts() {
-  const grid = document.getElementById("trendingGrid");
-  grid.innerHTML = "";
-
-  for (let i = 0; i < 2; i++) {
-    const p = trendingProducts[(trendingIndex + i) % trendingProducts.length];
-    grid.innerHTML += `
-      <div class="product-card">
-        <img src="${p.image}">
-        <h4>${p.name}</h4>
-        <strong>${p.price}</strong>
-      </div>
-    `;
-  }
-
-  trendingIndex = (trendingIndex + 1) % trendingProducts.length;
-}
-setInterval(renderTrendingProducts, 4000);
-renderTrendingProducts();
 
 function toggleMenu() {
   document.getElementById("mainNav").classList.toggle("show");
 }
+</script>
+  
+  <script>
+  // Always load page from top
+  window.onload = function () {
+    if (window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  };
+    /* ================= ACTIVITY FEED ================= */
+
+const activityMessages = [
+  "🟢 Shree Mobile Shop sold a Realme 65W Charger",
+  "📍 Order placed from Rajapeth, Amravati",
+  "🟢 Sai Electronics updated stock today",
+  "🛍️ Customer ordered Bluetooth Neckband",
+  "📦 Local delivery in progress in Amravati",
+  "🟢 Shop verified by ApnaBuy team"
+];
+
+let activityIndex = 0;
+const activityText = document.getElementById("activityText");
+
+setInterval(() => {
+  if (!activityText) return;
+
+  activityText.style.opacity = 0;
+
+  setTimeout(() => {
+    activityText.textContent = activityMessages[activityIndex];
+    activityText.style.opacity = 1;
+    activityIndex = (activityIndex + 1) % activityMessages.length;
+  }, 400);
+
+}, 3500);
+
 </script>
 
 </body>
