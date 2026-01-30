@@ -123,15 +123,44 @@ document.getElementById("mapLink").href = shop.map;
 /* ================= PRODUCTS ================= */
 
 const productGrid = document.getElementById("productGrid");
+
 shop.products.forEach(p => {
   productGrid.innerHTML += `
     <div class="product-card">
       <img src="${p.image}">
       <h4>${p.name}</h4>
       <strong>${p.price}</strong>
+
+      <button class="buy-btn"
+        onclick="buyFromProfile(
+          '${p.name}',
+          '${p.price}',
+          '${shop.name}',
+          '${pin}'
+        )">
+        Buy on WhatsApp
+      </button>
     </div>
   `;
 });
+function buyFromProfile(name, price, shop, pin) {
+  const msg = `
+Hello ApnaBuy Team 👋
+
+📦 Product: ${name}
+💰 Price: ${price}
+🏪 Shop: ${shop}
+📍 Pincode: ${pin}
+
+Please confirm availability.
+`.trim();
+
+  window.open(
+    `https://wa.me/919730572143?text=${encodeURIComponent(msg)}`,
+    "_blank"
+  );
+}
+
 
 /* ================= REVIEWS ================= */
 
