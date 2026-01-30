@@ -257,35 +257,45 @@ function checkPincode() {
 
     const card = document.createElement("div");
     card.className = "shop-card";
-   card.innerHTML = `
-  <div class="shop-image-wrap">
-    <img src="${shop.image}" class="shop-image">
+    card.innerHTML = `
+  <img src="${shop.image}" class="shop-image">
 
-    <span class="shop-rating-badge">⭐ ${shop.rating}</span>
-    <span class="shop-status-badge ${open ? 'open' : 'closed'}">
-      ${open ? '🟢 Open' : '🔴 Closed'}
-    </span>
+  <div class="shop-header">
+    <h3 class="shop-name">${shop.name}</h3>
+    <span class="verified-badge">✔ Verified</span>
   </div>
-
-  <div class="shop-body">
-    <div class="shop-title">
-      <h3 class="shop-name">${shop.name}</h3>
-      <span class="verified-badge">✔ Verified</span>
+ ${shop.sameDay ? `
+    <div class="same-day-badge">
+      ⚡ Same-day delivery available
     </div>
-
-    <p class="shop-address">📍 ${shop.address}</p>
-    <p class="shop-timing">⏰ ${shop.timing}</p>
-
-    <a href="${shop.map}" target="_blank" class="map-link">
-      📍 View on Map
-    </a>
-
-    <div class="shop-footer">
-      <strong>${shop.products.length}</strong> Products Available
+  ` : `
+    <div class="same-day-badge muted">
+      🕒 Standard local delivery
     </div>
+  `}
+  <div class="shop-rating">⭐ ${shop.rating} / 5</div>
+  <div class="shop-status ${open ? 'open' : 'closed'}">
+    ${open ? '🟢 Open Now' : '🔴 Closed'}
   </div>
+<div class="peak-status ${peak.class}">
+  ${peak.text}
+</div>
+
+  <p>👤 ${shop.owner}</p>
+  <p>📍 ${shop.address}</p>
+  <p>⏰ ${shop.timing}</p>
+  <p>📞 ${shop.phone}</p>
+
+  <a href="${shop.map}" target="_blank" class="map-link">
+    📍 View on Map
+  </a>
+
+  <p><strong>${shop.products.length}</strong> products available</p>
+
+  <a href="shop.html?pin=${pin}&shop=${index}" class="profile-btn">
+    View Shop Profile →
+  </a>
 `;
-
 
 
     card.onclick = () => showProducts(pin, index);
