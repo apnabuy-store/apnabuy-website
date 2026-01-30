@@ -396,6 +396,34 @@ function toggleMenu() {
       window.scrollTo(0, 0);
     }
   };
+/* ================= ACTIVITY FEED ================= */
+
+const activityMessages = [
+  "🟢 Shree Mobile Shop sold a Realme 65W Charger",
+  "📍 Order placed from Rajapeth, Amravati",
+  "🟢 Sai Electronics updated stock today",
+  "🛍️ Customer ordered Bluetooth Neckband",
+  "📦 Local delivery in progress in Amravati",
+  "🟢 Shop verified by ApnaBuy team"
+];
+
+let activityIndex = 0;
+const activityText = document.getElementById("activityText");
+
+setInterval(() => {
+  if (!activityText) return;
+
+  activityText.style.opacity = 0;
+
+  setTimeout(() => {
+    activityText.textContent = activityMessages[activityIndex];
+    activityText.style.opacity = 1;
+    activityIndex = (activityIndex + 1) % activityMessages.length;
+  }, 400);
+
+}, 3500);
+
+    
 </script>
 
 </body>
