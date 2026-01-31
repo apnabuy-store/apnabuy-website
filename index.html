@@ -535,6 +535,13 @@ setInterval(renderTrendingProducts, 4000);
 // Initial load
 renderTrendingProducts();
 
+   console.log("Trending script loaded");
+
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("DOM ready – rendering trending");
+  renderTrendingProducts();
+});
+ 
 </script>
 
 
