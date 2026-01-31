@@ -695,216 +695,230 @@ nav a {
 }
 
 /* =========================================================
-   APNABUY — BLACK LABEL OG INTERFACE
-   ELITE • PREMIUM • TRUST • DEPTH • ZERO LOGIC CHANGE
+   APNABUY — BLACK DIAMOND CINEMATIC UI
+   SHOCK • LUXURY • AUTHORITY • ZERO LOGIC CHANGE
 ========================================================= */
 
-/* ================= ROOT ATMOSPHERE ================= */
+/* ================= GLOBAL RESET OVERRIDE ================= */
+* {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ================= BODY — CINEMATIC CANVAS ================= */
 body {
   background:
-    radial-gradient(1200px 600px at 15% -10%, rgba(79,124,255,0.18), transparent 60%),
-    radial-gradient(900px 500px at 85% 110%, rgba(34,197,94,0.14), transparent 60%),
-    linear-gradient(180deg, #030513 0%, #050817 60%, #02030c 100%);
+    radial-gradient(1400px 700px at 10% -20%, rgba(99,102,241,0.25), transparent 60%),
+    radial-gradient(1200px 600px at 90% 120%, rgba(34,197,94,0.18), transparent 60%),
+    linear-gradient(180deg, #02030a 0%, #040617 55%, #010108 100%);
   color: #e5e7eb;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER — EXECUTIVE BAR ================= */
 .header {
-  background: rgba(3,5,19,0.92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: linear-gradient(
+    180deg,
+    rgba(5,7,24,0.96),
+    rgba(2,3,10,0.92)
+  );
+  backdrop-filter: blur(26px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   box-shadow:
-    0 30px 80px rgba(0,0,0,0.9),
-    inset 0 -1px 0 rgba(255,255,255,0.04);
+    0 40px 120px rgba(0,0,0,0.95),
+    inset 0 -1px 0 rgba(255,255,255,0.06);
 }
 
+/* ================= LOGO POWER ================= */
 .brand .logo {
-  filter: drop-shadow(0 8px 20px rgba(79,124,255,0.35));
+  height: 104px;
+  filter:
+    drop-shadow(0 12px 30px rgba(99,102,241,0.45))
+    drop-shadow(0 0 60px rgba(255,255,255,0.08));
 }
 
+/* ================= BRAND TEXT ================= */
 .brand-name {
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 900;
-  letter-spacing: 0.6px;
-  background: linear-gradient(90deg,#ffffff,#c7d2fe);
+  letter-spacing: 1px;
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #c7d2fe,
+    #ffffff
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .tagline {
+  font-size: 11px;
+  letter-spacing: 3.5px;
   color: #9ca3af;
-  font-weight: 600;
-  letter-spacing: 2.5px;
 }
 
-/* ================= NAV ================= */
-nav a {
-  font-weight: 700;
-  letter-spacing: 0.3px;
-}
-
-nav a:hover {
-  color: #ffffff;
-}
-
-/* ================= HERO ================= */
+/* ================= HERO — CINEMA ================= */
 .hero {
+  padding: 160px 24px 140px;
   background:
-    radial-gradient(1000px 500px at center, rgba(79,124,255,0.22), transparent),
-    linear-gradient(180deg, #070b2a, #030513);
+    radial-gradient(1200px 600px at center, rgba(99,102,241,0.35), transparent),
+    linear-gradient(180deg,#070a2b,#02030a);
 }
 
 .hero h1 {
-  font-size: 60px;
+  font-size: 68px;
   font-weight: 900;
-  letter-spacing: -1px;
-  background: linear-gradient(90deg, #ffffff, #9ecbff, #ffffff);
+  letter-spacing: -1.5px;
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #a5b4fc,
+    #ffffff
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 30px 80px rgba(0,0,0,0.9);
 }
 
 .hero p {
+  font-size: 20px;
   color: #c7d2fe;
-  font-size: 19px;
+  margin-top: 22px;
 }
 
 /* ================= SECTION HEADINGS ================= */
 section > h2 {
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 900;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.5px;
+  text-align: center;
 }
 
 section > h2::after {
-  width: 90px;
-  height: 4px;
-  background: linear-gradient(90deg,#4f7cff,#38bdf8,#22c55e);
+  content: "";
+  display: block;
+  width: 120px;
+  height: 5px;
+  margin: 20px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #6366f1,
+    #38bdf8,
+    #22c55e
+  );
+  box-shadow: 0 0 40px rgba(99,102,241,0.8);
 }
 
-/* ================= CARD SYSTEM ================= */
+/* ================= CARD SYSTEM — METAL GLASS ================= */
 .shop-card,
 .product-card {
-  position: relative;
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.08),
+      rgba(255,255,255,0.12),
       rgba(255,255,255,0.02)
     );
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 24px;
-  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 28px;
+  backdrop-filter: blur(20px);
   box-shadow:
-    0 25px 70px rgba(0,0,0,0.75),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-  transition: all 0.45s cubic-bezier(.2,.8,.2,1);
+    0 30px 90px rgba(0,0,0,0.85),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  transition: all 0.55s cubic-bezier(.2,.8,.2,1);
 }
 
 .shop-card:hover,
 .product-card:hover {
-  transform: translateY(-12px) scale(1.01);
+  transform: translateY(-16px) scale(1.02);
   box-shadow:
-    0 45px 120px rgba(0,0,0,0.95),
-    0 0 0 1px rgba(79,124,255,0.35);
+    0 60px 160px rgba(0,0,0,1),
+    0 0 0 1px rgba(99,102,241,0.45);
 }
 
 /* ================= SHOP IMAGE ================= */
 .shop-image {
-  border-radius: 18px;
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  border-radius: 22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 18px 60px rgba(0,0,0,0.7);
 }
 
 /* ================= PRODUCT IMAGE ================= */
 .product-card img {
-  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
-  padding: 22px;
+  padding: 28px;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.18), transparent 70%);
 }
 
-/* ================= PRICE ================= */
+/* ================= PRICE — MONEY FEEL ================= */
 .product-card strong {
-  font-size: 21px;
+  font-size: 22px;
   font-weight: 900;
   background: linear-gradient(90deg,#22c55e,#4ade80);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ================= BUY BUTTON ================= */
+/* ================= BUY BUTTON — MONEY CTA ================= */
 .buy-btn {
-  background: linear-gradient(135deg,#22c55e,#16a34a);
+  background: linear-gradient(135deg,#22c55e,#15803d);
   box-shadow:
-    0 18px 55px rgba(34,197,94,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.25);
+    0 25px 80px rgba(34,197,94,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
 .buy-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow:
-    0 28px 90px rgba(34,197,94,0.8);
+    0 40px 140px rgba(34,197,94,1);
 }
 
-/* ================= VERIFIED BADGE ================= */
-.verified-badge {
-  background: linear-gradient(135deg, rgba(56,189,248,0.25), rgba(56,189,248,0.12));
-  color: #bae6fd;
-  font-weight: 800;
-}
-
-/* ================= PINCODE ================= */
-.pincode-section {
-  background:
-    radial-gradient(700px 350px at center, rgba(79,124,255,0.25), transparent),
-    linear-gradient(180deg,#070b2a,#030513);
-}
-
-.pincode-box {
-  background: rgba(10,15,40,0.95);
-  border: 1px solid rgba(79,124,255,0.45);
-  box-shadow: 0 20px 70px rgba(0,0,0,0.9);
-}
-
-/* ================= TRENDING ================= */
+/* ================= TRENDING — SHOCK BADGE ================= */
 .trending-card {
-  border: 1px solid rgba(250,204,21,0.4);
+  position: relative;
+  border: 1px solid rgba(250,204,21,0.5);
 }
 
-.trending-card::after {
+.trending-card::before {
   content: "🔥 TRENDING TODAY";
   position: absolute;
-  top: 14px;
-  right: 14px;
-  padding: 6px 14px;
+  top: 16px;
+  left: 16px;
+  padding: 8px 16px;
   font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 1px;
   border-radius: 999px;
-  background: linear-gradient(135deg, rgba(250,204,21,0.3), rgba(250,204,21,0.12));
-  color: #fde68a;
-  font-weight: 800;
-  letter-spacing: 0.6px;
+  background: linear-gradient(135deg,#facc15,#fde68a);
+  color: #1c1917;
+  box-shadow: 0 10px 40px rgba(250,204,21,0.9);
 }
 
-/* ================= ACTIVITY FEED ================= */
+/* ================= PINCODE — COMMAND CENTER ================= */
+.pincode-box {
+  background: rgba(6,8,32,0.98);
+  border: 1px solid rgba(99,102,241,0.55);
+  box-shadow: 0 30px 100px rgba(0,0,0,1);
+}
+
+/* ================= ACTIVITY ================= */
 .activity-box {
-  background: rgba(10,15,40,0.95);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 70px rgba(0,0,0,0.85);
-}
-
-/* ================= ABOUT ================= */
-.about {
-  background:
-    linear-gradient(180deg,#030513,#02030c);
+  background: rgba(6,8,32,0.95);
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 30px 100px rgba(0,0,0,0.9);
 }
 
 /* ================= FOOTER ================= */
 .site-footer {
-  background: #02030c;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  background: #010108;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 42px; }
-  section > h2 { font-size: 30px; }
+  .hero h1 { font-size: 44px; }
+  section > h2 { font-size: 32px; }
 }
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
