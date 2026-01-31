@@ -694,220 +694,186 @@ nav a {
   margin-bottom: 28px;
 }
 /* =========================================================
-   APNABUY — DOMINANT BRAND INTERFACE (ULTRA PREMIUM)
-   CSS OVERRIDE ONLY — ZERO LOGIC CHANGE
+   APNABUY — PREMIUM DARK DOMINANT BRAND UI
+   DARK • RICH • PROFESSIONAL • ZERO LOGIC CHANGE
 ========================================================= */
 
-/* ================= ROOT ENERGY ================= */
-:root {
-  --brand-blue: #1e40af;
-  --brand-accent: #2563eb;
-  --brand-green: #16a34a;
-  --soft-bg: #f8fafc;
-  --card-border: rgba(2,6,23,0.08);
-}
-
-/* ================= BODY ================= */
+/* ================= GLOBAL ATMOSPHERE ================= */
 body {
-  background: linear-gradient(180deg, #f9fbff 0%, #eef2ff 100%);
-  color: #020617;
+  background:
+    radial-gradient(1200px 600px at top, rgba(79,124,255,0.12), transparent 60%),
+    radial-gradient(900px 500px at bottom, rgba(34,197,94,0.10), transparent 60%),
+    linear-gradient(180deg, #070a18, #02040d);
+  color: #e5e7eb;
 }
 
 /* ================= HEADER ================= */
 .header {
-  background: rgba(255,255,255,0.92);
+  background: rgba(7,10,24,0.88);
   backdrop-filter: blur(18px);
-  box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.6);
 }
 
 .brand-name {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
-  letter-spacing: -0.4px;
+  letter-spacing: 0.4px;
+  color: #f8fafc;
 }
 
 .tagline {
-  font-size: 11px;
-  color: #64748b;
+  color: #9ca3af;
+  letter-spacing: 2px;
 }
 
 /* ================= NAV ================= */
 nav a {
-  color: #0f172a;
+  color: #e5e7eb;
   font-weight: 600;
-  transition: color 0.25s ease;
+  position: relative;
 }
 
-nav a:hover {
-  color: var(--brand-accent);
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg,#4f7cff,#38bdf8);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 /* ================= HERO ================= */
 .hero {
   background:
-    radial-gradient(900px 400px at top, rgba(37,99,235,0.12), transparent),
-    linear-gradient(180deg, #ffffff, #f8fafc);
+    radial-gradient(900px 400px at center, rgba(79,124,255,0.18), transparent),
+    linear-gradient(180deg, #0b0f2a, #070a18);
 }
 
 .hero h1 {
-  font-size: 58px;
+  font-size: 56px;
   font-weight: 900;
-  letter-spacing: -1px;
-  color: #020617;
+  letter-spacing: -0.8px;
+  background: linear-gradient(90deg, #ffffff, #9ecbff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-  font-size: 19px;
-  max-width: 680px;
-  margin: 20px auto 0;
-  color: #475569;
+  color: #b6bdd6;
+  font-size: 18px;
 }
 
-/* ================= SECTION HEADERS ================= */
+/* ================= SECTION TITLES ================= */
 section > h2 {
+  color: #f8fafc;
   font-size: 36px;
   font-weight: 800;
-  text-align: center;
-  color: #020617;
 }
 
 section > h2::after {
   content: "";
-  display: block;
-  width: 64px;
+  width: 70px;
   height: 4px;
-  margin: 14px auto 0;
+  display: block;
+  margin: 16px auto 0;
   border-radius: 999px;
-  background: linear-gradient(
-    90deg,
-    var(--brand-blue),
-    var(--brand-accent)
-  );
+  background: linear-gradient(90deg,#4f7cff,#38bdf8);
 }
 
-/* ================= CARD UPGRADE ================= */
+/* ================= CARDS ================= */
 .shop-card,
 .product-card {
-  background: white;
-  border-radius: 22px;
-  border: 1px solid var(--card-border);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.02)
+    );
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
   box-shadow:
-    0 14px 40px rgba(2,6,23,0.12),
-    inset 0 1px 0 rgba(255,255,255,0.8);
+    0 20px 50px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.06);
   transition: all 0.35s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.shop-card::before,
-.product-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(37,99,235,0.06),
-    transparent
-  );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.shop-card:hover::before,
-.product-card:hover::before {
-  opacity: 1;
 }
 
 .shop-card:hover,
 .product-card:hover {
-  transform: translateY(-10px) scale(1.01);
-  box-shadow: 0 40px 90px rgba(2,6,23,0.18);
+  transform: translateY(-10px);
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.8),
+    0 0 0 1px rgba(79,124,255,0.25);
 }
 
 /* ================= SHOP IMAGE ================= */
 .shop-image {
-  height: 190px;
   border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 /* ================= PRODUCT IMAGE ================= */
 .product-card img {
-  height: 210px;
-  background: #f8fafc;
-  padding: 22px;
-  object-fit: contain;
+  background: rgba(255,255,255,0.03);
+  padding: 20px;
+  border-radius: 16px;
 }
 
 /* ================= PRICE ================= */
 .product-card strong {
+  color: #22c55e;
   font-size: 20px;
   font-weight: 800;
-  color: var(--brand-green);
 }
 
 /* ================= BUY BUTTON ================= */
 .buy-btn {
-  background: linear-gradient(
-    135deg,
-    #22c55e,
-    #16a34a
-  );
-  box-shadow: 0 16px 36px rgba(34,197,94,0.45);
-  font-size: 15px;
-  letter-spacing: 0.3px;
+  background: linear-gradient(135deg,#22c55e,#16a34a);
+  box-shadow: 0 14px 40px rgba(34,197,94,0.45);
+  letter-spacing: 0.4px;
 }
 
 .buy-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 22px 50px rgba(34,197,94,0.6);
+  box-shadow: 0 22px 70px rgba(34,197,94,0.65);
 }
 
 /* ================= VERIFIED ================= */
 .verified-badge {
-  background: rgba(37,99,235,0.15);
-  color: var(--brand-blue);
+  background: rgba(56,189,248,0.15);
+  color: #7dd3fc;
   font-weight: 700;
 }
 
 /* ================= PINCODE ================= */
 .pincode-section {
   background:
-    radial-gradient(
-      600px 300px at center,
-      rgba(37,99,235,0.15),
-      transparent
-    ),
-    #ffffff;
+    radial-gradient(600px 300px at center, rgba(79,124,255,0.2), transparent),
+    #0b1028;
 }
 
 .pincode-box {
-  background: white;
-  border: 2px solid rgba(37,99,235,0.2);
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(79,124,255,0.35);
+}
+
+.pincode-box input {
+  color: #f8fafc;
 }
 
 .pincode-box button {
-  background: linear-gradient(
-    135deg,
-    var(--brand-blue),
-    var(--brand-accent)
-  );
-  font-weight: 700;
-}
-
-/* ================= ACTIVITY FEED ================= */
-.activity-box {
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    #f8fafc
-  );
-  font-weight: 600;
+  background: linear-gradient(135deg,#4f7cff,#38bdf8);
 }
 
 /* ================= TRENDING ================= */
 .trending-card {
-  border: 2px solid rgba(234,88,12,0.18);
+  border: 1px solid rgba(250,204,21,0.35);
+  box-shadow: 0 0 0 1px rgba(250,204,21,0.15);
 }
 
 .trending-card::after {
@@ -915,33 +881,42 @@ section > h2::after {
   position: absolute;
   top: 14px;
   right: 14px;
+  padding: 6px 12px;
   font-size: 11px;
-  padding: 6px 10px;
   border-radius: 999px;
-  background: #fff7ed;
-  color: #ea580c;
+  background: rgba(250,204,21,0.15);
+  color: #facc15;
   font-weight: 700;
+}
+
+/* ================= ACTIVITY FEED ================= */
+.activity-box {
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 /* ================= ABOUT ================= */
 .about {
-  background: linear-gradient(
-    180deg,
-    #ffffff,
-    #f8fafc
-  );
+  background:
+    linear-gradient(180deg, #070a18, #02040d);
 }
 
 /* ================= FOOTER ================= */
 .site-footer {
-  background: linear-gradient(
-    180deg,
-    #020617,
-    #020617
-  );
+  background: #02040d;
+  color: #9ca3af;
 }
 
 /* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+  section > h2 {
+    font-size: 28px;
+  }
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
