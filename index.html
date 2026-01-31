@@ -92,6 +92,9 @@
 <div class="trending-wrapper" id="trendingWrapper">
   <div class="product-grid" id="trendingGrid"></div>
 </div>
+<p class="pincode-hint">
+  📍 Enter your pincode above to check nearby shops and place an order
+</p>
 
 <!-- SHOP PRODUCTS (USED BY EXISTING LOGIC) -->
 <div class="product-grid" id="shopProductGrid"></div>
@@ -504,7 +507,37 @@ function renderTrendingProducts() {
 
 // Show trending by default
 renderTrendingProducts();
-    
+    let trendingIndex = 0;
+
+function renderTrendingProducts() {
+  const grid = document.getElementById("trendingGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  // Show 2 products at a time
+  for (let i = 0; i < 2; i++) {
+    const product =
+      trendingProducts[(trendingIndex + i) % trendingProducts.length];
+
+    grid.innerHTML += `
+      <div class="product-card trending-card">
+        <img src="${product.image}">
+        <h4>${product.name}</h4>
+        <strong>${product.price}</strong>
+      </div>
+    `;
+  }
+
+  trendingIndex = (trendingIndex + 1) % trendingProducts.length;
+}
+
+// Auto rotate every 4 seconds
+setInterval(renderTrendingProducts, 4000);
+
+// Initial load
+renderTrendingProducts();
+
 </script>
 
 
