@@ -84,6 +84,11 @@
 
   <div class="shop-grid"></div>
 </section>
+<!-- TRENDING PRODUCTS (VISIBLE BEFORE PINCODE) -->
+<section class="products" id="trendingProducts">
+  <h2>🔥 Trending in Your City</h2>
+  <div class="product-grid" id="trendingGrid"></div>
+</section>
 
 <!-- PRODUCTS -->
 <section class="products" id="products">
@@ -260,6 +265,7 @@ const shopsData = {
 
 /* ===== PINCODE ===== */
 function checkPincode() {
+  document.getElementById("trendingProducts").style.display = "none";
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
@@ -450,6 +456,64 @@ setInterval(() => {
   section.style.display =
     section.style.display === "block" ? "none" : "block";
 }  
+</script>
+<script>
+/* ================= TRENDING PRODUCTS (PRE-PINCODE) ================= */
+
+const trendingProducts = [
+  {
+    name: "Bluetooth Neckband",
+    price: "₹1,299",
+    image: "images/trending-neckband.jpg"
+  },
+  {
+    name: "10,000mAh Power Bank",
+    price: "₹1,499",
+    image: "images/trending-powerbank.jpg"
+  },
+  {
+    name: "JBL Bluetooth Speaker",
+    price: "₹1599",
+    image: "images/trending-speakar.jpg"
+  },
+  {
+    name: "Type-C Data Cable",
+    price: "₹399",
+    image: "images/trending-cable.jpg"
+  }
+];
+
+let trendingIndex = 0;
+
+function renderTrendingProducts() {
+  const grid = document.getElementById("trendingGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  // show 2 at a time
+  for (let i = 0; i < 2; i++) {
+    const product =
+      trendingProducts[(trendingIndex + i) % trendingProducts.length];
+
+    grid.innerHTML += `
+      <div class="product-card">
+        <img src="${product.image}">
+        <h4>${product.name}</h4>
+        <strong>${product.price}</strong>
+      </div>
+    `;
+  }
+
+  trendingIndex =
+    (trendingIndex + 1) % trendingProducts.length;
+}
+
+// rotate every 4 seconds
+setInterval(renderTrendingProducts, 4000);
+
+// initial render
+renderTrendingProducts();
 </script>
 
 </body>
