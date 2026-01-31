@@ -270,7 +270,8 @@ function checkPincode() {
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
-  const productGrid = document.querySelector(".product-grid");
+  const productGrid = document.getElementById("shopProductGrid");
+
 
   shopGrid.innerHTML = "";
   productGrid.innerHTML = "";
