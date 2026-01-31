@@ -694,154 +694,254 @@ nav a {
   margin-bottom: 28px;
 }
 /* =========================================================
-   APNABUY — PROFESSIONAL UI UPGRADE (CSS ONLY)
-   NO LOGIC / NO JS / NO HTML CHANGE
+   APNABUY — DOMINANT BRAND INTERFACE (ULTRA PREMIUM)
+   CSS OVERRIDE ONLY — ZERO LOGIC CHANGE
 ========================================================= */
 
-/* ========== 1. MICRO INTERACTIONS (ALIVE FEEL) ========== */
-.shop-card,
-.product-card {
-  position: relative;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+/* ================= ROOT ENERGY ================= */
+:root {
+  --brand-blue: #1e40af;
+  --brand-accent: #2563eb;
+  --brand-green: #16a34a;
+  --soft-bg: #f8fafc;
+  --card-border: rgba(2,6,23,0.08);
 }
 
-.shop-card:hover,
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 70px rgba(0,0,0,0.6);
+/* ================= BODY ================= */
+body {
+  background: linear-gradient(180deg, #f9fbff 0%, #eef2ff 100%);
+  color: #020617;
 }
 
-/* ========== 2. STRONG SECTION HEADINGS ========== */
+/* ================= HEADER ================= */
+.header {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.tagline {
+  font-size: 11px;
+  color: #64748b;
+}
+
+/* ================= NAV ================= */
+nav a {
+  color: #0f172a;
+  font-weight: 600;
+  transition: color 0.25s ease;
+}
+
+nav a:hover {
+  color: var(--brand-accent);
+}
+
+/* ================= HERO ================= */
+.hero {
+  background:
+    radial-gradient(900px 400px at top, rgba(37,99,235,0.12), transparent),
+    linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+.hero h1 {
+  font-size: 58px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: #020617;
+}
+
+.hero p {
+  font-size: 19px;
+  max-width: 680px;
+  margin: 20px auto 0;
+  color: #475569;
+}
+
+/* ================= SECTION HEADERS ================= */
 section > h2 {
   font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 14px;
-  letter-spacing: -0.6px;
+  font-weight: 800;
   text-align: center;
+  color: #020617;
 }
 
 section > h2::after {
   content: "";
   display: block;
   width: 64px;
-  height: 3px;
+  height: 4px;
   margin: 14px auto 0;
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background: linear-gradient(
+    90deg,
+    var(--brand-blue),
+    var(--brand-accent)
+  );
 }
 
-/* ========== 3. PRODUCT CARD — E-COMMERCE LOOK ========== */
+/* ================= CARD UPGRADE ================= */
+.shop-card,
+.product-card {
+  background: white;
+  border-radius: 22px;
+  border: 1px solid var(--card-border);
+  box-shadow:
+    0 14px 40px rgba(2,6,23,0.12),
+    inset 0 1px 0 rgba(255,255,255,0.8);
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-card::before,
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(37,99,235,0.06),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.shop-card:hover::before,
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.shop-card:hover,
+.product-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: 0 40px 90px rgba(2,6,23,0.18);
+}
+
+/* ================= SHOP IMAGE ================= */
+.shop-image {
+  height: 190px;
+  border-radius: 16px;
+}
+
+/* ================= PRODUCT IMAGE ================= */
 .product-card img {
-  height: 200px;
+  height: 210px;
+  background: #f8fafc;
+  padding: 22px;
   object-fit: contain;
-  background: #0b0f1f;
-  padding: 16px;
-  border-radius: 14px;
 }
 
-.product-card h4 {
-  margin-top: 12px;
-  font-size: 16px;
-  font-weight: 600;
-}
-
+/* ================= PRICE ================= */
 .product-card strong {
-  display: block;
-  margin-top: 6px;
-  font-size: 18px;
-  color: var(--gold);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--brand-green);
 }
 
-/* ========== 4. BUY BUTTON — HIGH CONVERSION ========== */
+/* ================= BUY BUTTON ================= */
 .buy-btn {
-  width: 100%;
-  margin-top: 16px;
+  background: linear-gradient(
+    135deg,
+    #22c55e,
+    #16a34a
+  );
+  box-shadow: 0 16px 36px rgba(34,197,94,0.45);
   font-size: 15px;
   letter-spacing: 0.3px;
-  box-shadow: 0 14px 36px rgba(37,211,102,0.45);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .buy-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 20px 46px rgba(37,211,102,0.6);
+  box-shadow: 0 22px 50px rgba(34,197,94,0.6);
 }
 
-/* ========== 5. TRENDING PRODUCTS — LIVE FEEL ========== */
-.trending-card::before {
+/* ================= VERIFIED ================= */
+.verified-badge {
+  background: rgba(37,99,235,0.15);
+  color: var(--brand-blue);
+  font-weight: 700;
+}
+
+/* ================= PINCODE ================= */
+.pincode-section {
+  background:
+    radial-gradient(
+      600px 300px at center,
+      rgba(37,99,235,0.15),
+      transparent
+    ),
+    #ffffff;
+}
+
+.pincode-box {
+  background: white;
+  border: 2px solid rgba(37,99,235,0.2);
+}
+
+.pincode-box button {
+  background: linear-gradient(
+    135deg,
+    var(--brand-blue),
+    var(--brand-accent)
+  );
+  font-weight: 700;
+}
+
+/* ================= ACTIVITY FEED ================= */
+.activity-box {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f8fafc
+  );
+  font-weight: 600;
+}
+
+/* ================= TRENDING ================= */
+.trending-card {
+  border: 2px solid rgba(234,88,12,0.18);
+}
+
+.trending-card::after {
   content: "🔥 Trending Today";
   position: absolute;
   top: 14px;
-  left: 14px;
+  right: 14px;
   font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
+  padding: 6px 10px;
   border-radius: 999px;
-  background: rgba(250,204,21,0.15);
-  color: var(--gold);
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0% { opacity: 0.6; }
-  50% { opacity: 1; }
-  100% { opacity: 0.6; }
-}
-
-/* ========== 6. BRAND VISIBILITY (LOGO & HEADER) ========== */
-.brand .logo {
-  height: 110px;
-}
-
-.brand-name {
-  font-size: 22px;
+  background: #fff7ed;
+  color: #ea580c;
   font-weight: 700;
-  letter-spacing: -0.4px;
 }
 
-/* ========== 7. SPACING = PROFESSIONAL POLISH ========== */
-.how,
-.shops,
-.products,
-.why,
-.about,
-.contact {
-  padding-top: 140px;
-  padding-bottom: 140px;
+/* ================= ABOUT ================= */
+.about {
+  background: linear-gradient(
+    180deg,
+    #ffffff,
+    #f8fafc
+  );
 }
 
-section {
-  scroll-margin-top: 130px;
+/* ================= FOOTER ================= */
+.site-footer {
+  background: linear-gradient(
+    180deg,
+    #020617,
+    #020617
+  );
 }
 
-/* ========== 8. SUBTLE BACKGROUND MOTION (ACTIVE SITE) ========== */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(600px 300px at 20% 10%, rgba(79,124,255,0.08), transparent),
-    radial-gradient(600px 300px at 80% 20%, rgba(56,189,248,0.08), transparent);
-  z-index: -1;
-  animation: floatBg 12s ease-in-out infinite alternate;
-}
-
-@keyframes floatBg {
-  from { transform: translateY(0); }
-  to { transform: translateY(-30px); }
-}
-
-/* ========== MOBILE SAFETY (NO BREAKS) ========== */
-@media (max-width: 768px) {
-  section > h2 {
-    font-size: 28px;
-  }
-
-  .product-card img {
-    height: 170px;
-  }
-}
-
+/* ================= MOBILE ================= */
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
