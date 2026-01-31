@@ -267,6 +267,7 @@ const shopsData = {
 /* ===== PINCODE ===== */
 function checkPincode() {
   document.getElementById("trendingWrapper").style.display = "none";
+  document.getElementById("shopProductGrid").style.display = "grid";
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
@@ -484,26 +485,6 @@ const trendingProducts = [
     image: "images/trending-cable.jpg"
   }
 ];
-
-function renderTrendingProducts() {
-  const grid = document.getElementById("trendingGrid");
-  if (!grid) return;
-
-  grid.innerHTML = "";
-
-  trendingProducts.forEach(p => {
-    grid.innerHTML += `
-      <div class="product-card">
-        <img src="${p.image}">
-        <h4>${p.name}</h4>
-        <strong>${p.price}</strong>
-      </div>
-    `;
-  });
-}
-
-// Show trending by default
-renderTrendingProducts();
     let trendingIndex = 0;
 
 function renderTrendingProducts() {
