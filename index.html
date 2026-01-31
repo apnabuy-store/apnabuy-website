@@ -85,21 +85,12 @@
   <div class="shop-grid"></div>
 </section>
 
-
 <!-- PRODUCTS -->
-<div class="product-grid" id="shopProductGrid"></div>
-  <h2>Products</h2>
 <section class="products" id="products">
   <h2>Products</h2>
-
-  <!-- Trending products (if any) -->
-  <div class="product-grid" id="trendingGrid"></div>
-
-  <!-- Shop products -->
-  <div class="product-grid" id="shopProductGrid"></div>
- </section>
-   <div class="product-grid"></div>
+  <div class="product-grid"></div>
 </section>
+
 <!-- REQUEST -->
 <section class="request">
   <div class="request-inner">
@@ -269,7 +260,6 @@ const shopsData = {
 
 /* ===== PINCODE ===== */
 function checkPincode() {
-  document.getElementById("trendingProducts").style.display = "none";
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
@@ -355,7 +345,7 @@ function filterShops() {
 
 /* ===== PRODUCTS ===== */
 function showProducts(pin, index) {
-  const grid = document.getElementById("shopProductGrid");
+  const grid = document.querySelector(".product-grid");
   grid.innerHTML = "";
 
   const shop = shopsData[pin][index];
@@ -460,64 +450,6 @@ setInterval(() => {
   section.style.display =
     section.style.display === "block" ? "none" : "block";
 }  
-</script>
-<script>
-/* ================= TRENDING PRODUCTS (PRE-PINCODE) ================= */
-
-const trendingProducts = [
-  {
-    name: "Bluetooth Neckband",
-    price: "₹1,299",
-    image: "images/trending-neckband.jpg"
-  },
-  {
-    name: "10,000mAh Power Bank",
-    price: "₹1,499",
-    image: "images/trending-powerbank.jpg"
-  },
-  {
-    name: "JBL Bluetooth Speaker",
-    price: "₹1,599",
-    image: "images/trending-speaker.jpg"
-  },
-  {
-    name: "Type-C Data Cable",
-    price: "₹399",
-    image: "images/trending-cable.jpg"
-  }
-];
-
-let trendingIndex = 0;
-
-function renderTrendingProducts() {
-  const grid = document.getElementById("trendingGrid");
-  if (!grid) return;
-
-  grid.innerHTML = "";
-
-  // show 2 at a time
-  for (let i = 0; i < 2; i++) {
-    const product =
-      trendingProducts[(trendingIndex + i) % trendingProducts.length];
-
-    grid.innerHTML += `
-      <div class="product-card">
-        <img src="${product.image}">
-        <h4>${product.name}</h4>
-        <strong>${product.price}</strong>
-      </div>
-    `;
-  }
-
-  trendingIndex =
-    (trendingIndex + 1) % trendingProducts.length;
-}
-
-// rotate every 4 seconds
-setInterval(renderTrendingProducts, 4000);
-
-// initial render
-renderTrendingProducts();
 </script>
 
 </body>
