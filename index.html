@@ -334,7 +334,11 @@ function checkPincode() {
   </a>
 
   <p><strong>${shop.products.length}</strong> products available</p>
-
+<button
+  class="view-products-btn"
+  onclick="showProducts('${pin}', ${index})">
+  🛍 View Products
+</button>
   <a href="shop.html?pin=${pin}&shop=${index}" class="profile-btn">
     View Shop Profile →
   </a>
