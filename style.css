@@ -645,35 +645,6 @@ nav a {
   color: var(--text-main);
   text-align: center;
 }
-/* ================= PINCODE INSTRUCTION ================= */
-
-.pincode-instruction {
-  margin: 18px auto 28px;
-  padding: 14px 22px;
-  max-width: 520px;
-  text-align: center;
-
-  background: rgba(79,124,255,0.12);
-  border: 1px dashed rgba(79,124,255,0.4);
-  border-radius: 14px;
-
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-main);
-
-  animation: pulseHint 2.2s ease-in-out infinite;
-}
-
-.pincode-instruction strong {
-  color: var(--accent);
-}
-
-/* Subtle pulse animation */
-@keyframes pulseHint {
-  0%   { opacity: 0.6; transform: translateY(0); }
-  50%  { opacity: 1;   transform: translateY(-2px); }
-  100% { opacity: 0.6; transform: translateY(0); }
-}
 
 /* ================= VIEW PRODUCTS BUTTON ================= */
 
