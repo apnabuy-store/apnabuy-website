@@ -94,7 +94,7 @@
 </div>
 
 <!-- SHOP PRODUCTS (USED BY EXISTING LOGIC) -->
-<div class="product-grid"></div>
+<div class="product-grid" id="shopProductGrid"></div>
 
 </section>
 
@@ -353,7 +353,8 @@ function filterShops() {
 
 /* ===== PRODUCTS ===== */
 function showProducts(pin, index) {
-  const grid = document.querySelector(".product-grid");
+  const grid = document.getElementById("shopProductGrid");
+
   grid.innerHTML = "";
 
   const shop = shopsData[pin][index];
