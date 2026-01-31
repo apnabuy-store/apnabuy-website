@@ -88,7 +88,14 @@
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <h2>Products</h2>
-  <div class="product-grid"></div>
+ <!-- TRENDING PRODUCTS (DEFAULT) -->
+<div class="trending-wrapper" id="trendingWrapper">
+  <div class="product-grid" id="trendingGrid"></div>
+</div>
+
+<!-- SHOP PRODUCTS (USED BY EXISTING LOGIC) -->
+<div class="product-grid"></div>
+
 </section>
 
 <!-- REQUEST -->
@@ -260,6 +267,7 @@ const shopsData = {
 
 /* ===== PINCODE ===== */
 function checkPincode() {
+  document.getElementById("trendingWrapper").style.display = "none";
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
@@ -450,7 +458,53 @@ setInterval(() => {
   section.style.display =
     section.style.display === "block" ? "none" : "block";
 }  
+/* ================= TRENDING PRODUCTS ================= */
+
+const trendingProducts = [
+  {
+    name: "Bluetooth Neckband",
+    price: "₹1,299",
+    image: "images/trending-neckband.jpg"
+  },
+  {
+    name: "JBL Bluetooth Speaker",
+    price: "₹2,499",
+    image: "images/trending-speaker.jpg"
+  },
+  {
+    name: "10,000mAh Power Bank",
+    price: "₹1,499",
+    image: "images/trending-powerbank.jpg"
+  },
+  {
+    name: "Type-C Data Cable",
+    price: "₹399",
+    image: "images/trending-cable.jpg"
+  }
+];
+
+function renderTrendingProducts() {
+  const grid = document.getElementById("trendingGrid");
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  trendingProducts.forEach(p => {
+    grid.innerHTML += `
+      <div class="product-card">
+        <img src="${p.image}">
+        <h4>${p.name}</h4>
+        <strong>${p.price}</strong>
+      </div>
+    `;
+  });
+}
+
+// Show trending by default
+renderTrendingProducts();
+    
 </script>
+
 
 </body>
 </html>
