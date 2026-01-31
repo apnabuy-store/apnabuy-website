@@ -675,6 +675,31 @@ nav a {
   100% { opacity: 0.6; transform: translateY(0); }
 }
 
+/* ================= VIEW PRODUCTS BUTTON ================= */
+
+.view-products-btn {
+  margin-top: 12px;
+  padding: 10px 22px;
+  width: 100%;
+
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(79,124,255,0.35);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.view-products-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(79,124,255,0.45);
+}
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
