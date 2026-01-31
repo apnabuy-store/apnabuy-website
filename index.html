@@ -88,11 +88,6 @@
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <h2>Products</h2>
-  <!-- PINCODE INSTRUCTION -->
-<div class="pincode-instruction" id="pincodeInstruction">
-  📍 Enter your <strong>pincode</strong> to see nearby shops & buy products
-</div>
-
  <!-- TRENDING PRODUCTS (DEFAULT) -->
 <div class="trending-wrapper" id="trendingWrapper">
 
@@ -283,7 +278,6 @@ const shopsData = {
 
 /* ===== PINCODE ===== */
 function checkPincode() {
-  document.getElementById("pincodeInstruction").style.display = "none";
   document.getElementById("trendingWrapper").style.display = "none";
   document.getElementById("shopProductGrid").style.display = "grid";
   const pin = document.getElementById("pincodeInput").value.trim();
