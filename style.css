@@ -701,6 +701,28 @@ nav a {
   box-shadow: 0 12px 30px rgba(79,124,255,0.45);
 }
 
+/* ================= TRENDING PRODUCTS HEADING ================= */
+
+.trending-title {
+  margin-top: 24px;
+  margin-bottom: 6px;
+  text-align: center;
+
+  font-size: 22px;
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #facc15, #fb923c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.trending-subtext {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
