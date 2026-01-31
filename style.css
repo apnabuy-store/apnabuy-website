@@ -694,53 +694,53 @@ nav a {
   margin-bottom: 28px;
 }
 
+
 /* =========================================================
-   APNABUY — BLACK DIAMOND CINEMATIC UI
-   SHOCK • LUXURY • AUTHORITY • ZERO LOGIC CHANGE
+   APNABUY — PLATINUM SIGNATURE UI
+   Ultra-Luxury • Editorial • Global-Brand Feel
+   ZERO LOGIC / ZERO HTML CHANGE
 ========================================================= */
 
-/* ================= GLOBAL RESET OVERRIDE ================= */
-* {
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+/* ---------- GLOBAL TYPOGRAPHY POLISH ---------- */
+body {
+  letter-spacing: 0.2px;
 }
 
-/* ================= BODY — CINEMATIC CANVAS ================= */
+h1, h2, h3, h4 {
+  font-feature-settings: "liga","kern";
+}
+
+/* ---------- CANVAS: DEEP PREMIUM LAYERS ---------- */
 body {
   background:
-    radial-gradient(1400px 700px at 10% -20%, rgba(99,102,241,0.25), transparent 60%),
-    radial-gradient(1200px 600px at 90% 120%, rgba(34,197,94,0.18), transparent 60%),
-    linear-gradient(180deg, #02030a 0%, #040617 55%, #010108 100%);
-  color: #e5e7eb;
+    radial-gradient(1600px 900px at 50% -20%, rgba(99,102,241,0.30), transparent 60%),
+    radial-gradient(1400px 800px at 90% 120%, rgba(34,197,94,0.22), transparent 60%),
+    linear-gradient(180deg,#02030b,#05071e,#02030b);
 }
 
-/* ================= HEADER — EXECUTIVE BAR ================= */
+/* ---------- HEADER: EXECUTIVE GLASS BAR ---------- */
 .header {
-  background: linear-gradient(
-    180deg,
-    rgba(5,7,24,0.96),
-    rgba(2,3,10,0.92)
-  );
-  backdrop-filter: blur(26px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background:
+    linear-gradient(180deg, rgba(8,10,38,0.92), rgba(2,3,10,0.95));
+  backdrop-filter: blur(32px) saturate(140%);
   box-shadow:
-    0 40px 120px rgba(0,0,0,0.95),
-    inset 0 -1px 0 rgba(255,255,255,0.06);
+    0 40px 140px rgba(0,0,0,1),
+    inset 0 -1px 0 rgba(255,255,255,0.08);
 }
 
-/* ================= LOGO POWER ================= */
+/* ---------- LOGO: STATEMENT OBJECT ---------- */
 .brand .logo {
-  height: 104px;
+  height: 112px;
   filter:
-    drop-shadow(0 12px 30px rgba(99,102,241,0.45))
-    drop-shadow(0 0 60px rgba(255,255,255,0.08));
+    drop-shadow(0 20px 50px rgba(99,102,241,0.55))
+    drop-shadow(0 0 80px rgba(255,255,255,0.12));
 }
 
-/* ================= BRAND TEXT ================= */
+/* ---------- BRAND NAME: LUXURY WORDMARK ---------- */
 .brand-name {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 1.4px;
   background: linear-gradient(
     90deg,
     #ffffff,
@@ -751,24 +751,26 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+/* ---------- TAGLINE: FASHION-HOUSE STYLE ---------- */
 .tagline {
   font-size: 11px;
-  letter-spacing: 3.5px;
+  letter-spacing: 4px;
   color: #9ca3af;
 }
 
-/* ================= HERO — CINEMA ================= */
+/* ---------- HERO: EDITORIAL CINEMA ---------- */
 .hero {
-  padding: 160px 24px 140px;
+  padding: 180px 24px 160px;
   background:
-    radial-gradient(1200px 600px at center, rgba(99,102,241,0.35), transparent),
-    linear-gradient(180deg,#070a2b,#02030a);
+    radial-gradient(1200px 600px at center, rgba(99,102,241,0.45), transparent),
+    linear-gradient(180deg,#0a0e3a,#02030b);
 }
 
 .hero h1 {
-  font-size: 68px;
+  font-size: 72px;
   font-weight: 900;
-  letter-spacing: -1.5px;
+  letter-spacing: -2px;
+  line-height: 1.05;
   background: linear-gradient(
     90deg,
     #ffffff,
@@ -777,29 +779,31 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 30px 80px rgba(0,0,0,0.9);
+  text-shadow:
+    0 40px 120px rgba(0,0,0,1);
 }
 
 .hero p {
-  font-size: 20px;
+  font-size: 21px;
+  max-width: 760px;
+  margin: 28px auto 0;
   color: #c7d2fe;
-  margin-top: 22px;
 }
 
-/* ================= SECTION HEADINGS ================= */
+/* ---------- SECTION TITLES: MAGAZINE STYLE ---------- */
 section > h2 {
-  font-size: 42px;
+  font-size: 44px;
   font-weight: 900;
-  letter-spacing: -0.5px;
-  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
 }
 
 section > h2::after {
   content: "";
   display: block;
-  width: 120px;
+  width: 140px;
   height: 5px;
-  margin: 20px auto 0;
+  margin: 22px auto 0;
   border-radius: 999px;
   background: linear-gradient(
     90deg,
@@ -807,119 +811,119 @@ section > h2::after {
     #38bdf8,
     #22c55e
   );
-  box-shadow: 0 0 40px rgba(99,102,241,0.8);
+  box-shadow:
+    0 0 60px rgba(99,102,241,0.9);
 }
 
-/* ================= CARD SYSTEM — METAL GLASS ================= */
+/* ---------- GRID ALIGNMENT: PERFECT RHYTHM ---------- */
+.shop-grid,
+.product-grid {
+  gap: 48px;
+}
+
+/* ---------- CARD: LUXURY OBJECT ---------- */
 .shop-card,
 .product-card {
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.12),
-      rgba(255,255,255,0.02)
+      rgba(255,255,255,0.16),
+      rgba(255,255,255,0.03)
     );
-  border: 1px solid rgba(255,255,255,0.10);
-  border-radius: 28px;
-  backdrop-filter: blur(20px);
+  border-radius: 32px;
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(24px);
   box-shadow:
-    0 30px 90px rgba(0,0,0,0.85),
-    inset 0 1px 0 rgba(255,255,255,0.12);
-  transition: all 0.55s cubic-bezier(.2,.8,.2,1);
+    0 40px 140px rgba(0,0,0,1),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+  transition: all 0.6s cubic-bezier(.2,.9,.2,1);
 }
 
+/* ---------- CARD HOVER: WEIGHT & DEPTH ---------- */
 .shop-card:hover,
 .product-card:hover {
-  transform: translateY(-16px) scale(1.02);
+  transform: translateY(-18px) scale(1.025);
   box-shadow:
-    0 60px 160px rgba(0,0,0,1),
-    0 0 0 1px rgba(99,102,241,0.45);
+    0 80px 220px rgba(0,0,0,1),
+    0 0 0 1px rgba(99,102,241,0.55);
 }
 
-/* ================= SHOP IMAGE ================= */
-.shop-image {
+/* ---------- IMAGE PRESENTATION ---------- */
+.shop-image,
+.product-card img {
   border-radius: 22px;
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,0.08),
-    0 18px 60px rgba(0,0,0,0.7);
+    0 25px 90px rgba(0,0,0,0.85);
 }
 
-/* ================= PRODUCT IMAGE ================= */
-.product-card img {
-  padding: 28px;
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,0.18), transparent 70%);
-}
-
-/* ================= PRICE — MONEY FEEL ================= */
+/* ---------- PRODUCT PRICE: JEWEL TONE ---------- */
 .product-card strong {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 900;
   background: linear-gradient(90deg,#22c55e,#4ade80);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ================= BUY BUTTON — MONEY CTA ================= */
+/* ---------- BUY BUTTON: LUXURY CTA ---------- */
 .buy-btn {
+  padding: 14px 34px;
+  font-size: 15px;
+  letter-spacing: 0.6px;
   background: linear-gradient(135deg,#22c55e,#15803d);
   box-shadow:
-    0 25px 80px rgba(34,197,94,0.8),
+    0 30px 100px rgba(34,197,94,0.9),
     inset 0 1px 0 rgba(255,255,255,0.35);
 }
 
 .buy-btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   box-shadow:
-    0 40px 140px rgba(34,197,94,1);
+    0 60px 180px rgba(34,197,94,1);
 }
 
-/* ================= TRENDING — SHOCK BADGE ================= */
-.trending-card {
-  position: relative;
-  border: 1px solid rgba(250,204,21,0.5);
-}
-
+/* ---------- TRENDING: EXCLUSIVE LABEL ---------- */
 .trending-card::before {
-  content: "🔥 TRENDING TODAY";
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 8px 16px;
+  content: "TRENDING TODAY";
+  letter-spacing: 1.5px;
   font-size: 11px;
   font-weight: 900;
-  letter-spacing: 1px;
-  border-radius: 999px;
   background: linear-gradient(135deg,#facc15,#fde68a);
-  color: #1c1917;
-  box-shadow: 0 10px 40px rgba(250,204,21,0.9);
+  box-shadow:
+    0 14px 50px rgba(250,204,21,1);
 }
 
-/* ================= PINCODE — COMMAND CENTER ================= */
+/* ---------- PINCODE: COMMAND INPUT ---------- */
 .pincode-box {
   background: rgba(6,8,32,0.98);
-  border: 1px solid rgba(99,102,241,0.55);
-  box-shadow: 0 30px 100px rgba(0,0,0,1);
+  border-radius: 999px;
+  border: 1px solid rgba(99,102,241,0.6);
+  box-shadow:
+    0 40px 160px rgba(0,0,0,1);
 }
 
-/* ================= ACTIVITY ================= */
+/* ---------- ACTIVITY FEED: LIVE TERMINAL ---------- */
 .activity-box {
-  background: rgba(6,8,32,0.95);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 30px 100px rgba(0,0,0,0.9);
+  background: rgba(5,7,30,0.98);
+  border-radius: 20px;
+  box-shadow:
+    0 30px 120px rgba(0,0,0,0.95);
 }
 
-/* ================= FOOTER ================= */
+/* ---------- FOOTER: QUIET LUXURY ---------- */
 .site-footer {
-  background: #010108;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background: #010109;
+  font-size: 12px;
+  letter-spacing: 1px;
 }
 
-/* ================= MOBILE ================= */
+/* ---------- MOBILE: STILL PREMIUM ---------- */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 44px; }
+  .hero h1 { font-size: 46px; }
   section > h2 { font-size: 32px; }
 }
+
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
