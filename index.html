@@ -164,6 +164,27 @@
       hands-on experience in retail and digital commerce.
     </p>
   </div>
+  <!-- FOUNDER BUTTON -->
+<button class="founder-toggle-btn" onclick="toggleFounder()">
+  👤 Meet the Founder
+</button>
+
+<!-- FOUNDER INFO (HIDDEN BY DEFAULT) -->
+<div class="founder-section" id="founderSection">
+  <img src="images/founder.jpg" alt="Founder of ApnaBuy" class="founder-photo">
+
+  <h3>Founder, ApnaBuy</h3>
+
+  <p>
+    ApnaBuy is built by a local entrepreneur with hands-on experience
+    in retail and digital commerce, focused on helping genuine
+    neighborhood shops grow digitally without losing trust.
+  </p>
+
+  <p class="founder-quote">
+    “Local businesses don’t need replacement — they need visibility.”
+  </p>
+</div>
 </section>
 <!-- CONTACT -->
 <section class="contact" id="contact">
@@ -319,7 +340,7 @@ function filterShops() {
   });
 }
 
-  
+
 /* ===== PRODUCTS ===== */
 function showProducts(pin, index) {
   const grid = document.querySelector(".product-grid");
@@ -421,6 +442,12 @@ setInterval(() => {
 
 }, 3500);
 
+  
+  function toggleFounder() {
+  const section = document.getElementById("founderSection");
+  section.style.display =
+    section.style.display === "block" ? "none" : "block";
+}  
 </script>
 
 </body>
