@@ -693,228 +693,218 @@ nav a {
   color: var(--text-muted);
   margin-bottom: 28px;
 }
+
 /* =========================================================
-   APNABUY — PREMIUM DARK DOMINANT BRAND UI
-   DARK • RICH • PROFESSIONAL • ZERO LOGIC CHANGE
+   APNABUY — BLACK LABEL OG INTERFACE
+   ELITE • PREMIUM • TRUST • DEPTH • ZERO LOGIC CHANGE
 ========================================================= */
 
-/* ================= GLOBAL ATMOSPHERE ================= */
+/* ================= ROOT ATMOSPHERE ================= */
 body {
   background:
-    radial-gradient(1200px 600px at top, rgba(79,124,255,0.12), transparent 60%),
-    radial-gradient(900px 500px at bottom, rgba(34,197,94,0.10), transparent 60%),
-    linear-gradient(180deg, #070a18, #02040d);
+    radial-gradient(1200px 600px at 15% -10%, rgba(79,124,255,0.18), transparent 60%),
+    radial-gradient(900px 500px at 85% 110%, rgba(34,197,94,0.14), transparent 60%),
+    linear-gradient(180deg, #030513 0%, #050817 60%, #02030c 100%);
   color: #e5e7eb;
 }
 
 /* ================= HEADER ================= */
 .header {
-  background: rgba(7,10,24,0.88);
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 18px 60px rgba(0,0,0,0.6);
+  background: rgba(3,5,19,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.9),
+    inset 0 -1px 0 rgba(255,255,255,0.04);
+}
+
+.brand .logo {
+  filter: drop-shadow(0 8px 20px rgba(79,124,255,0.35));
 }
 
 .brand-name {
   font-size: 22px;
-  font-weight: 800;
-  letter-spacing: 0.4px;
-  color: #f8fafc;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  background: linear-gradient(90deg,#ffffff,#c7d2fe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .tagline {
   color: #9ca3af;
-  letter-spacing: 2px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
 }
 
 /* ================= NAV ================= */
 nav a {
-  color: #e5e7eb;
-  font-weight: 600;
-  position: relative;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg,#4f7cff,#38bdf8);
-  transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
+nav a:hover {
+  color: #ffffff;
 }
 
 /* ================= HERO ================= */
 .hero {
   background:
-    radial-gradient(900px 400px at center, rgba(79,124,255,0.18), transparent),
-    linear-gradient(180deg, #0b0f2a, #070a18);
+    radial-gradient(1000px 500px at center, rgba(79,124,255,0.22), transparent),
+    linear-gradient(180deg, #070b2a, #030513);
 }
 
 .hero h1 {
-  font-size: 56px;
+  font-size: 60px;
   font-weight: 900;
-  letter-spacing: -0.8px;
-  background: linear-gradient(90deg, #ffffff, #9ecbff);
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, #ffffff, #9ecbff, #ffffff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .hero p {
-  color: #b6bdd6;
-  font-size: 18px;
+  color: #c7d2fe;
+  font-size: 19px;
 }
 
-/* ================= SECTION TITLES ================= */
+/* ================= SECTION HEADINGS ================= */
 section > h2 {
-  color: #f8fafc;
-  font-size: 36px;
-  font-weight: 800;
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
 }
 
 section > h2::after {
-  content: "";
-  width: 70px;
+  width: 90px;
   height: 4px;
-  display: block;
-  margin: 16px auto 0;
-  border-radius: 999px;
-  background: linear-gradient(90deg,#4f7cff,#38bdf8);
+  background: linear-gradient(90deg,#4f7cff,#38bdf8,#22c55e);
 }
 
-/* ================= CARDS ================= */
+/* ================= CARD SYSTEM ================= */
 .shop-card,
 .product-card {
+  position: relative;
   background:
     linear-gradient(
       180deg,
-      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.08),
       rgba(255,255,255,0.02)
     );
   border: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  backdrop-filter: blur(14px);
   box-shadow:
-    0 20px 50px rgba(0,0,0,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.06);
-  transition: all 0.35s ease;
+    0 25px 70px rgba(0,0,0,0.75),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+  transition: all 0.45s cubic-bezier(.2,.8,.2,1);
 }
 
 .shop-card:hover,
 .product-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-12px) scale(1.01);
   box-shadow:
-    0 40px 90px rgba(0,0,0,0.8),
-    0 0 0 1px rgba(79,124,255,0.25);
+    0 45px 120px rgba(0,0,0,0.95),
+    0 0 0 1px rgba(79,124,255,0.35);
 }
 
 /* ================= SHOP IMAGE ================= */
 .shop-image {
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
 }
 
 /* ================= PRODUCT IMAGE ================= */
 .product-card img {
-  background: rgba(255,255,255,0.03);
-  padding: 20px;
-  border-radius: 16px;
+  background: radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%);
+  padding: 22px;
 }
 
 /* ================= PRICE ================= */
 .product-card strong {
-  color: #22c55e;
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 21px;
+  font-weight: 900;
+  background: linear-gradient(90deg,#22c55e,#4ade80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ================= BUY BUTTON ================= */
 .buy-btn {
   background: linear-gradient(135deg,#22c55e,#16a34a);
-  box-shadow: 0 14px 40px rgba(34,197,94,0.45);
-  letter-spacing: 0.4px;
+  box-shadow:
+    0 18px 55px rgba(34,197,94,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.25);
 }
 
 .buy-btn:hover {
-  box-shadow: 0 22px 70px rgba(34,197,94,0.65);
+  transform: translateY(-2px);
+  box-shadow:
+    0 28px 90px rgba(34,197,94,0.8);
 }
 
-/* ================= VERIFIED ================= */
+/* ================= VERIFIED BADGE ================= */
 .verified-badge {
-  background: rgba(56,189,248,0.15);
-  color: #7dd3fc;
-  font-weight: 700;
+  background: linear-gradient(135deg, rgba(56,189,248,0.25), rgba(56,189,248,0.12));
+  color: #bae6fd;
+  font-weight: 800;
 }
 
 /* ================= PINCODE ================= */
 .pincode-section {
   background:
-    radial-gradient(600px 300px at center, rgba(79,124,255,0.2), transparent),
-    #0b1028;
+    radial-gradient(700px 350px at center, rgba(79,124,255,0.25), transparent),
+    linear-gradient(180deg,#070b2a,#030513);
 }
 
 .pincode-box {
-  background: rgba(15,23,42,0.9);
-  border: 1px solid rgba(79,124,255,0.35);
-}
-
-.pincode-box input {
-  color: #f8fafc;
-}
-
-.pincode-box button {
-  background: linear-gradient(135deg,#4f7cff,#38bdf8);
+  background: rgba(10,15,40,0.95);
+  border: 1px solid rgba(79,124,255,0.45);
+  box-shadow: 0 20px 70px rgba(0,0,0,0.9);
 }
 
 /* ================= TRENDING ================= */
 .trending-card {
-  border: 1px solid rgba(250,204,21,0.35);
-  box-shadow: 0 0 0 1px rgba(250,204,21,0.15);
+  border: 1px solid rgba(250,204,21,0.4);
 }
 
 .trending-card::after {
-  content: "🔥 Trending Today";
+  content: "🔥 TRENDING TODAY";
   position: absolute;
   top: 14px;
   right: 14px;
-  padding: 6px 12px;
+  padding: 6px 14px;
   font-size: 11px;
   border-radius: 999px;
-  background: rgba(250,204,21,0.15);
-  color: #facc15;
-  font-weight: 700;
+  background: linear-gradient(135deg, rgba(250,204,21,0.3), rgba(250,204,21,0.12));
+  color: #fde68a;
+  font-weight: 800;
+  letter-spacing: 0.6px;
 }
 
 /* ================= ACTIVITY FEED ================= */
 .activity-box {
-  background: rgba(15,23,42,0.9);
+  background: rgba(10,15,40,0.95);
   border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 70px rgba(0,0,0,0.85);
 }
 
 /* ================= ABOUT ================= */
 .about {
   background:
-    linear-gradient(180deg, #070a18, #02040d);
+    linear-gradient(180deg,#030513,#02030c);
 }
 
 /* ================= FOOTER ================= */
 .site-footer {
-  background: #02040d;
-  color: #9ca3af;
+  background: #02030c;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 40px;
-  }
-  section > h2 {
-    font-size: 28px;
-  }
+  .hero h1 { font-size: 42px; }
+  section > h2 { font-size: 30px; }
 }
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
