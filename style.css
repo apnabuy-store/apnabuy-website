@@ -1004,3 +1004,38 @@ section::after {
   text-decoration: none;
   font-weight: 600;
 }
+/* =====================================================
+   MOBILE ALIGNMENT FIX — REQUEST SECTION ONLY
+   No logic or layout elsewhere affected
+===================================================== */
+
+@media (max-width: 768px) {
+  .request {
+    padding: 64px 16px;
+  }
+
+  .request-inner {
+    max-width: 100%;
+    padding: 0 8px;
+    text-align: center;
+  }
+
+  .request-inner h2 {
+    font-size: 22px;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .request-inner p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .request-btn {
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    display: block;
+  }
+}
