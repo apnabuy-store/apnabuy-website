@@ -984,3 +984,32 @@ html {
     line-height: 1 !important;
   }
 }
+/* ===== MOBILE VIEW HEADER FIX ===== */
+@media (max-width: 768px) {
+
+  /* Hide ApnaBuy text above tagline */
+  .brand-name {
+    display: none;
+  }
+
+  /* Increase logo size */
+  .logo {
+    width: 90px;   /* adjust if needed */
+    height: auto;
+  }
+
+  /* Increase tagline size */
+  .tagline {
+    font-size: 1.1rem;
+    letter-spacing: 0.4px;
+    margin-top: 6px;
+    text-align: center;
+  }
+
+  /* Center align brand section */
+  .brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
