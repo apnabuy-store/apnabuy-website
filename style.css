@@ -861,6 +861,76 @@ section::after {
     transform: none;
   }
 }
+/* =====================================================
+   FINAL MOBILE CENTER FIX — REQUEST SECTION
+   Absolutely no effect on desktop or logic
+===================================================== */
+
+@media (max-width: 768px) {
+  .request {
+    padding: 64px 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .request-inner {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .request-inner h2 {
+    font-size: 22px;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .request-inner p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .request-btn {
+    display: block;
+    width: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+/* =====================================================
+   HARD MOBILE CENTER FIX — REQUEST SECTION (FINAL)
+   No logic, no layout break, no side effects
+===================================================== */
+
+@media (max-width: 768px) {
+  section.request {
+    width: 100%;
+    padding: 64px 16px !important;
+    display: block !important;
+  }
+
+  section.request .request-inner {
+    display: block !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  section.request .request-inner * {
+    text-align: center !important;
+  }
+
+  section.request .request-btn {
+    display: inline-block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
@@ -1003,73 +1073,4 @@ section::after {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-}
-/* =====================================================
-   FINAL MOBILE CENTER FIX — REQUEST SECTION
-   Absolutely no effect on desktop or logic
-===================================================== */
-
-@media (max-width: 768px) {
-  .request {
-    padding: 64px 16px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .request-inner {
-    width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .request-inner h2 {
-    font-size: 22px;
-    line-height: 1.35;
-    margin-bottom: 12px;
-  }
-
-  .request-inner p {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 18px;
-  }
-
-  .request-btn {
-    display: block;
-    width: 100%;
-    max-width: 260px;
-    margin: 0 auto;
-  }
-}
-/* =====================================================
-   HARD MOBILE CENTER FIX — REQUEST SECTION (FINAL)
-   No logic, no layout break, no side effects
-===================================================== */
-
-@media (max-width: 768px) {
-  section.request {
-    width: 100%;
-    padding: 64px 16px !important;
-    display: block !important;
-  }
-
-  section.request .request-inner {
-    display: block !important;
-    width: 100% !important;
-    max-width: 340px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    text-align: center !important;
-  }
-
-  section.request .request-inner * {
-    text-align: center !important;
-  }
-
-  section.request .request-btn {
-    display: inline-block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
 }
