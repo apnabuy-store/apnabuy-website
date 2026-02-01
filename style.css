@@ -695,195 +695,122 @@ nav a {
 }
 
 /* ======================================================
-   APNABUY — RARE EDITION PREMIUM OVERLAY
-   (VISUAL ONLY — NO LOGIC CHANGED)
+   APNABUY — SIGNATURE LUXURY PRESENCE LAYER
+   Ultra-Subtle | Rare Edition | Memory-Making
    ====================================================== */
 
-/* ---------- GLOBAL PREMIUM FEEL ---------- */
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  letter-spacing: 0.25px;
-  background:
-    radial-gradient(1200px 600px at top, #1b234f 0%, transparent 60%),
-    linear-gradient(180deg, #0b0f1f, #070914);
-}
-
-/* ---------- HEADER : LUXURY GLASS ---------- */
-.header {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(20,24,45,0.92),
-      rgba(8,10,22,0.78)
-    );
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.75);
-}
-
-.brand .logo {
-  filter: drop-shadow(0 8px 24px rgba(255,255,255,0.18));
-}
-
-.brand-name {
-  letter-spacing: 0.6px;
-}
-
-.tagline {
-  opacity: 0.75;
-  letter-spacing: 2.6px;
-}
-
-/* ---------- NAV LINKS ---------- */
-nav a {
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0%;
-  height: 2px;
-  background: linear-gradient(90deg, #6a7cff, #9bb4ff);
-  transition: width 0.35s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ---------- HERO : EDITORIAL FEEL ---------- */
-.hero h1 {
-  font-weight: 800;
-  letter-spacing: -0.6px;
-}
-
-.hero p {
-  opacity: 0.75;
-}
-
-/* ---------- SECTION SPACING (BREATHING ROOM) ---------- */
-.how,
-.shops,
-.products,
-.why,
-.about,
-.contact {
-  padding-top: 140px;
-  padding-bottom: 140px;
-}
-
-/* ---------- PREMIUM CARDS ---------- */
+/* ---------- 1. MAGNETIC PREMIUM HOVER ---------- */
 .shop-card,
-.product-card {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.10),
-      rgba(255,255,255,0.03)
-    );
-  border-radius: 26px;
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow:
-    0 50px 120px rgba(0,0,0,0.85),
-    inset 0 1px 0 rgba(255,255,255,0.12);
-  transition: all 0.45s cubic-bezier(.22,.61,.36,1);
-}
-
-.shop-card:hover,
-.product-card:hover {
-  transform: translateY(-8px);
-}
-
-/* ---------- IMAGES : PRODUCT STUDIO LOOK ---------- */
-.shop-image,
-.product-card img {
-  border-radius: 18px;
-  box-shadow: 0 40px 90px rgba(0,0,0,0.85);
-  filter: contrast(1.05) saturate(1.05);
-}
-
-/* ---------- BUTTONS : RARE HARDWARE FEEL ---------- */
+.product-card,
 .buy-btn,
 .view-products-btn,
 .cta,
 .request-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-card::before,
+.product-card::before,
+.buy-btn::before,
+.view-products-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(135deg, #5f6cff, #8fb2ff);
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  box-shadow:
-    0 18px 42px rgba(95,108,255,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.35);
-  transition: all 0.35s ease;
+    radial-gradient(
+      420px 120px at var(--mx,50%) var(--my,50%),
+      rgba(120,140,255,0.18),
+      transparent 65%
+    );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
-.buy-btn:hover,
-.view-products-btn:hover,
-.cta:hover,
-.request-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 26px 60px rgba(95,108,255,0.65);
+.shop-card:hover::before,
+.product-card:hover::before,
+.buy-btn:hover::before,
+.view-products-btn:hover::before {
+  opacity: 1;
 }
 
-/* ---------- TRENDING SECTION : SHOWCASE ---------- */
-.trending-title {
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.trending-subtext {
-  opacity: 0.7;
-}
-
-/* ---------- SECTION REVEAL (CALM, NO FLASH) ---------- */
+/* ---------- 2. EDITORIAL SCROLL ACCENT ---------- */
 section {
-  animation: premiumReveal 0.8s ease both;
+  position: relative;
 }
 
-@keyframes premiumReveal {
+section::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  width: 120px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  opacity: 0.35;
+}
+
+/* ---------- 3. SIGNATURE FOCUS RING ---------- */
+input:focus,
+button:focus,
+a:focus {
+  outline: none;
+}
+
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.35),
+    0 0 0 5px rgba(120,140,255,0.35);
+  border-radius: 999px;
+}
+
+/* ---------- 4. MICRO-TYPOGRAPHY LUXURY ---------- */
+h1, h2, h3, h4 {
+  letter-spacing: -0.4px;
+}
+
+p {
+  letter-spacing: 0.35px;
+}
+
+/* ---------- 5. BUTTON PRESS FEEDBACK (HARDWARE FEEL) ---------- */
+.buy-btn:active,
+.view-products-btn:active,
+.cta:active,
+.request-btn:active {
+  transform: translateY(1px) scale(0.985);
+}
+
+/* ---------- 6. PREMIUM IMAGE LOAD FEEL ---------- */
+.shop-image,
+.product-card img {
+  animation: imageLift 0.6s ease both;
+}
+
+@keyframes imageLift {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(12px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* ---------- REQUEST SECTION CENTER FIX (MOBILE SAFE) ---------- */
-.request-inner {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ---------- MOBILE POLISH ---------- */
+/* ---------- 7. MOBILE: KEEP IT QUIET ---------- */
 @media (max-width: 768px) {
-
-  .how,
-  .shops,
-  .products,
-  .why,
-  .about,
-  .contact {
-    padding: 72px 16px;
-  }
-
-  .shop-card,
-  .product-card {
-    max-width: 360px;
-  }
-
-  /* Smaller hamburger icon — ONLY SIZE */
-  .menu-toggle {
-    font-size: 20px;
+  section::after {
+    opacity: 0.15;
   }
 }
 
