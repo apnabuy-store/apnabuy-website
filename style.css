@@ -1042,3 +1042,34 @@ section::after {
     margin: 0 auto;
   }
 }
+/* =====================================================
+   HARD MOBILE CENTER FIX — REQUEST SECTION (FINAL)
+   No logic, no layout break, no side effects
+===================================================== */
+
+@media (max-width: 768px) {
+  section.request {
+    width: 100%;
+    padding: 64px 16px !important;
+    display: block !important;
+  }
+
+  section.request .request-inner {
+    display: block !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    text-align: center !important;
+  }
+
+  section.request .request-inner * {
+    text-align: center !important;
+  }
+
+  section.request .request-btn {
+    display: inline-block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
