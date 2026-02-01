@@ -694,127 +694,199 @@ nav a {
   margin-bottom: 28px;
 }
 
-/* ===== OBSIDIAN PALETTE ===== */
+/* ======================================================
+   APNABUY — RARE EDITION PREMIUM OVERLAY
+   (VISUAL ONLY — NO LOGIC CHANGED)
+   ====================================================== */
+
+/* ---------- GLOBAL PREMIUM FEEL ---------- */
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: "Inter", sans-serif;
+  letter-spacing: 0.25px;
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(88,130,255,0.15), transparent 60%),
-    radial-gradient(900px 500px at 80% 10%, rgba(255,200,120,0.12), transparent 60%),
-    linear-gradient(180deg, #05070f, #070a16 40%, #05070f 100%);
-  color: var(--text-main);
-  line-height: 1.7;
-  padding-top: 110px;
-}
-.shop-card,
-.product-card,
-.activity-box,
-.about-highlights div,
-.founder-section,
-.request-inner {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.03)
-  );
-  border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(14px);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.7),
-    inset 0 1px 0 rgba(255,255,255,0.12);
-}
-h1 {
-  font-size: 56px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  background: linear-gradient(90deg, #ffffff, #c7d2ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    radial-gradient(1200px 600px at top, #1b234f 0%, transparent 60%),
+    linear-gradient(180deg, #0b0f1f, #070914);
 }
 
-h2 {
-  font-size: 36px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
+/* ---------- HEADER : LUXURY GLASS ---------- */
+.header {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(20,24,45,0.92),
+      rgba(8,10,22,0.78)
+    );
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.75);
 }
 
-h3 {
-  font-weight: 600;
-}
-.buy-btn,
-.view-products-btn,
-.cta,
-.request-btn {
-  background: linear-gradient(
-    135deg,
-    #4f7cff,
-    #38bdf8
-  );
-  border: none;
-  border-radius: 999px;
-  padding: 14px 28px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-  color: white;
-
-  box-shadow:
-    0 10px 30px rgba(79,124,255,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.35);
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+.brand .logo {
+  filter: drop-shadow(0 8px 24px rgba(255,255,255,0.18));
 }
 
-.buy-btn:hover,
-.view-products-btn:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 16px 40px rgba(79,124,255,0.65);
-}
-.shop-image,
-.product-card img {
-  border-radius: 14px;
-  box-shadow:
-    0 40px 90px rgba(0,0,0,0.8);
-  filter: saturate(1.05) contrast(1.05);
-}
-.trending-title {
-  font-size: 28px;
-  font-weight: 800;
+.brand-name {
   letter-spacing: 0.6px;
-  background: linear-gradient(90deg, #facc15, #fb923c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-.trending-subtext {
-  font-size: 14px;
-  color: rgba(255,255,255,0.65);
+.tagline {
+  opacity: 0.75;
+  letter-spacing: 2.6px;
 }
+
+/* ---------- NAV LINKS ---------- */
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #6a7cff, #9bb4ff);
+  transition: width 0.35s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- HERO : EDITORIAL FEEL ---------- */
+.hero h1 {
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.hero p {
+  opacity: 0.75;
+}
+
+/* ---------- SECTION SPACING (BREATHING ROOM) ---------- */
+.how,
+.shops,
+.products,
+.why,
+.about,
+.contact {
+  padding-top: 140px;
+  padding-bottom: 140px;
+}
+
+/* ---------- PREMIUM CARDS ---------- */
 .shop-card,
 .product-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.03)
+    );
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow:
+    0 50px 120px rgba(0,0,0,0.85),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  transition: all 0.45s cubic-bezier(.22,.61,.36,1);
 }
 
 .shop-card:hover,
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 50px 120px rgba(0,0,0,0.85);
+  transform: translateY(-8px);
 }
-@media (max-width: 768px) {
-  h1 {
-    font-size: 34px;
-  }
 
-  .menu-toggle {
-    font-size: 18px;
+/* ---------- IMAGES : PRODUCT STUDIO LOOK ---------- */
+.shop-image,
+.product-card img {
+  border-radius: 18px;
+  box-shadow: 0 40px 90px rgba(0,0,0,0.85);
+  filter: contrast(1.05) saturate(1.05);
+}
+
+/* ---------- BUTTONS : RARE HARDWARE FEEL ---------- */
+.buy-btn,
+.view-products-btn,
+.cta,
+.request-btn {
+  background:
+    linear-gradient(135deg, #5f6cff, #8fb2ff);
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  box-shadow:
+    0 18px 42px rgba(95,108,255,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+  transition: all 0.35s ease;
+}
+
+.buy-btn:hover,
+.view-products-btn:hover,
+.cta:hover,
+.request-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 26px 60px rgba(95,108,255,0.65);
+}
+
+/* ---------- TRENDING SECTION : SHOWCASE ---------- */
+.trending-title {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.trending-subtext {
+  opacity: 0.7;
+}
+
+/* ---------- SECTION REVEAL (CALM, NO FLASH) ---------- */
+section {
+  animation: premiumReveal 0.8s ease both;
+}
+
+@keyframes premiumReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- REQUEST SECTION CENTER FIX (MOBILE SAFE) ---------- */
+.request-inner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- MOBILE POLISH ---------- */
+@media (max-width: 768px) {
+
+  .how,
+  .shops,
+  .products,
+  .why,
+  .about,
+  .contact {
+    padding: 72px 16px;
   }
 
   .shop-card,
   .product-card {
     max-width: 360px;
   }
+
+  /* Smaller hamburger icon — ONLY SIZE */
+  .menu-toggle {
+    font-size: 20px;
+  }
 }
+
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
