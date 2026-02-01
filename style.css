@@ -885,6 +885,184 @@ section > h2::after {
   section > h2 { font-size: 34px; }
 }
 
+/* =========================================================
+   APNABUY — MOBILE ALIGNMENT FIX
+   Premium • Centered • Touch-Perfect
+   MOBILE ONLY — NO LOGIC CHANGED
+========================================================= */
+
+@media (max-width: 768px) {
+
+  /* ===== GLOBAL SPACING RESET ===== */
+  body {
+    padding-top: 0 !important;
+  }
+
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* ===== HEADER FIX ===== */
+  .header {
+    padding: 14px 16px;
+    justify-content: space-between;
+  }
+
+  .brand {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .brand .logo {
+    height: 64px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+    letter-spacing: 1.2px;
+  }
+
+  .tagline {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-align: center;
+  }
+
+  /* ===== HERO FIX ===== */
+  .hero {
+    padding: 120px 16px 100px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+    line-height: 1.05;
+    text-align: center;
+  }
+
+  .hero p {
+    font-size: 16px;
+    margin-top: 18px;
+    max-width: 100%;
+  }
+
+  /* ===== SECTION HEADINGS ===== */
+  section > h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+
+  section > h2::after {
+    width: 120px;
+    height: 3px;
+  }
+
+  /* ===== GRID CENTERING ===== */
+  .shop-grid,
+  .product-grid,
+  .steps,
+  .why-grid {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 22px;
+  }
+
+  /* ===== CARD SIZE CONTROL ===== */
+  .shop-card,
+  .product-card {
+    width: 100%;
+    max-width: 360px;
+    padding: 22px;
+  }
+
+  /* ===== IMAGE ALIGNMENT ===== */
+  .shop-image,
+  .product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  /* ===== PRODUCT TEXT ===== */
+  .product-card h4 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .product-card strong {
+    font-size: 20px;
+    display: block;
+    text-align: center;
+  }
+
+  /* ===== QUANTITY BOX ===== */
+  .quantity-box {
+    justify-content: center;
+  }
+
+  /* ===== BUY BUTTON ===== */
+  .buy-btn {
+    width: 100%;
+    max-width: 260px;
+    margin: 14px auto 0;
+    display: block;
+  }
+
+  /* ===== PINCODE SECTION ===== */
+  .pincode-section {
+    padding: 64px 16px;
+  }
+
+  .pincode-box {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .pincode-box input {
+    font-size: 14px;
+  }
+
+  .pincode-box button {
+    font-size: 13px;
+    padding: 12px 22px;
+  }
+
+  /* ===== ACTIVITY FEED ===== */
+  .activity-box {
+    font-size: 13px;
+    padding: 16px;
+  }
+
+  /* ===== ABOUT SECTION ===== */
+  .about {
+    padding: 64px 16px;
+  }
+
+  .about-content {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /* ===== FOUNDER SECTION ===== */
+  .founder-section {
+    text-align: center;
+  }
+
+  .founder-photo {
+    max-width: 180px;
+    margin: 0 auto 12px;
+    display: block;
+    object-fit: contain;
+  }
+
+  /* ===== FOOTER ===== */
+  .site-footer {
+    font-size: 11px;
+    padding: 24px 16px;
+  }
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
