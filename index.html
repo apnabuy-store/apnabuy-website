@@ -623,6 +623,43 @@ Pincode: ${d.pin}`;
   </div>
 </div>
 
+ <script>
+let pendingBuyData = null;
+
+function buyFromProfileWithDetails(name, price, shop, pin) {
+  pendingBuyData = { name, price, shop, pin };
+  document.getElementById("buyModal").style.display = "flex";
+}
+
+function closeBuyModal() {
+  document.getElementById("buyModal").style.display = "none";
+}
+
+function confirmBuy() {
+  const name = document.getElementById("buyerName").value.trim();
+  const phone = document.getElementById("buyerPhone").value.trim();
+  const email = document.getElementById("buyerEmail").value.trim() || "N/A";
+
+  if (!name || !phone) {
+    alert("Please enter name and mobile number");
+    return;
+  }
+
+  sessionStorage.setItem("apnabuy_customer", JSON.stringify({
+    name, phone, email
+  }));
+
+  closeBuyModal();
+
+  // Call existing function (UNCHANGED)
+  buyFromProfile(
+    pendingBuyData.name,
+    pendingBuyData.price,
+    pendingBuyData.shop,
+    pendingBuyData.pin
+  );
+}
+</script>
  
 
 </body>
