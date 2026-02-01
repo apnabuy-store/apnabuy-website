@@ -832,6 +832,28 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =====================================================
+   MOBILE HAMBURGER MENU – SIZE REFINEMENT (SAFE FIX)
+   Affects ONLY mobile view
+===================================================== */
+@media (max-width: 768px) {
+  .menu-toggle {
+    font-size: 20px;        /* reduced from large default */
+    padding: 6px 10px;      /* tighter touch area */
+    line-height: 1;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  }
+
+  .menu-toggle:hover {
+    background: rgba(255,255,255,0.10);
+  }
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
