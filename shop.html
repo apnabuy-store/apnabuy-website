@@ -153,25 +153,13 @@ Please confirm availability.
 }
 
 /* ================= NEW WRAPPER (ONLY ADDITION) ================= */
+let currentBuyContext = {};
 
 function buyFromProfileWithDetails(name, price, shop, pin) {
-  const customerName = prompt("Enter your name:");
-  if (!customerName) return;
-
-  const customerPhone = prompt("Enter your mobile number:");
-  if (!customerPhone) return;
-
-  const customerEmail = prompt("Enter your email (optional):") || "N/A";
-
-  // Optionally store for session reuse
-  sessionStorage.setItem("apnabuy_customer", JSON.stringify({
-    name: customerName,
-    phone: customerPhone,
-    email: customerEmail
-  }));
-
-  buyFromProfile(name, price, shop, pin);
+  currentBuyContext = { name, price, shop, pin };
+  document.getElementById("buyModal").style.display = "flex";
 }
+
 
 /* ================= REVIEWS ================= */
 
@@ -184,16 +172,71 @@ shop.reviews.forEach(r => {
     </div>
   `;
 });
+
+function closeBuyModal() {
+  document.getElementById("buyModal").style.display = "none";
+}
+
+function confirmBuy() {
+  const name = document.getElementById("buyerName").value.trim();
+  const phone = document.getElementById("buyerPhone").value.trim();
+  const email = document.getElementById("buyerEmail").value.trim() || "N/A";
+
+  if (name.length < 2) {
+    alert("Please enter a valid name");
+    return;
+  }
+
+  if (!/^[6-9]\d{9}$/.test(phone)) {
+    alert("Please enter a valid 10-digit mobile number");
+    return;
+  }
+
+  sessionStorage.setItem(
+    "apnabuy_customer",
+    JSON.stringify({ name, phone, email })
+  );
+
+  closeBuyModal();
+
+  buyFromProfile(
+    currentBuyContext.name,
+    currentBuyContext.price,
+    currentBuyContext.shop,
+    currentBuyContext.pin
+  );
+}
+
+  
 </script>
 <!-- BUY DETAILS MODAL -->
 <div class="buy-modal" id="buyModal">
   <div class="buy-modal-content">
     <h3>Complete Your Order</h3>
+<form class="buy-form" onsubmit="event.preventDefault(); confirmBuy();">
 
-    <input type="text" id="buyerName" placeholder="Your Name *">
-    <input type="tel" id="buyerPhone" placeholder="Mobile Number *">
-    <input type="email" id="buyerEmail" placeholder="Email (optional)">
+  <div class="form-group">
+    <label for="buyerName">Full Name *</label>
+    <input id="buyerName" type="text" placeholder="Enter your full name" required>
+  </div>
 
+  <div class="form-group">
+    <label for="buyerPhone">Mobile Number *</label>
+    <input id="buyerPhone" type="tel" placeholder="10-digit mobile number" maxlength="10" required>
+  </div>
+
+  <div class="form-group">
+    <label for="buyerEmail">Email (optional)</label>
+    <input id="buyerEmail" type="email" placeholder="example@email.com">
+  </div>
+
+  <div class="modal-actions">
+    <button type="button" class="modal-cancel" onclick="closeBuyModal()">Cancel</button>
+    <button type="submit" class="modal-confirm">Continue to WhatsApp</button>
+  </div>
+
+</form>
+    
     <div class="modal-actions">
       <button class="modal-cancel" onclick="closeBuyModal()">Cancel</button>
       <button class="modal-confirm" onclick="confirmBuy()">Continue to WhatsApp</button>
