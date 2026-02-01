@@ -1005,18 +1005,21 @@ section::after {
   font-weight: 600;
 }
 /* =====================================================
-   MOBILE ALIGNMENT FIX — REQUEST SECTION ONLY
-   No logic or layout elsewhere affected
+   FINAL MOBILE CENTER FIX — REQUEST SECTION
+   Absolutely no effect on desktop or logic
 ===================================================== */
 
 @media (max-width: 768px) {
   .request {
     padding: 64px 16px;
+    display: flex;
+    justify-content: center;
   }
 
   .request-inner {
-    max-width: 100%;
-    padding: 0 8px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
     text-align: center;
   }
 
@@ -1033,9 +1036,9 @@ section::after {
   }
 
   .request-btn {
+    display: block;
     width: 100%;
     max-width: 260px;
     margin: 0 auto;
-    display: block;
   }
 }
