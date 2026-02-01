@@ -699,120 +699,69 @@ nav a {
    Ultra-Subtle | Rare Edition | Memory-Making
    ====================================================== */
 
-/* ---------- 1. MAGNETIC PREMIUM HOVER ---------- */
-.shop-card,
-.product-card,
-.buy-btn,
-.view-products-btn,
-.cta,
-.request-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.shop-card::before,
-.product-card::before,
-.buy-btn::before,
-.view-products-btn::before {
+/* ===== APNABUY HEARTBEAT ===== */
+.header::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      420px 120px at var(--mx,50%) var(--my,50%),
-      rgba(120,140,255,0.18),
-      transparent 65%
-    );
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.shop-card:hover::before,
-.product-card:hover::before,
-.buy-btn:hover::before,
-.view-products-btn:hover::before {
-  opacity: 1;
-}
-
-/* ---------- 2. EDITORIAL SCROLL ACCENT ---------- */
-section {
-  position: relative;
-}
-
-section::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -40px;
-  width: 120px;
-  height: 1px;
-  transform: translateX(-50%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.18),
-    transparent
+  inset: -48px;
+  background: radial-gradient(
+    520px 180px at center,
+    rgba(120,140,255,0.28),
+    transparent 65%
   );
-  opacity: 0.35;
+  opacity: 0;
+  pointer-events: none;
+  animation: apnaHeartbeat 2.8s ease-out forwards;
 }
 
-/* ---------- 3. SIGNATURE FOCUS RING ---------- */
-input:focus,
-button:focus,
-a:focus {
-  outline: none;
+@keyframes apnaHeartbeat {
+  0%   { opacity: 0; transform: scale(0.96); }
+  18%  { opacity: 0.6; transform: scale(1); }
+  38%  { opacity: 0.15; transform: scale(0.985); }
+  58%  { opacity: 0.45; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.02); }
 }
 
-input:focus-visible,
-button:focus-visible,
-a:focus-visible {
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.35),
-    0 0 0 5px rgba(120,140,255,0.35);
-  border-radius: 999px;
+body.no-heartbeat .header::after {
+  animation: none;
+}
+/* ===== EDITORIAL ENTRY ===== */
+body {
+  animation: editorialReveal 0.9s ease-out both;
 }
 
-/* ---------- 4. MICRO-TYPOGRAPHY LUXURY ---------- */
-h1, h2, h3, h4 {
-  letter-spacing: -0.4px;
-}
-
-p {
-  letter-spacing: 0.35px;
-}
-
-/* ---------- 5. BUTTON PRESS FEEDBACK (HARDWARE FEEL) ---------- */
-.buy-btn:active,
-.view-products-btn:active,
-.cta:active,
-.request-btn:active {
-  transform: translateY(1px) scale(0.985);
-}
-
-/* ---------- 6. PREMIUM IMAGE LOAD FEEL ---------- */
-.shop-image,
-.product-card img {
-  animation: imageLift 0.6s ease both;
-}
-
-@keyframes imageLift {
+@keyframes editorialReveal {
   from {
     opacity: 0;
-    transform: translateY(12px) scale(0.98);
+    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
+}
+/* ===== FOUNDER PLAQUE ===== */
+.founder-section {
+  position: relative;
 }
 
-/* ---------- 7. MOBILE: KEEP IT QUIET ---------- */
-@media (max-width: 768px) {
-  section::after {
-    opacity: 0.15;
-  }
+.founder-section::after {
+  content: "LIMITED EDITION • APNABUY";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.65);
+  backdrop-filter: blur(6px);
 }
+
+
 
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
