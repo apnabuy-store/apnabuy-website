@@ -831,6 +831,13 @@ button:hover,
 html {
   scroll-behavior: smooth;
 }
+/* Reduce hamburger icon size on mobile only */
+@media (max-width: 768px) {
+  .menu-toggle {
+    font-size: 18px;   /* adjust to 16px–20px if needed */
+  }
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
