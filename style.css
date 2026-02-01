@@ -694,6 +694,144 @@ nav a {
   margin-bottom: 28px;
 }
 
+/* =========================================================
+   APNABUY — ROYAL BLOOD PREMIUM SKIN (NON-DESTRUCTIVE)
+   Visual upgrade only — NO logic, NO layout changes
+========================================================= */
+
+/* ---------- Global Luxury Tone ---------- */
+body {
+  background:
+    radial-gradient(1200px 600px at top, rgba(79,124,255,0.10), transparent 65%),
+    radial-gradient(800px 400px at bottom, rgba(250,204,21,0.06), transparent 70%),
+    linear-gradient(180deg, #070a14, #0b1022);
+  letter-spacing: 0.2px;
+}
+
+/* ---------- Typography Feel Upgrade ---------- */
+h1, h2, h3, h4 {
+  letter-spacing: 0.6px;
+}
+
+h1 {
+  text-shadow: 0 6px 30px rgba(79,124,255,0.25);
+}
+
+h2 {
+  text-shadow: 0 4px 18px rgba(250,204,21,0.18);
+}
+
+/* ---------- Header Royal Glass ---------- */
+.header {
+  background: linear-gradient(
+    180deg,
+    rgba(10,14,32,0.92),
+    rgba(10,14,32,0.72)
+  );
+  border-bottom: 1px solid rgba(250,204,21,0.18);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* ---------- Cards: Platinum Glass ---------- */
+.shop-card,
+.product-card,
+.activity-box,
+.about-highlights div,
+.review-card,
+.founder-section {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,0.10),
+      rgba(255,255,255,0.03)
+    );
+  border: 1px solid rgba(250,204,21,0.18);
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.65),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* ---------- Hover Elevation (Slow & Premium) ---------- */
+.shop-card:hover,
+.product-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.75),
+    0 0 0 1px rgba(250,204,21,0.25);
+}
+
+/* ---------- Buttons: Royal Seal ---------- */
+button,
+.buy-btn,
+.request-btn,
+.view-products-btn,
+.founder-toggle-btn,
+.cta {
+  background:
+    linear-gradient(
+      135deg,
+      #facc15,
+      #eab308,
+      #a16207
+    );
+  color: #0b0f1e;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  box-shadow:
+    0 10px 28px rgba(250,204,21,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+  transition: all 0.35s ease;
+}
+
+button:hover,
+.buy-btn:hover,
+.request-btn:hover,
+.view-products-btn:hover,
+.founder-toggle-btn:hover,
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 44px rgba(250,204,21,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+/* ---------- Verified Badge: Sapphire Glow ---------- */
+.verified-badge {
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  color: white;
+  box-shadow: 0 0 18px rgba(56,189,248,0.55);
+}
+
+/* ---------- Same Day Badge: Emerald ---------- */
+.same-day-badge {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  color: #021b0f;
+  box-shadow: 0 0 14px rgba(34,197,94,0.45);
+}
+
+/* ---------- Activity Feed Luxury Pulse ---------- */
+.activity-box {
+  animation: royalPulse 6s ease-in-out infinite;
+}
+
+@keyframes royalPulse {
+  0% { box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+  50% { box-shadow: 0 30px 70px rgba(250,204,21,0.25); }
+  100% { box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+}
+
+/* ---------- Images: Museum Finish ---------- */
+.shop-image,
+.product-card img,
+.shop-banner {
+  filter: contrast(1.08) saturate(1.08);
+}
+
+/* ---------- Scroll Feel ---------- */
+html {
+  scroll-behavior: smooth;
+}
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
