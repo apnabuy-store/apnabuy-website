@@ -88,6 +88,11 @@
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <h2>Products</h2>
+  <!-- PINCODE INSTRUCTION -->
+<div class="pincode-instruction" id="pincodeInstruction">
+  📍 Enter your <strong>pincode</strong> to see nearby shops & buy products
+</div>
+
  <!-- TRENDING PRODUCTS (DEFAULT) -->
 <div class="trending-wrapper" id="trendingWrapper">
 
@@ -278,6 +283,7 @@ const shopsData = {
 
 /* ===== PINCODE ===== */
 function checkPincode() {
+  document.getElementById("pincodeInstruction").style.display = "none";
   document.getElementById("trendingWrapper").style.display = "none";
   document.getElementById("shopProductGrid").style.display = "grid";
   const pin = document.getElementById("pincodeInput").value.trim();
@@ -397,7 +403,7 @@ function showProducts(pin, index) {
         <button onclick="changeQty(this,1)">+</button>
       </div>
 
-      <button class="buy-btn" onclick="buyProduct('${p.name}','${p.price}','${shop.name}','${pin}',this)">
+      <button class="buy-btn" onclick="openBuyerForm('${p.name}','${p.price}','${shop.name}','${pin}',this)">
         Buy on WhatsApp
       </button>
     `;
@@ -535,9 +541,95 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log("DOM ready – rendering trending");
   renderTrendingProducts();
 });
- 
-</script>
+ /* ===== BUYER DETAILS FLOW ===== */
 
+let pendingBuyData = null;
+
+function openBuyerForm(name, price, shop, pin, btn) {
+  const qty = btn.parentElement.querySelector(".qty-value").textContent;
+
+  pendingBuyData = { name, price, shop, pin, qty };
+
+  document.getElementById("buyerModal").style.display = "flex";
+}
+
+function closeBuyerForm() {
+  document.getElementById("buyerModal").style.display = "none";
+  pendingBuyData = null;
+}
+
+function submitBuyerDetails() {
+  const name = document.getElementById("buyerName").value.trim();
+  const phone = document.getElementById("buyerPhone").value.trim();
+  const email = document.getElementById("buyerEmail").value.trim();
+
+  if (!name || !phone) {
+    alert("Please enter your name and mobile number");
+    return;
+  }
+
+  const d = pendingBuyData;
+
+  const msg =
+`Customer Name: ${name}
+Mobile: ${phone}
+Email: ${email || "N/A"}
+
+Product: ${d.name}
+Qty: ${d.qty}
+Price: ${d.price}
+Shop: ${d.shop}
+Pincode: ${d.pin}`;
+
+  window.open(
+    `https://wa.me/${APNABUY_WHATSAPP}?text=${encodeURIComponent(msg)}`
+  );
+
+  closeBuyerForm();
+}
+</script>
+<!-- BUYER DETAILS POPUP -->
+<div id="buyerModal" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+">
+  <div style="
+    background:#0e1224;
+    padding:26px;
+    border-radius:18px;
+    max-width:360px;
+    width:90%;
+    text-align:center;
+  ">
+    <h3>Enter your details</h3>
+
+    <input id="buyerName" placeholder="Your Name"
+      style="width:100%;padding:12px;margin:10px 0;">
+
+    <input id="buyerPhone" placeholder="Mobile Number"
+      style="width:100%;padding:12px;margin-bottom:10px;">
+
+    <input id="buyerEmail" placeholder="Email (optional)"
+      style="width:100%;padding:12px;margin-bottom:16px;">
+
+    <button class="buy-btn" style="width:100%;"
+      onclick="submitBuyerDetails()">
+      Continue to WhatsApp
+    </button>
+
+    <p onclick="closeBuyerForm()"
+       style="margin-top:10px;font-size:12px;cursor:pointer;">
+      Cancel
+    </p>
+  </div>
+</div>
+
+  
 
 </body>
 </html>
