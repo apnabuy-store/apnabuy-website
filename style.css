@@ -832,7 +832,7 @@ html {
   scroll-behavior: smooth;
 }
 /* Reduce hamburger icon size on mobile only */
-@media (max-width: 768px) {
+@media (max-width:750px) {
   .menu-toggle {
     font-size: 15px;   /* adjust to 16px–20px if needed */
   }
