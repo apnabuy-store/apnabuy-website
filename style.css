@@ -1,18 +1,11 @@
 /* =========================================================
-   APNABUY — ONE & ONLY EDITION
-   Crafted UI • Luxury Commerce • Signature Feel
+   APNABUY — ONE & ONLY EDITION (BUTTON REFINED)
+   Luxury Calm • Physical Feel • Premium Restraint
    ========================================================= */
 
-/* ===== TYPOGRAPHY SYSTEM ===== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Manrope:wght@400;600;700;800&family=Inter:wght@300;400;500&display=swap');
 
-/*
- Playfair Display → Brand / Headlines
- Manrope → Buttons / UI / Cards
- Inter → Body text
-*/
-
-/* ===== COLOR PHILOSOPHY ===== */
+/* ===== COLOR SYSTEM ===== */
 :root {
   --ink-900: #0b0d12;
   --ink-800: #12151e;
@@ -28,8 +21,8 @@
   --text-main: #f4f6fb;
   --text-muted: #aeb4c8;
 
-  --shadow-depth: 0 30px 90px rgba(0,0,0,0.55);
-  --shadow-float: 0 45px 140px rgba(0,0,0,0.75);
+  --shadow-soft: 0 18px 50px rgba(0,0,0,0.45);
+  --shadow-deep: 0 30px 80px rgba(0,0,0,0.65);
 }
 
 /* ===== RESET ===== */
@@ -51,7 +44,7 @@ body {
   padding-top: 130px;
 }
 
-/* ===== GLOBAL HEADINGS ===== */
+/* ===== HEADINGS ===== */
 h1, h2 {
   font-family: 'Playfair Display', serif;
   letter-spacing: -0.5px;
@@ -61,20 +54,11 @@ h3, h4 {
   font-family: 'Manrope', sans-serif;
 }
 
-h1 {
-  font-size: clamp(38px, 6vw, 60px);
-}
-
-h2 {
-  font-size: clamp(28px, 4vw, 40px);
-}
-
 /* ===== HEADER ===== */
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
   padding: 20px 56px;
   display: flex;
   justify-content: space-between;
@@ -82,6 +66,7 @@ h2 {
   background: rgba(11,13,18,0.78);
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--paper-border);
+  z-index: 100;
 }
 
 .brand {
@@ -90,13 +75,10 @@ h2 {
   gap: 18px;
 }
 
-.logo {
-  height: 98px;
-}
+.logo { height: 98px; }
 
 .brand-name {
   font-family: 'Playfair Display', serif;
-  font-weight: 600;
   font-size: 22px;
 }
 
@@ -128,9 +110,7 @@ nav a::after {
   transition: width .35s ease;
 }
 
-nav a:hover::after {
-  width: 100%;
-}
+nav a:hover::after { width: 100%; }
 
 /* ===== HERO ===== */
 .hero {
@@ -143,17 +123,7 @@ nav a:hover::after {
   font-size: 18px;
   color: var(--text-muted);
   max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ===== CITY PRESENCE ===== */
-.city-presence {
-  text-align: center;
-  padding: 18px;
-  font-size: 14px;
-  background: rgba(93,169,255,0.06);
-  border-bottom: 1px solid var(--paper-border);
+  margin-inline: auto;
 }
 
 /* ===== PINCODE ===== */
@@ -171,7 +141,7 @@ nav a:hover::after {
   border-radius: 999px;
   background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02));
   border: 1px solid var(--paper-border);
-  box-shadow: var(--shadow-depth);
+  box-shadow: var(--shadow-soft);
 }
 
 .pincode-box input {
@@ -183,31 +153,88 @@ nav a:hover::after {
   outline: none;
 }
 
+/* =========================================================
+   ✨ PREMIUM BUTTON SYSTEM (REFINED)
+   ========================================================= */
+
+.buy-btn,
+.profile-btn,
+.request-btn,
+.cta,
+.founder-toggle-btn,
 .pincode-box button {
-  padding: 13px 34px;
+  position: relative;
+  padding: 14px 38px;
   border-radius: 999px;
-  border: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04)),
+    linear-gradient(135deg, var(--royal-blue), var(--soft-blue));
+  color: #ffffff;
   font-family: 'Manrope', sans-serif;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--royal-blue), var(--soft-blue));
-  color: #fff;
-  box-shadow: 0 18px 55px rgba(93,169,255,0.5);
+  letter-spacing: 0.3px;
   cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition:
+    box-shadow 0.35s ease,
+    transform 0.18s ease;
 }
 
-/* ===== SECTIONS ===== */
-.how, .why, .shops, .products, .activity, .about {
-  padding: 130px 110px;
+/* Light sweep effect (luxury hover) */
+.buy-btn::before,
+.profile-btn::before,
+.request-btn::before,
+.cta::before,
+.founder-toggle-btn::before,
+.pincode-box button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.35),
+    transparent 70%
+  );
+  opacity: 0;
+  transform: translateX(-120%);
+  transition: transform 0.6s ease, opacity 0.4s ease;
 }
 
-.steps, .why-grid, .shop-grid, .product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-  gap: 44px;
-  margin-top: 56px;
+/* Hover — calm & premium */
+.buy-btn:hover,
+.profile-btn:hover,
+.request-btn:hover,
+.cta:hover,
+.founder-toggle-btn:hover,
+.pincode-box button:hover {
+  box-shadow: var(--shadow-deep);
 }
 
-/* ===== CARD MATERIAL ===== */
+.buy-btn:hover::before,
+.profile-btn:hover::before,
+.request-btn:hover::before,
+.cta:hover::before,
+.founder-toggle-btn:hover::before,
+.pincode-box button:hover::before {
+  opacity: 1;
+  transform: translateX(120%);
+}
+
+/* Press (physical depth) */
+.buy-btn:active,
+.profile-btn:active,
+.request-btn:active,
+.cta:active,
+.founder-toggle-btn:active,
+.pincode-box button:active {
+  transform: translateY(1px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+}
+
+/* ===== CARDS ===== */
 .shop-card,
 .product-card {
   background:
@@ -216,14 +243,7 @@ nav a:hover::after {
   border: 1px solid var(--paper-border);
   border-radius: 30px;
   padding: 36px;
-  box-shadow: var(--shadow-depth);
-  transition: transform .45s ease, box-shadow .45s ease;
-}
-
-.shop-card:hover,
-.product-card:hover {
-  transform: translateY(-12px);
-  box-shadow: var(--shadow-float);
+  box-shadow: var(--shadow-soft);
 }
 
 /* ===== IMAGES ===== */
@@ -236,80 +256,6 @@ nav a:hover::after {
   margin-bottom: 18px;
 }
 
-/* ===== BUTTONS ===== */
-.buy-btn,
-.profile-btn,
-.request-btn,
-.cta,
-.founder-toggle-btn {
-  display: inline-block;
-  padding: 15px 38px;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--royal-blue), var(--soft-blue));
-  color: #fff;
-  box-shadow: 0 18px 60px rgba(93,169,255,0.45);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-.buy-btn:hover,
-.profile-btn:hover {
-  transform: translateY(-3px) scale(1.04);
-  box-shadow: 0 26px 90px rgba(93,169,255,0.6);
-}
-
-/* ===== ACTIVITY ===== */
-.activity-box {
-  max-width: 560px;
-  margin: auto;
-  padding: 26px;
-  border-radius: 24px;
-  background: var(--paper);
-  border: 1px solid var(--paper-border);
-  box-shadow: var(--shadow-depth);
-}
-
-/* ===== ABOUT ===== */
-.about-content {
-  max-width: 940px;
-  margin: auto;
-  font-size: 15px;
-}
-
-.about-highlights {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  gap: 34px;
-  margin-top: 44px;
-}
-
-.about-highlights div {
-  padding: 28px;
-  border-radius: 24px;
-  background: var(--paper);
-  border: 1px solid var(--paper-border);
-  box-shadow: var(--shadow-depth);
-}
-
-/* ===== FOUNDER ===== */
-.founder-section {
-  margin-top: 44px;
-  text-align: center;
-  display: none;
-}
-
-.founder-photo {
-  width: 170px;
-  height: 170px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid var(--soft-blue);
-  margin-bottom: 14px;
-}
-
 /* ===== FOOTER ===== */
 .site-footer {
   padding: 34px;
@@ -319,7 +265,7 @@ nav a:hover::after {
   border-top: 1px solid var(--paper-border);
 }
 
-/* ===== MOBILE PRECISION ===== */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   body { padding-top: 0; }
 
@@ -335,18 +281,12 @@ nav a:hover::after {
     padding: 90px 16px 70px;
   }
 
-  .how, .why, .shops, .products, .about {
-    padding: 64px 18px;
-    text-align: center;
-  }
-
-  .steps, .why-grid, .shop-grid, .product-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .shop-card,
-  .product-card {
-    max-width: 380px;
-    margin: auto;
+  .buy-btn,
+  .profile-btn,
+  .request-btn,
+  .cta,
+  .founder-toggle-btn {
+    padding: 13px 32px;
+    font-size: 14px;
   }
 }
