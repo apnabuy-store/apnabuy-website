@@ -55,16 +55,8 @@ const shopsData = {
       timing: "10 AM – 9 PM",
       map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
       products: [
-        {
-          name: "Realme 65W Charger",
-          price: "₹2,499",
-          image: "images/realme65w.jpg"
-        },
-        {
-          name: "Type-C Fast Charging Cable",
-          price: "₹399",
-          image: "images/realme65w.jpg"
-        }
+        { name: "Realme 65W Charger", price: "₹2,499", image: "images/realme65w.jpg" },
+        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
       ],
       reviews: [
         { name: "Rahul P", rating: 5, text: "Genuine shop and fast service." },
@@ -79,11 +71,7 @@ const shopsData = {
       timing: "9:30 AM – 8:30 PM",
       map: "https://www.google.com/maps/search/Sai+Electronics+Amravati",
       products: [
-        {
-          name: "Bluetooth Neckband",
-          price: "₹1,299",
-          image: "images/realme65w.jpg"
-        }
+        { name: "Bluetooth Neckband", price: "₹1,299", image: "images/realme65w.jpg" }
       ],
       reviews: [
         { name: "Suresh K", rating: 4, text: "Nice collection and fair prices." },
@@ -132,7 +120,7 @@ shop.products.forEach(p => {
       <strong>${p.price}</strong>
 
       <button class="buy-btn"
-        onclick="buyFromProfile(
+        onclick="buyFromProfileWithDetails(
           '${p.name}',
           '${p.price}',
           '${shop.name}',
@@ -143,6 +131,9 @@ shop.products.forEach(p => {
     </div>
   `;
 });
+
+/* ================= ORIGINAL FUNCTION (UNCHANGED) ================= */
+
 function buyFromProfile(name, price, shop, pin) {
   const msg = `
 Hello ApnaBuy Team 👋
@@ -161,6 +152,26 @@ Please confirm availability.
   );
 }
 
+/* ================= NEW WRAPPER (ONLY ADDITION) ================= */
+
+function buyFromProfileWithDetails(name, price, shop, pin) {
+  const customerName = prompt("Enter your name:");
+  if (!customerName) return;
+
+  const customerPhone = prompt("Enter your mobile number:");
+  if (!customerPhone) return;
+
+  const customerEmail = prompt("Enter your email (optional):") || "N/A";
+
+  // Optionally store for session reuse
+  sessionStorage.setItem("apnabuy_customer", JSON.stringify({
+    name: customerName,
+    phone: customerPhone,
+    email: customerEmail
+  }));
+
+  buyFromProfile(name, price, shop, pin);
+}
 
 /* ================= REVIEWS ================= */
 
