@@ -185,6 +185,21 @@ shop.reviews.forEach(r => {
   `;
 });
 </script>
+<!-- BUY DETAILS MODAL -->
+<div class="buy-modal" id="buyModal">
+  <div class="buy-modal-content">
+    <h3>Complete Your Order</h3>
 
+    <input type="text" id="buyerName" placeholder="Your Name *">
+    <input type="tel" id="buyerPhone" placeholder="Mobile Number *">
+    <input type="email" id="buyerEmail" placeholder="Email (optional)">
+
+    <div class="modal-actions">
+      <button class="modal-cancel" onclick="closeBuyModal()">Cancel</button>
+      <button class="modal-confirm" onclick="confirmBuy()">Continue to WhatsApp</button>
+    </div>
+  </div>
+</div>
+  
 </body>
 </html>
