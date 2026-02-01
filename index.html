@@ -623,7 +623,35 @@ Pincode: ${d.pin}`;
   </div>
 </div>
 
-  
+ <script>
+(function () {
+  if (sessionStorage.getItem("apnabuy_heartbeat")) {
+    document.body.classList.add("no-heartbeat");
+    return;
+  }
+  sessionStorage.setItem("apnabuy_heartbeat", "true");
+})();
+</script>
+
+<audio id="uiClickSound" preload="auto">
+  <source src="sounds/soft-click.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+(function () {
+  const sound = document.getElementById("uiClickSound");
+  if (!sound) return;
+
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("button, .buy-btn, .view-products-btn, .cta");
+    if (!btn) return;
+
+    sound.currentTime = 0;
+    sound.volume = 0.15;
+    sound.play().catch(() => {});
+  });
+})();
+</script> 
 
 </body>
 </html>
