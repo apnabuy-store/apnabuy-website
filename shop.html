@@ -69,6 +69,18 @@ const shopsData = {
 const params = new URLSearchParams(window.location.search);
 const pin = params.get("pin");
 const shopIndex = Number(params.get("shop"));
+
+/* ===== FIX: SAFE SHOP VALIDATION ===== */
+if (!shopsData[pin] || !shopsData[pin][shopIndex]) {
+  document.body.innerHTML = `
+    <div style="padding:40px;text-align:center;">
+      <h2>Shop not found</h2>
+      <p>Please go back and select a valid shop.</p>
+    </div>
+  `;
+  throw new Error("Invalid shop index");
+}
+
 const shop = shopsData[pin][shopIndex];
 
 /* ================= RENDER SHOP ================= */
@@ -105,7 +117,7 @@ shop.products.forEach(p => {
   `;
 });
 
-/* ================= ORIGINAL FUNCTION (UNCHANGED) ================= */
+/* ================= ORIGINAL FUNCTION ================= */
 
 function buyFromProfile(name, price, shop, pin) {
   const msg = `
@@ -125,37 +137,12 @@ Please confirm availability.
   );
 }
 
-/* ================= NEW SAFE EXTENSION ================= */
+/* ================= MODAL LOGIC (UNCHANGED) ================= */
 
 function buyFromProfileWithDetails(name, price, shop, pin) {
   currentBuyContext = { name, price, shop, pin };
   document.getElementById("buyModal").style.display = "flex";
 }
-
-function buyFromProfileWithCustomerDetails(product, price, shop, pin, customer) {
-  const msg = `
-Hello ApnaBuy Team 👋
-
-👤 Customer Details
-Name: ${customer.name}
-Mobile: ${customer.phone}
-Email: ${customer.email}
-
-📦 Product: ${product}
-💰 Price: ${price}
-🏪 Shop: ${shop}
-📍 Pincode: ${pin}
-
-Please confirm availability.
-`.trim();
-
-  window.open(
-    `https://wa.me/919730572143?text=${encodeURIComponent(msg)}`,
-    "_blank"
-  );
-}
-
-/* ================= MODAL ACTIONS ================= */
 
 function closeBuyModal() {
   document.getElementById("buyModal").style.display = "none";
@@ -166,24 +153,15 @@ function confirmBuy() {
   const phone = document.getElementById("buyerPhone").value.trim();
   const email = document.getElementById("buyerEmail").value.trim() || "N/A";
 
-  if (name.length < 2) {
-    alert("Please enter a valid name");
-    return;
-  }
-
-  if (!/^[6-9]\d{9}$/.test(phone)) {
-    alert("Please enter a valid 10-digit mobile number");
-    return;
-  }
+  if (name.length < 2) return alert("Enter valid name");
+  if (!/^[6-9]\d{9}$/.test(phone)) return alert("Enter valid mobile");
 
   closeBuyModal();
-
-  buyFromProfileWithCustomerDetails(
+  buyFromProfile(
     currentBuyContext.name,
     currentBuyContext.price,
     currentBuyContext.shop,
-    currentBuyContext.pin,
-    { name, phone, email }
+    currentBuyContext.pin
   );
 }
 
@@ -200,27 +178,15 @@ shop.reviews.forEach(r => {
 });
 </script>
 
-<!-- BUY DETAILS MODAL -->
+<!-- BUY MODAL -->
 <div class="buy-modal" id="buyModal">
   <div class="buy-modal-content">
     <h3>Complete Your Order</h3>
 
     <form class="buy-form" onsubmit="event.preventDefault(); confirmBuy();">
-      <div class="form-group">
-        <label>Full Name *</label>
-        <input id="buyerName" required>
-      </div>
-
-      <div class="form-group">
-        <label>Mobile Number *</label>
-        <input id="buyerPhone" maxlength="10" required>
-      </div>
-
-      <div class="form-group">
-        <label>Email (optional)</label>
-        <input id="buyerEmail">
-      </div>
-
+      <input id="buyerName" placeholder="Full Name" required>
+      <input id="buyerPhone" placeholder="Mobile Number" required>
+      <input id="buyerEmail" placeholder="Email (optional)">
       <div class="modal-actions">
         <button type="button" onclick="closeBuyModal()">Cancel</button>
         <button type="submit">Continue to WhatsApp</button>
