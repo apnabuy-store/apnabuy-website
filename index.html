@@ -88,30 +88,7 @@
 <!-- PRODUCTS -->
 <section class="products" id="products">
   <h2>Products</h2>
-  <!-- PINCODE INSTRUCTION -->
-<div class="pincode-instruction" id="pincodeInstruction">
-  📍 Enter your <strong>pincode</strong> to see nearby shops & buy products
-</div>
-
- <!-- TRENDING PRODUCTS (DEFAULT) -->
-<div class="trending-wrapper" id="trendingWrapper">
-
-  <h3 class="trending-title">
-    🔥 Trending Today
-  </h3>
-
-  <p class="trending-subtext">
-    Popular products people are checking right now.  
-    Enter your pincode to buy from nearby shops.
-  </p>
-
-  <div class="product-grid" id="trendingGrid"></div>
-
-</div>
-
-
-<!-- SHOP PRODUCTS (USED BY EXISTING LOGIC) -->
-<div class="product-grid" id="shopProductGrid"></div>
+  <div class="product-grid"></div>
 </section>
 
 <!-- REQUEST -->
@@ -283,14 +260,10 @@ const shopsData = {
 
 /* ===== PINCODE ===== */
 function checkPincode() {
-  document.getElementById("pincodeInstruction").style.display = "none";
-  document.getElementById("trendingWrapper").style.display = "none";
-  document.getElementById("shopProductGrid").style.display = "grid";
   const pin = document.getElementById("pincodeInput").value.trim();
   const result = document.getElementById("pincodeResult");
   const shopGrid = document.querySelector(".shop-grid");
-  const productGrid = document.getElementById("shopProductGrid");
-
+  const productGrid = document.querySelector(".product-grid");
 
   shopGrid.innerHTML = "";
   productGrid.innerHTML = "";
@@ -346,15 +319,14 @@ function checkPincode() {
   </a>
 
   <p><strong>${shop.products.length}</strong> products available</p>
-<button
-  class="view-products-btn"
-  onclick="showProducts('${pin}', ${index})">
-  🛍 View Products
-</button>
+
   <a href="shop.html?pin=${pin}&shop=${index}" class="profile-btn">
     View Shop Profile →
   </a>
 `;
+
+
+    card.onclick = () => showProducts(pin, index);
     shopGrid.appendChild(card);
   });
 
@@ -373,9 +345,7 @@ function filterShops() {
 
 /* ===== PRODUCTS ===== */
 function showProducts(pin, index) {
-  document.getElementById("shopProductGrid").style.display = "grid";
-  const grid = document.getElementById("shopProductGrid");
-
+  const grid = document.querySelector(".product-grid");
   grid.innerHTML = "";
 
   const shop = shopsData[pin][index];
@@ -480,70 +450,7 @@ setInterval(() => {
   section.style.display =
     section.style.display === "block" ? "none" : "block";
 }  
-/* ================= TRENDING PRODUCTS ================= */
-
-const trendingProducts = [
-  {
-    name: "Bluetooth Neckband",
-    price: "₹1,299",
-    image: "images/trending-neckband.jpg"
-  },
-  {
-    name: "JBL Bluetooth Speaker",
-    price: "₹2,499",
-    image: "images/trending-speaker.jpg"
-  },
-  {
-    name: "10,000mAh Power Bank",
-    price: "₹1,499",
-    image: "images/trending-powerbank.jpg"
-  },
-  {
-    name: "Type-C Data Cable",
-    price: "₹399",
-    image: "images/trending-cable.jpg"
-  }
-];
-    let trendingIndex = 0;
-
-function renderTrendingProducts() {
-  const grid = document.getElementById("trendingGrid");
-  if (!grid) return;
-
-  grid.innerHTML = "";
-
-  // Show 2 products at a time
-  for (let i = 0; i < 2; i++) {
-    const product =
-      trendingProducts[(trendingIndex + i) % trendingProducts.length];
-
-    grid.innerHTML += `
-      <div class="product-card trending-card">
-        <img src="${product.image}">
-        <h4>${product.name}</h4>
-        <strong>${product.price}</strong>
-      </div>
-    `;
-  }
-
-  trendingIndex = (trendingIndex + 1) % trendingProducts.length;
-}
-
-// Auto rotate every 4 seconds
-setInterval(renderTrendingProducts, 4000);
-
-// Initial load
-renderTrendingProducts();
-
-   console.log("Trending script loaded");
-
-document.addEventListener("DOMContentLoaded", function () {
-  console.log("DOM ready – rendering trending");
-  renderTrendingProducts();
-});
- 
 </script>
-
 
 </body>
 </html>
