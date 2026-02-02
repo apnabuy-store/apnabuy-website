@@ -23,8 +23,10 @@
 
 <section class="shop-profile">
   <img id="shopImage" class="shop-banner">
+
   <h1 id="shopName"></h1>
   <div id="shopMeta"></div>
+
   <p id="shopAddress"></p>
   <p id="shopTiming"></p>
   <a id="mapLink" target="_blank" class="map-link">📍 View on Map</a>
@@ -41,7 +43,7 @@
 </section>
 
 <script>
-/* ================= DATA ================= */
+/* ================= DATA (MUST MATCH index.html) ================= */
 
 const shopsData = {
   "444601": [
@@ -53,12 +55,39 @@ const shopsData = {
       timing: "10 AM – 9 PM",
       map: "https://www.google.com/maps/search/Shree+Mobile+Shop+Amravati",
       products: [
-        { name: "Realme 65W Charger", price: "₹2,499", image: "images/realme65w.jpg" },
-        { name: "Type-C Fast Charging Cable", price: "₹399", image: "images/realme65w.jpg" }
+        {
+          name: "Realme 65W Charger",
+          price: "₹2,499",
+          image: "images/realme65w.jpg"
+        },
+        {
+          name: "Type-C Fast Charging Cable",
+          price: "₹399",
+          image: "images/realme65w.jpg"
+        }
       ],
       reviews: [
         { name: "Rahul P", rating: 5, text: "Genuine shop and fast service." },
         { name: "Anjali S", rating: 4, text: "Good pricing." }
+      ]
+    },
+    {
+      name: "Sai Electronics",
+      image: "images/sai-electronics.jpg",
+      rating: 4.3,
+      address: "Market Area, Amravati",
+      timing: "9:30 AM – 8:30 PM",
+      map: "https://www.google.com/maps/search/Sai+Electronics+Amravati",
+      products: [
+        {
+          name: "Bluetooth Neckband",
+          price: "₹1,299",
+          image: "images/realme65w.jpg"
+        }
+      ],
+      reviews: [
+        { name: "Suresh K", rating: 4, text: "Nice collection and fair prices." },
+        { name: "Neha M", rating: 5, text: "Very helpful staff." }
       ]
     }
   ]
@@ -69,6 +98,17 @@ const shopsData = {
 const params = new URLSearchParams(window.location.search);
 const pin = params.get("pin");
 const shopIndex = Number(params.get("shop"));
+
+if (!shopsData[pin] || isNaN(shopIndex) || !shopsData[pin][shopIndex]) {
+  document.body.innerHTML = `
+    <div style="padding:40px;text-align:center;">
+      <h2>Shop not found</h2>
+      <p>Please go back and select a valid shop.</p>
+    </div>
+  `;
+  throw new Error("Invalid shop index");
+}
+
 const shop = shopsData[pin][shopIndex];
 
 /* ================= RENDER SHOP ================= */
@@ -83,7 +123,6 @@ document.getElementById("mapLink").href = shop.map;
 /* ================= PRODUCTS ================= */
 
 const productGrid = document.getElementById("productGrid");
-let currentBuyContext = {};
 
 shop.products.forEach(p => {
   productGrid.innerHTML += `
@@ -93,7 +132,7 @@ shop.products.forEach(p => {
       <strong>${p.price}</strong>
 
       <button class="buy-btn"
-        onclick="buyFromProfileWithDetails(
+        onclick="buyFromProfile(
           '${p.name}',
           '${p.price}',
           '${shop.name}',
@@ -104,9 +143,6 @@ shop.products.forEach(p => {
     </div>
   `;
 });
-
-/* ================= ORIGINAL FUNCTION (UNCHANGED) ================= */
-
 function buyFromProfile(name, price, shop, pin) {
   const msg = `
 Hello ApnaBuy Team 👋
@@ -125,67 +161,6 @@ Please confirm availability.
   );
 }
 
-/* ================= NEW SAFE EXTENSION ================= */
-
-function buyFromProfileWithDetails(name, price, shop, pin) {
-  currentBuyContext = { name, price, shop, pin };
-  document.getElementById("buyModal").style.display = "flex";
-}
-
-function buyFromProfileWithCustomerDetails(product, price, shop, pin, customer) {
-  const msg = `
-Hello ApnaBuy Team 👋
-
-👤 Customer Details
-Name: ${customer.name}
-Mobile: ${customer.phone}
-Email: ${customer.email}
-
-📦 Product: ${product}
-💰 Price: ${price}
-🏪 Shop: ${shop}
-📍 Pincode: ${pin}
-
-Please confirm availability.
-`.trim();
-
-  window.open(
-    `https://wa.me/919730572143?text=${encodeURIComponent(msg)}`,
-    "_blank"
-  );
-}
-
-/* ================= MODAL ACTIONS ================= */
-
-function closeBuyModal() {
-  document.getElementById("buyModal").style.display = "none";
-}
-
-function confirmBuy() {
-  const name = document.getElementById("buyerName").value.trim();
-  const phone = document.getElementById("buyerPhone").value.trim();
-  const email = document.getElementById("buyerEmail").value.trim() || "N/A";
-
-  if (name.length < 2) {
-    alert("Please enter a valid name");
-    return;
-  }
-
-  if (!/^[6-9]\d{9}$/.test(phone)) {
-    alert("Please enter a valid 10-digit mobile number");
-    return;
-  }
-
-  closeBuyModal();
-
-  buyFromProfileWithCustomerDetails(
-    currentBuyContext.name,
-    currentBuyContext.price,
-    currentBuyContext.shop,
-    currentBuyContext.pin,
-    { name, phone, email }
-  );
-}
 
 /* ================= REVIEWS ================= */
 
@@ -199,35 +174,6 @@ shop.reviews.forEach(r => {
   `;
 });
 </script>
-
-<!-- BUY DETAILS MODAL -->
-<div class="buy-modal" id="buyModal">
-  <div class="buy-modal-content">
-    <h3>Complete Your Order</h3>
-
-    <form class="buy-form" onsubmit="event.preventDefault(); confirmBuy();">
-      <div class="form-group">
-        <label>Full Name *</label>
-        <input id="buyerName" required>
-      </div>
-
-      <div class="form-group">
-        <label>Mobile Number *</label>
-        <input id="buyerPhone" maxlength="10" required>
-      </div>
-
-      <div class="form-group">
-        <label>Email (optional)</label>
-        <input id="buyerEmail">
-      </div>
-
-      <div class="modal-actions">
-        <button type="button" onclick="closeBuyModal()">Cancel</button>
-        <button type="submit">Continue to WhatsApp</button>
-      </div>
-    </form>
-  </div>
-</div>
 
 </body>
 </html>
