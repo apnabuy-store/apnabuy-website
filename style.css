@@ -1162,4 +1162,91 @@ body .buy-modal .modal-actions .modal-confirm:hover {
     flex-direction: column;
   }
 }
+/* =====================================================
+   🔥 FINAL OVERRIDE — BUY MODAL BUTTON FIX (HARD)
+   ===================================================== */
 
+/* Kill previous reset */
+.buy-modal .modal-actions button {
+  all: initial !important;
+  box-sizing: border-box !important;
+  font-family: "Inter", sans-serif !important;
+}
+
+/* Modal background clarity */
+.buy-modal {
+  background: rgba(8, 10, 24, 0.92) !important;
+  backdrop-filter: blur(14px) !important;
+}
+
+/* Modal card */
+.buy-modal-content {
+  background: linear-gradient(
+    180deg,
+    #1b2142,
+    #12172f
+  ) !important;
+
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8) !important;
+}
+
+/* Button container */
+.buy-modal .modal-actions {
+  display: flex !important;
+  gap: 14px !important;
+  margin-top: 24px !important;
+}
+
+/* CANCEL BUTTON — CLEAR & VISIBLE */
+.buy-modal .modal-cancel {
+  padding: 14px 20px !important;
+  border-radius: 14px !important;
+
+  background: rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255,255,255,0.35) !important;
+
+  color: #f8fafc !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  cursor: pointer !important;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    0 10px 25px rgba(0,0,0,0.6) !important;
+
+  transition: all 0.25s ease !important;
+}
+
+.buy-modal .modal-cancel:hover {
+  background: rgba(255,255,255,0.25) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* CONTINUE TO WHATSAPP — STRONG CTA */
+.buy-modal .modal-confirm {
+  padding: 14px 22px !important;
+  border-radius: 14px !important;
+
+  background: linear-gradient(135deg, #25D366, #128C7E) !important;
+  border: none !important;
+
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+
+  cursor: pointer !important;
+
+  box-shadow:
+    0 14px 35px rgba(37,211,102,0.65),
+    inset 0 1px 0 rgba(255,255,255,0.4) !important;
+
+  transition: all 0.25s ease !important;
+}
+
+.buy-modal .modal-confirm:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow:
+    0 18px 45px rgba(37,211,102,0.8) !important;
+}
