@@ -976,3 +976,78 @@ nav a {
     flex-direction: column;
   }
 }
+/* =====================================================
+   APNABUY — PREMIUM MICRO-INTERACTIONS (UI ONLY)
+   No logic | No JS | No HTML changes
+   ===================================================== */
+
+/* ---------- CONTINUE TO WHATSAPP : PREMIUM BREATH ---------- */
+.buy-modal .modal-confirm {
+  position: relative;
+  overflow: hidden;
+  animation: whatsappBreath 3.8s ease-in-out infinite;
+}
+
+/* Soft breathing glow */
+@keyframes whatsappBreath {
+  0% {
+    box-shadow:
+      0 14px 34px rgba(37,211,102,0.65),
+      inset 0 1px 0 rgba(255,255,255,0.45);
+  }
+  50% {
+    box-shadow:
+      0 18px 44px rgba(37,211,102,0.85),
+      inset 0 1px 0 rgba(255,255,255,0.55);
+  }
+  100% {
+    box-shadow:
+      0 14px 34px rgba(37,211,102,0.65),
+      inset 0 1px 0 rgba(255,255,255,0.45);
+  }
+}
+
+/* Hover — confident lift (no flash) */
+.buy-modal .modal-confirm:hover {
+  animation: none;
+  transform: translateY(-3px) scale(1.03);
+}
+
+/* ---------- CANCEL BUTTON : GLASS SHEEN ---------- */
+.buy-modal .modal-cancel {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Light sweep effect */
+.buy-modal .modal-cancel::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -40%;
+  width: 40%;
+  height: 300%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.35),
+    transparent
+  );
+  transform: rotate(20deg);
+  transition: all 0.7s ease;
+}
+
+/* On hover — sheen slides */
+.buy-modal .modal-cancel:hover::after {
+  left: 120%;
+}
+
+/* Cancel hover — calm elevation */
+.buy-modal .modal-cancel:hover {
+  transform: translateY(-2px);
+}
+
+/* ---------- PRESS FEEDBACK (BOTH BUTTONS) ---------- */
+.buy-modal .modal-actions button:active {
+  transform: translateY(0) scale(0.97);
+}
