@@ -1153,4 +1153,85 @@ body .buy-modal .modal-actions .modal-confirm:hover {
   }
 }
 
+/* ================= FINAL VISUAL FIX — BUY MODAL BUTTONS ================= */
+/* Pure UI fix | No logic touched */
+
+.buy-modal .modal-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 26px;
+}
+
+/* CANCEL BUTTON — CLEAR GLASS */
+.buy-modal .modal-cancel {
+  flex: 1;
+  padding: 14px 20px;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.28),
+    rgba(255,255,255,0.14)
+  ) !important;
+
+  border: 1px solid rgba(255,255,255,0.45) !important;
+  border-radius: 16px;
+
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.35),
+    0 12px 28px rgba(0,0,0,0.55);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.buy-modal .modal-cancel:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.40),
+    rgba(255,255,255,0.22)
+  ) !important;
+
+  transform: translateY(-2px);
+}
+
+/* CONTINUE TO WHATSAPP — STRONG GLOW CTA */
+.buy-modal .modal-confirm {
+  flex: 1;
+  padding: 14px 22px;
+
+  background: linear-gradient(135deg, #25D366, #128C7E) !important;
+  border: none !important;
+  border-radius: 16px;
+
+  color: #ffffff !important;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 14px 34px rgba(37,211,102,0.75),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.buy-modal .modal-confirm:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 18px 46px rgba(37,211,102,0.9);
+}
+
+/* MOBILE STACK */
+@media (max-width: 480px) {
+  .buy-modal .modal-actions {
+    flex-direction: column;
+  }
+}
 
