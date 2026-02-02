@@ -694,6 +694,80 @@ nav a {
   margin-bottom: 28px;
 }
 
+/* ======================================================
+   APNABUY — SIGNATURE LUXURY PRESENCE LAYER
+   Ultra-Subtle | Rare Edition | Memory-Making
+   ====================================================== */
+.buy-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.buy-modal-content {
+  width: 92%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-soft);
+  color: var(--text-main);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.modal-cancel {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  padding: 12px;
+  border-radius: 999px;
+}
+
+.modal-confirm {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 999px;
+}
+
+
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
   body { padding-top: 0 !important; }
@@ -836,4 +910,68 @@ nav a {
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
+}
+/* ================= BUY MODAL BUTTON STYLES (SHOP PROFILE ONLY) ================= */
+
+.buy-modal .modal-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+/* CANCEL BUTTON – PREMIUM SUBTLE */
+.buy-modal .modal-cancel {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #cbd5f5;
+
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.buy-modal .modal-cancel:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+/* CONTINUE TO WHATSAPP – PRIMARY PREMIUM CTA */
+.buy-modal .modal-confirm {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border: none;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+}
+
+.buy-modal .modal-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.45);
+}
+
+/* MOBILE REFINEMENT */
+@media (max-width: 480px) {
+  .buy-modal .modal-actions {
+    flex-direction: column;
+  }
+
+  .buy-modal .modal-cancel,
+  .buy-modal .modal-confirm {
+    width: 100%;
+  }
 }
