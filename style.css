@@ -838,6 +838,28 @@ nav a {
     margin: 14px auto 0;
   }
 }
+@media (max-width: 768px) {
+
+  /* FIX: Center shop card content on mobile */
+  .shop-card {
+    text-align: center;
+  }
+
+  /* FIX: Ensure shop name is perfectly centered */
+  .shop-name {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Optional but recommended: address & meta alignment */
+  .shop-card p,
+  .shop-rating,
+  .shop-status {
+    text-align: center;
+  }
+
+}
+
 /* ================= SHOP META (NEW FEATURES) ================= */
 
 .shop-rating {
