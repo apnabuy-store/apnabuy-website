@@ -838,20 +838,35 @@ nav a {
     margin: 14px auto 0;
   }
 }
+
 @media (max-width: 768px) {
 
-  /* FIX: Center shop card content on mobile */
+  /* ===== FIX SHOP CARD ALIGNMENT ON MOBILE ===== */
   .shop-card {
     text-align: center;
   }
 
-  /* FIX: Ensure shop name is perfectly centered */
-  .shop-name {
+  /* ===== FIX NAME + VERIFIED BADGE ALIGNMENT ===== */
+  .shop-header {
+    display: flex;
+    justify-content: center;   /* 🔥 KEY FIX */
+    align-items: center;
+    gap: 6px;
     width: 100%;
-    text-align: center;
   }
 
-  /* Optional but recommended: address & meta alignment */
+  /* Ensure shop name is perfectly centered */
+  .shop-name {
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* Keep verified badge aligned cleanly */
+  .verified-badge {
+    transform: translateY(-1px); /* subtle visual balance */
+  }
+
+  /* Address, rating & meta alignment */
   .shop-card p,
   .shop-rating,
   .shop-status {
