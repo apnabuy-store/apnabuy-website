@@ -180,12 +180,27 @@ function confirmBuy() {
   if (!/^[6-9]\d{9}$/.test(phone)) return alert("Enter valid mobile");
 
   closeBuyModal();
-  buyFromProfile(
-    currentBuyContext.name,
-    currentBuyContext.price,
-    currentBuyContext.shop,
-    currentBuyContext.pin
-  );
+
+const msg = `
+Hello ApnaBuy Team 👋
+
+👤 Customer Details
+Name: ${name}
+Mobile: ${phone}
+Email: ${email}
+
+📦 Product: ${currentBuyContext.name}
+💰 Price: ${currentBuyContext.price}
+🏪 Shop: ${currentBuyContext.shop}
+📍 Pincode: ${currentBuyContext.pin}
+
+Please confirm availability.
+`.trim();
+
+window.open(
+  `https://wa.me/919730572143?text=${encodeURIComponent(msg)}`,
+  "_blank"
+);
 }
 
 /* ================= REVIEWS ================= */
