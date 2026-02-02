@@ -905,3 +905,62 @@ body .buy-modal .modal-actions .modal-confirm:hover {
   text-decoration: none;
   font-weight: 600;
 }
+/* =====================================================
+   FINAL OVERRIDE — SHOP PROFILE BUY MODAL BUTTONS
+   (Placed LAST so nothing can override it)
+   ===================================================== */
+
+body .buy-modal .modal-actions {
+  display: flex;
+  gap: 14px;
+}
+
+/* RESET ONLY MODAL BUTTONS */
+body .buy-modal .modal-actions .modal-cancel,
+body .buy-modal .modal-actions .modal-confirm {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 20px;
+  border-radius: 14px;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+/* CANCEL — PREMIUM GLASS */
+body .buy-modal .modal-actions .modal-cancel {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #cbd5f5;
+}
+
+body .buy-modal .modal-actions .modal-cancel:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+/* CONTINUE — WHATSAPP CTA */
+body .buy-modal .modal-actions .modal-confirm {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #ffffff;
+  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.35);
+}
+
+body .buy-modal .modal-actions .modal-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.45);
+}
+
+/* MOBILE STACK */
+@media (max-width: 480px) {
+  body .buy-modal .modal-actions {
+    flex-direction: column;
+  }
+}
+
