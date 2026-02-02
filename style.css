@@ -909,230 +909,45 @@ body .buy-modal .modal-actions .modal-confirm:hover {
   text-decoration: none;
   font-weight: 600;
 }
-/* =====================================================
-   FINAL OVERRIDE — SHOP PROFILE BUY MODAL BUTTONS
-   (Placed LAST so nothing can override it)
-   ===================================================== */
+/* ================= BUY MODAL BUTTONS (FINAL, CLEAN) ================= */
 
-body .buy-modal .modal-actions {
+.buy-modal .modal-actions {
   display: flex;
   gap: 14px;
-}
-
-/* RESET ONLY MODAL BUTTONS */
-body .buy-modal .modal-actions .modal-cancel,
-body .buy-modal .modal-actions .modal-confirm {
-  all: unset;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 13px 20px;
-  border-radius: 14px;
-
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-
-  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-}
-
-/* CANCEL — PREMIUM GLASS */
-body .buy-modal .modal-actions .modal-cancel {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #cbd5f5;
-}
-
-body .buy-modal .modal-actions .modal-cancel:hover {
-  background: rgba(255, 255, 255, 0.16);
-  transform: translateY(-1px);
-}
-
-/* CONTINUE — WHATSAPP CTA */
-body .buy-modal .modal-actions .modal-confirm {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: #ffffff;
-  box-shadow: 0 10px 26px rgba(37, 211, 102, 0.35);
-}
-
-body .buy-modal .modal-actions .modal-confirm:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(37, 211, 102, 0.45);
-}
-
-.buy-modal {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-
-  background: rgba(5, 8, 20, 0.75); /* dark premium backdrop */
-  backdrop-filter: blur(8px);
-
-  z-index: 9999;
-}
-
-.buy-modal-content {
-  width: 100%;
-  max-width: 420px;
-
-  background: linear-gradient(
-    180deg,
-    #1b2142,
-    #141a35
-  );
-
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 22px;
-  padding: 28px;
-
-  box-shadow: 0 30px 80px rgba(0,0,0,0.65);
-  color: var(--text-main);
-}
-.buy-form .form-group {
-  margin-bottom: 18px;
-}
-
-.buy-form label {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.buy-form input {
-  width: 100%;
-  padding: 12px 14px;
-
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 12px;
-
-  color: var(--text-main);
-  font-size: 14px;
-}
-
-.buy-form input::placeholder {
-  color: rgba(255,255,255,0.45);
-}
-.modal-actions {
-  display: flex;
-  gap: 14px;
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
 /* Cancel */
-.modal-cancel {
-  flex: 1;
-  padding: 13px 16px;
-
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.18),
-    rgba(255,255,255,0.10)
-  );
-
-  border: 1px solid rgba(255,255,255,0.35);
-  border-radius: 14px;
-
-  color: #e5e7eb;
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.25),
-    0 8px 22px rgba(0,0,0,0.45);
-
-  transition: all 0.25s ease;
-}
-
-.modal-cancel:hover {
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.28),
-    rgba(255,255,255,0.16)
-  );
-
-  transform: translateY(-1px);
-}
-
-/* Continue */
-.modal-confirm {
-  flex: 1;
-  padding: 13px 16px;
-
-  background: linear-gradient(
-    135deg,
-    #25D366,
-    #128C7E
-  );
-
-  border: none;
-  border-radius: 14px;
-
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.3px;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 10px 28px rgba(37,211,102,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.35);
-
-  transition: all 0.25s ease;
-}
-
-.modal-confirm:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 14px 36px rgba(37,211,102,0.65);
-}
-
-/* =====================================================
-   FIX: FORCE BUTTON VISIBILITY IN BUY MODAL
-   (Overrides `all: unset`)
-   ===================================================== */
-
-.buy-modal .modal-actions button {
-  all: revert;
-}
-
-/* CANCEL BUTTON */
 .buy-modal .modal-cancel {
-  padding: 14px 18px;
+  flex: 1;
+  padding: 14px 20px;
   border-radius: 14px;
 
-  background: rgba(255, 255, 255, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.35);
 
-  color: #e5e7eb;
+  color: #f8fafc;
   font-size: 14px;
   font-weight: 600;
 
   cursor: pointer;
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.25),
-    0 10px 28px rgba(0,0,0,0.45);
+    inset 0 1px 0 rgba(255,255,255,0.3),
+    0 10px 25px rgba(0,0,0,0.6);
 
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
 .buy-modal .modal-cancel:hover {
-  background: rgba(255, 255, 255, 0.28);
-  transform: translateY(-1px);
+  background: rgba(255,255,255,0.28);
+  transform: translateY(-2px);
 }
 
-/* CONTINUE BUTTON */
+/* Continue */
 .buy-modal .modal-confirm {
-  padding: 14px 18px;
+  flex: 1;
+  padding: 14px 22px;
   border-radius: 14px;
 
   background: linear-gradient(135deg, #25D366, #128C7E);
@@ -1145,108 +960,24 @@ body .buy-modal .modal-actions .modal-confirm:hover {
   cursor: pointer;
 
   box-shadow:
-    0 12px 30px rgba(37,211,102,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.35);
+    0 14px 35px rgba(37,211,102,0.65),
+    inset 0 1px 0 rgba(255,255,255,0.4);
 
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .buy-modal .modal-confirm:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 16px 40px rgba(37,211,102,0.65);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 18px 45px rgba(37,211,102,0.8);
 }
-/* MOBILE STACK */
+
+/* Mobile */
 @media (max-width: 480px) {
-  body .buy-modal .modal-actions {
+  .buy-modal .modal-actions {
     flex-direction: column;
   }
 }
-/* =====================================================
-   🔥 FINAL OVERRIDE — BUY MODAL BUTTON FIX (HARD)
-   ===================================================== */
 
-/* Kill previous reset */
-.buy-modal .modal-actions button {
-  all: initial !important;
-  box-sizing: border-box !important;
-  font-family: "Inter", sans-serif !important;
-}
 
-/* Modal background clarity */
-.buy-modal {
-  background: rgba(8, 10, 24, 0.92) !important;
-  backdrop-filter: blur(14px) !important;
-}
 
-/* Modal card */
-.buy-modal-content {
-  background: linear-gradient(
-    180deg,
-    #1b2142,
-    #12172f
-  ) !important;
 
-  border: 1px solid rgba(255,255,255,0.15) !important;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.8) !important;
-}
-
-/* Button container */
-.buy-modal .modal-actions {
-  display: flex !important;
-  gap: 14px !important;
-  margin-top: 24px !important;
-}
-
-/* CANCEL BUTTON — CLEAR & VISIBLE */
-.buy-modal .modal-cancel {
-  padding: 14px 20px !important;
-  border-radius: 14px !important;
-
-  background: rgba(255,255,255,0.15) !important;
-  border: 1px solid rgba(255,255,255,0.35) !important;
-
-  color: #f8fafc !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-
-  cursor: pointer !important;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.3),
-    0 10px 25px rgba(0,0,0,0.6) !important;
-
-  transition: all 0.25s ease !important;
-}
-
-.buy-modal .modal-cancel:hover {
-  background: rgba(255,255,255,0.25) !important;
-  transform: translateY(-2px) !important;
-}
-
-/* CONTINUE TO WHATSAPP — STRONG CTA */
-.buy-modal .modal-confirm {
-  padding: 14px 22px !important;
-  border-radius: 14px !important;
-
-  background: linear-gradient(135deg, #25D366, #128C7E) !important;
-  border: none !important;
-
-  color: #ffffff !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-
-  cursor: pointer !important;
-
-  box-shadow:
-    0 14px 35px rgba(37,211,102,0.65),
-    inset 0 1px 0 rgba(255,255,255,0.4) !important;
-
-  transition: all 0.25s ease !important;
-}
-
-.buy-modal .modal-confirm:hover {
-  transform: translateY(-3px) scale(1.02) !important;
-  box-shadow:
-    0 18px 45px rgba(37,211,102,0.8) !important;
-}
