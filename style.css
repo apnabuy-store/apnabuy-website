@@ -693,80 +693,165 @@ nav a {
   color: var(--text-muted);
   margin-bottom: 28px;
 }
+/* =====================================================
+   APNABUY — RARE PREMIUM LIGHT LUXURY THEME
+   Bright • Editorial • Professional • Visual-only
+   ===================================================== */
 
-/* ======================================================
-   APNABUY — SIGNATURE LUXURY PRESENCE LAYER
-   Ultra-Subtle | Rare Edition | Memory-Making
-   ====================================================== */
+/* ===== GLOBAL BACKGROUND ===== */
+body {
+  background:
+    radial-gradient(1200px 600px at top center, #f7f8fc 0%, transparent 60%),
+    linear-gradient(180deg, #f4f6fb, #eef1f7);
+  color: #0f172a;
+}
+
+/* Text clarity */
+body, p, span {
+  color: #0f172a;
+}
+
+/* ===== HEADER — EXECUTIVE LIGHT GLASS ===== */
+.header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(15,23,42,0.08);
+  box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+}
+
+/* ===== SECTION WIDTH (DESKTOP PERFECTION) ===== */
+section {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== HERO — EDITORIAL FEEL ===== */
+.hero h1 {
+  color: #020617;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+}
+
+.hero p {
+  color: #475569;
+  max-width: 640px;
+  margin: 18px auto 0;
+}
+
+/* ===== CARD SURFACES — PREMIUM MATERIAL ===== */
+.shop-card,
+.product-card,
+.review-card,
+.activity-box,
+.about-highlights div {
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #f8fafc
+    );
+  border: 1px solid rgba(15,23,42,0.08);
+  border-radius: 22px;
+  box-shadow:
+    0 18px 40px rgba(15,23,42,0.08);
+}
+
+/* ===== CARD HOVER — LUXURY LIFT ===== */
+.shop-card:hover,
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 30px 60px rgba(15,23,42,0.12);
+}
+
+/* ===== SHOP NAME + VERIFIED BADGE ===== */
+.shop-name {
+  color: #020617;
+}
+
+.verified-badge {
+  background: rgba(56,189,248,0.18);
+  color: #0369a1;
+  border: 1px solid rgba(56,189,248,0.35);
+}
+
+/* ===== IMAGES — SOFT DEPTH ===== */
+.shop-image,
+.product-card img {
+  border-radius: 18px;
+  box-shadow:
+    0 14px 30px rgba(15,23,42,0.18);
+}
+
+/* ===== BUTTONS — PREMIUM HARDWARE FEEL ===== */
+.buy-btn,
+.view-products-btn,
+.cta {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  box-shadow:
+    0 10px 28px rgba(37,99,235,0.35);
+}
+
+/* Hover: subtle confidence */
+.buy-btn:hover,
+.view-products-btn:hover,
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 36px rgba(37,99,235,0.45);
+}
+
+/* ===== BUY MODAL — PREMIUM DIALOG ===== */
 .buy-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(6px);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+  background: rgba(240,244,250,0.88);
+  backdrop-filter: blur(20px);
 }
 
 .buy-modal-content {
-  width: 92%;
-  max-width: 420px;
-  background: var(--card-bg);
-  border-radius: 22px;
-  padding: 26px;
-  box-shadow: var(--shadow-soft);
+  background:
+    linear-gradient(180deg, #ffffff, #f8fafc);
+  border: 1px solid rgba(15,23,42,0.10);
+  box-shadow:
+    0 40px 80px rgba(15,23,42,0.18);
 }
 
-.buy-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+/* ===== FORM INPUTS — HIGH-END UI ===== */
+.buy-form input {
+  background: #ffffff;
+  border: 1px solid rgba(15,23,42,0.18);
+  color: #020617;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+.buy-form input:focus {
+  border-color: #2563eb;
+  box-shadow:
+    0 0 0 3px rgba(37,99,235,0.25);
 }
 
-.form-group label {
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 6px;
+/* ===== MODAL BUTTONS ===== */
+.buy-modal .modal-actions button:first-child {
+  background: #f1f5f9;
+  color: #020617;
+  border: 1px solid rgba(15,23,42,0.18);
 }
 
-.form-group input {
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  background: var(--bg-soft);
-  color: var(--text-main);
+.buy-modal .modal-actions button:last-child {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  box-shadow:
+    0 12px 30px rgba(34,197,94,0.45);
 }
 
-.modal-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-.modal-cancel {
-  flex: 1;
+/* ===== FOOTER — CLEAN & CALM ===== */
+.site-footer {
   background: transparent;
-  border: 1px solid var(--border-soft);
-  color: var(--text-muted);
-  padding: 12px;
-  border-radius: 999px;
+  border-top: 1px solid rgba(15,23,42,0.08);
+  color: #475569;
 }
-
-.modal-confirm {
-  flex: 1;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 999px;
-}
-
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
@@ -1034,179 +1119,5 @@ nav a {
     font-size: 11px;
   }
 }
-/* =====================================================
-   APNABUY — ULTRA-PREMIUM PROFESSIONAL THEME
-   Desktop perfection | Visual only | Zero logic impact
-   ===================================================== */
 
-/* ===== FOUNDATION — CALM LUXURY ===== */
-body {
-  background:
-    radial-gradient(1600px 800px at 50% -10%, rgba(79,124,255,0.12), transparent 55%),
-    linear-gradient(180deg, #050713, #04060f);
-  color: #eef2ff;
-}
 
-/* Remove visual noise */
-* {
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-/* ===== HEADER — EXECUTIVE GRADE ===== */
-.header {
-  background: rgba(4, 6, 18, 0.88);
-  backdrop-filter: blur(26px);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  box-shadow:
-    0 12px 40px rgba(0,0,0,0.55);
-}
-
-/* ===== DESKTOP CONTENT WIDTH CONTROL ===== */
-section {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* ===== HERO — CONFIDENT, NOT LOUD ===== */
-.hero h1 {
-  font-size: clamp(42px, 4vw, 56px);
-  letter-spacing: -0.6px;
-  line-height: 1.15;
-}
-
-.hero p {
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  opacity: 0.85;
-}
-
-/* ===== CARDS — PRECISION MATERIAL ===== */
-.shop-card,
-.product-card,
-.review-card,
-.activity-box,
-.about-highlights div {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.08),
-      rgba(255,255,255,0.02)
-    );
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 22px;
-  box-shadow:
-    0 18px 55px rgba(0,0,0,0.55);
-}
-
-/* Desktop spacing harmony */
-@media (min-width: 1024px) {
-  .shop-grid,
-  .product-grid {
-    gap: 42px;
-  }
-}
-
-/* ===== CARD HOVER — CONTROLLED ELEVATION ===== */
-.shop-card:hover,
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 30px 90px rgba(0,0,0,0.75);
-}
-
-/* ===== SHOP HEADER ALIGNMENT — DESKTOP PERFECT ===== */
-.shop-header {
-  align-items: center;
-  gap: 10px;
-}
-
-/* ===== VERIFIED BADGE — SUBTLE STATUS SYMBOL ===== */
-.verified-badge {
-  background: rgba(56,189,248,0.18);
-  border: 1px solid rgba(56,189,248,0.45);
-  color: #c7e9ff;
-  box-shadow: none;
-}
-
-/* ===== PRODUCT IMAGES — HIGH-END DEPTH ===== */
-.shop-image,
-.product-card img {
-  border-radius: 18px;
-  box-shadow:
-    0 16px 45px rgba(0,0,0,0.65);
-}
-
-/* ===== BUTTONS — HARDWARE FEEL ===== */
-.buy-btn,
-.view-products-btn,
-.cta {
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.55),
-    inset 0 1px 0 rgba(255,255,255,0.28);
-}
-
-/* Button hover — no gimmicks */
-.buy-btn:hover,
-.view-products-btn:hover,
-.cta:hover {
-  transform: translateY(-1px);
-}
-
-/* ===== BUY MODAL — PRIVATE VAULT ===== */
-.buy-modal {
-  background: rgba(2, 4, 14, 0.94);
-  backdrop-filter: blur(22px);
-}
-
-.buy-modal-content {
-  background:
-    linear-gradient(180deg, #161a36, #0b0e24);
-  border: 1px solid rgba(255,255,255,0.14);
-  box-shadow:
-    0 40px 120px rgba(0,0,0,0.85);
-}
-
-/* ===== FORM INPUTS — ENTERPRISE UI ===== */
-.buy-form input {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.22);
-}
-
-.buy-form input:focus {
-  border-color: #60a5fa;
-  box-shadow:
-    0 0 0 3px rgba(96,165,250,0.35);
-}
-
-/* ===== MODAL BUTTONS — CLEAR, EXECUTIVE ===== */
-.buy-modal .modal-actions button {
-  border-radius: 14px;
-  font-weight: 600;
-}
-
-/* Cancel */
-.buy-modal .modal-actions button:first-child {
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.32);
-  color: #f1f5f9;
-}
-
-/* Continue */
-.buy-modal .modal-actions button:last-child {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  box-shadow:
-    0 12px 30px rgba(34,197,94,0.55);
-}
-
-/* ===== FOOTER — QUIET CONFIDENCE ===== */
-.site-footer {
-  background: transparent;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  opacity: 0.9;
-}
