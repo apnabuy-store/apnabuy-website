@@ -694,6 +694,79 @@ nav a {
   margin-bottom: 28px;
 }
 
+/* ======================================================
+   APNABUY — SIGNATURE LUXURY PRESENCE LAYER
+   Ultra-Subtle | Rare Edition | Memory-Making
+   ====================================================== */
+.buy-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.buy-modal-content {
+  width: 92%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-soft);
+  color: var(--text-main);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.modal-cancel {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  padding: 12px;
+  border-radius: 999px;
+}
+
+.modal-confirm {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 999px;
+}
+
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
