@@ -1064,73 +1064,8 @@ input:focus {
   color: #cbd5f5;
 
   font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
+  font-weigh
 
-  transition: all 0.25s ease;
-}
-
-.buy-modal .modal-cancel:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: translateY(-1px);
-}
-
-/* CONTINUE TO WHATSAPP – PRIMARY PREMIUM CTA */
-.buy-modal .modal-confirm {
-  flex: 1;
-  padding: 12px 18px;
-  border-radius: 14px;
-
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  border: none;
-  color: #ffffff;
-
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-
-  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
-  transition: all 0.25s ease;
-}
-
-.buy-modal .modal-confirm:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.45);
-}
-
-/* MOBILE REFINEMENT */
-@media (max-width: 480px) {
-  .buy-modal .modal-actions {
-    flex-direction: column;
-  }
-
-  .buy-modal .modal-cancel,
-  .buy-modal .modal-confirm {
-    width: 100%;
-  }
-}
-/* ================= MOBILE FIX — SHOP NAME + VERIFIED BADGE ================= */
-/* UI ONLY | No logic touched */
-
-@media (max-width: 480px) {
-  .shop-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 6px;
-  }
-
-  .shop-name {
-    font-size: 17px;
-    line-height: 1.3;
-    text-align: center;
-  }
-
-  .verified-badge {
-    margin-top: 2px;
-    font-size: 11px;
-  }
-}
 /* ================= FIX SHOP HEADER ALIGNMENT ================= */
 
 .shop-header {
