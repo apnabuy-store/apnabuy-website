@@ -1131,5 +1131,53 @@ input:focus {
     font-size: 11px;
   }
 }
+/* ================= FIX SHOP HEADER ALIGNMENT ================= */
 
+.shop-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  text-align: center;
+}
 
+.shop-name {
+  font-size: 18px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.verified-badge {
+  flex-shrink: 0;
+  line-height: 1;
+}
+/* ================= MOBILE CARD CENTERING ================= */
+
+@media (max-width: 768px) {
+  .shop-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .shop-card {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+
+  .shop-header {
+    justify-content: center;
+  }
+}
+/* ================= DESKTOP GRID STABILITY ================= */
+
+.shop-grid {
+  align-items: stretch;
+}
+
+.shop-card {
+  display: flex;
+  flex-direction: column;
+}
