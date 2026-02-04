@@ -744,6 +744,20 @@ nav a {
   display: flex;
   flex-direction: column;
 }
+/* =====================================================
+   FIX: HIDE BUY MODAL BY DEFAULT (SHOP PROFILE PAGE)
+   ===================================================== */
+
+.buy-modal {
+  display: none;          /* 🔒 hide on page load */
+  position: fixed;
+  inset: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
