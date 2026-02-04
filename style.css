@@ -694,79 +694,56 @@ nav a {
   margin-bottom: 28px;
 }
 
-/* ======================================================
-   APNABUY — SIGNATURE LUXURY PRESENCE LAYER
-   Ultra-Subtle | Rare Edition | Memory-Making
-   ====================================================== */
-.buy-modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(6px);
-  justify-content: center;
+/* ================= FIX SHOP HEADER ALIGNMENT ================= */
+
+.shop-header {
+  display: flex;
   align-items: center;
-  z-index: 999;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+  text-align: center;
 }
 
-.buy-modal-content {
-  width: 92%;
-  max-width: 420px;
-  background: var(--card-bg);
-  border-radius: 22px;
-  padding: 26px;
-  box-shadow: var(--shadow-soft);
-}
-
-.buy-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-group label {
-  font-size: 13px;
+.shop-name {
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 6px;
+  white-space: nowrap;
 }
 
-.form-group input {
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid var(--border-soft);
-  background: var(--bg-soft);
-  color: var(--text-main);
+.verified-badge {
+  flex-shrink: 0;
+  line-height: 1;
+}
+/* ================= MOBILE CARD CENTERING ================= */
+
+@media (max-width: 768px) {
+  .shop-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .shop-card {
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+
+  .shop-header {
+    justify-content: center;
+  }
+}
+/* ================= DESKTOP GRID STABILITY ================= */
+
+.shop-grid {
+  align-items: stretch;
 }
 
-.modal-actions {
+.shop-card {
   display: flex;
-  gap: 12px;
-  margin-top: 10px;
+  flex-direction: column;
 }
-
-.modal-cancel {
-  flex: 1;
-  background: transparent;
-  border: 1px solid var(--border-soft);
-  color: var(--text-muted);
-  padding: 12px;
-  border-radius: 999px;
-}
-
-.modal-confirm {
-  flex: 1;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 999px;
-}
-
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
@@ -1034,67 +1011,3 @@ nav a {
     font-size: 11px;
   }
 }
-/* =====================================================
-   HARD DESKTOP FIX — SHOP CARD ALIGNMENT
-   DO NOT MOVE ABOVE THIS POINT
-   ===================================================== */
-
-@media (min-width: 769px) {
-
-  /* Force grid items to behave consistently */
-  .shop-grid {
-    align-items: stretch;
-    justify-items: center;
-  }
-
-  /* HARD RESET shop card */
-  .shop-card {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    text-align: center !important;
-    width: 100%;
-    max-width: 360px;
-  }
-
-  /* Shop image always centered */
-  .shop-card .shop-image {
-    display: block;
-    margin: 0 auto 14px;
-  }
-
-  /* Name + verified badge — FINAL FIX */
-  .shop-card .shop-header {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 100%;
-    gap: 8px;
-    margin: 8px 0 6px;
-  }
-
-  /* Ensure text does not shift */
-  .shop-card .shop-name {
-    text-align: center !important;
-    white-space: normal;
-    line-height: 1.35;
-  }
-
-  /* Meta info perfectly centered */
-  .shop-card p,
-  .shop-card .shop-rating,
-  .shop-card .shop-status,
-  .shop-card .peak-status {
-    text-align: center !important;
-    width: 100%;
-  }
-
-  /* Buttons aligned */
-  .shop-card .view-products-btn,
-  .shop-card .profile-btn {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
