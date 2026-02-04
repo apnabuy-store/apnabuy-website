@@ -758,6 +758,103 @@ nav a {
 
   z-index: 9999;
 }
+/* =====================================================
+   FINAL FIX — BUY MODAL VISIBILITY & PROFESSIONAL LOOK
+   UI ONLY | ZERO LOGIC IMPACT
+   ===================================================== */
+
+/* Strong dark backdrop */
+.buy-modal {
+  background: rgba(6, 9, 28, 0.92) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Modal container — solid, premium */
+.buy-modal-content {
+  background: linear-gradient(180deg, #1b2142, #141a35) !important;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.85),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* Heading clarity */
+.buy-modal-content h3 {
+  margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Inputs — solid, readable */
+.buy-modal-content input {
+  background: rgba(255,255,255,0.10) !important;
+  border: 1px solid rgba(255,255,255,0.25) !important;
+  color: #ffffff !important;
+  padding: 13px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+/* Inputs focus */
+.buy-modal-content input:focus {
+  outline: none;
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 3px rgba(56,189,248,0.35);
+}
+
+/* Action buttons container */
+.buy-modal .modal-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+/* Cancel button — glass style */
+.buy-modal .modal-cancel {
+  flex: 1;
+  background: rgba(255,255,255,0.12) !important;
+  border: 1px solid rgba(255,255,255,0.28) !important;
+  color: #e5e7eb !important;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.buy-modal .modal-cancel:hover {
+  background: rgba(255,255,255,0.22) !important;
+  transform: translateY(-1px);
+}
+
+/* Continue button — strong WhatsApp CTA */
+.buy-modal .modal-confirm {
+  flex: 1;
+  background: linear-gradient(135deg, #25D366, #128C7E) !important;
+  border: none !important;
+  color: #ffffff !important;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 14px 36px rgba(37,211,102,0.6);
+  transition: all 0.25s ease;
+}
+
+.buy-modal .modal-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 46px rgba(37,211,102,0.8);
+}
+
+/* Mobile stacking */
+@media (max-width: 480px) {
+  .buy-modal .modal-actions {
+    flex-direction: column;
+  }
+}
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
