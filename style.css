@@ -693,177 +693,80 @@ nav a {
   color: var(--text-muted);
   margin-bottom: 28px;
 }
-/* =====================================================
-   APNABUY — LIMITED EDITION LUXURY THEME
-   Visual only | Zero logic impact
-   ===================================================== */
 
-/* ===== SIGNATURE BACKGROUND ===== */
-body {
-  background:
-    radial-gradient(1400px 700px at 20% 10%, rgba(79,124,255,0.18), transparent 55%),
-    radial-gradient(1200px 600px at 90% 90%, rgba(56,189,248,0.14), transparent 55%),
-    linear-gradient(180deg, #070a1a, #050714);
-}
-
-/* ===== GLOBAL SOFT LIGHT ===== */
-body::before {
-  content: "";
+/* ======================================================
+   APNABUY — SIGNATURE LUXURY PRESENCE LAYER
+   Ultra-Subtle | Rare Edition | Memory-Making
+   ====================================================== */
+.buy-modal {
+  display: none;
   position: fixed;
   inset: 0;
-  background:
-    linear-gradient(120deg,
-      transparent 30%,
-      rgba(255,255,255,0.04),
-      transparent 70%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* ===== HEADER — LUXURY GLASS ===== */
-.header {
-  background: rgba(6, 9, 28, 0.82);
-  backdrop-filter: blur(22px);
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.7),
-    inset 0 1px 0 rgba(255,255,255,0.08);
-}
-
-/* ===== SECTION SPACING BREATH ===== */
-section {
-  position: relative;
-}
-
-/* ===== CARDS — RARE MATERIAL ===== */
-.shop-card,
-.product-card,
-.review-card,
-.activity-box,
-.about-highlights div {
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,0.09),
-      rgba(255,255,255,0.03)
-    );
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow:
-    0 30px 80px rgba(0,0,0,0.65),
-    inset 0 1px 0 rgba(255,255,255,0.15);
-}
-
-/* ===== CARD INTERACTION — CONFIDENT ===== */
-.shop-card:hover,
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow:
-    0 45px 120px rgba(0,0,0,0.85),
-    inset 0 1px 0 rgba(255,255,255,0.2);
-}
-
-/* ===== SHOP IMAGE DEPTH ===== */
-.shop-image,
-.product-card img {
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.7);
-}
-
-/* ===== VERIFIED BADGE — JEWEL ===== */
-.verified-badge {
-  background:
-    linear-gradient(135deg, rgba(56,189,248,0.35), rgba(79,124,255,0.35));
-  border: 1px solid rgba(255,255,255,0.35);
-  box-shadow:
-    0 8px 22px rgba(56,189,248,0.6);
-}
-
-/* ===== HEADINGS — SILENT POWER ===== */
-h1, h2, h3 {
-  letter-spacing: 0.3px;
-  text-shadow:
-    0 8px 40px rgba(79,124,255,0.35);
-}
-
-/* ===== SUBTEXT — SOFT ===== */
-p, span {
-  opacity: 0.92;
-}
-
-/* ===== BUTTONS — LUXURY HARDWARE ===== */
-button,
-.buy-btn,
-.view-products-btn,
-.cta {
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    0 18px 45px rgba(0,0,0,0.6),
-    inset 0 1px 0 rgba(255,255,255,0.25);
-}
-
-/* BUTTON LIGHT SWEEP */
-button::before,
-.buy-btn::before,
-.view-products-btn::before,
-.cta::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      120deg,
-      transparent 20%,
-      rgba(255,255,255,0.5),
-      transparent 80%);
-  transform: translateX(-140%);
-  transition: transform 0.8s ease;
-}
-
-button:hover::before,
-.buy-btn:hover::before,
-.view-products-btn:hover::before,
-.cta:hover::before {
-  transform: translateX(140%);
-}
-
-/* ===== INPUTS — PREMIUM FORM ===== */
-input {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.25);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.25);
-}
-
-input:focus {
-  border-color: var(--accent);
-  box-shadow:
-    0 0 0 4px rgba(56,189,248,0.28),
-    inset 0 1px 0 rgba(255,255,255,0.35);
-}
-
-/* ===== BUY MODAL — VAULT FEEL ===== */
-.buy-modal {
-  background: rgba(4, 6, 20, 0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
 .buy-modal-content {
-  background:
-    linear-gradient(180deg, #1a1f3f, #0c1028);
-  border: 1px solid rgba(255,255,255,0.22);
-  box-shadow:
-    0 50px 140px rgba(0,0,0,0.9);
+  width: 92%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border-radius: 22px;
+  padding: 26px;
+  box-shadow: var(--shadow-soft);
 }
 
-/* ===== FOOTER — QUIET LUXURY ===== */
-.site-footer {
-  background:
-    linear-gradient(180deg,
-      rgba(255,255,255,0.04),
-      rgba(255,255,255,0.01));
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.12);
+.buy-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-soft);
+  color: var(--text-main);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.modal-cancel {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border-soft);
+  color: var(--text-muted);
+  padding: 12px;
+  border-radius: 999px;
+}
+
+.modal-confirm {
+  flex: 1;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 999px;
+}
+
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
@@ -1064,83 +967,70 @@ input:focus {
   color: #cbd5f5;
 
   font-size: 14px;
-  font-weigh
-
-/* ================= FIX SHOP HEADER ALIGNMENT ================= */
-
-.shop-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: nowrap;
-  text-align: center;
-}
-
-.shop-name {
-  font-size: 18px;
   font-weight: 600;
-  white-space: nowrap;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
 }
 
-.verified-badge {
-  flex-shrink: 0;
-  line-height: 1;
+.buy-modal .modal-cancel:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
 }
-/* ================= MOBILE CARD CENTERING ================= */
 
-@media (max-width: 768px) {
-  .shop-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
+/* CONTINUE TO WHATSAPP – PRIMARY PREMIUM CTA */
+.buy-modal .modal-confirm {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border: none;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  box-shadow: 0 10px 28px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+}
+
+.buy-modal .modal-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.45);
+}
+
+/* MOBILE REFINEMENT */
+@media (max-width: 480px) {
+  .buy-modal .modal-actions {
+    flex-direction: column;
   }
 
-  .shop-card {
+  .buy-modal .modal-cancel,
+  .buy-modal .modal-confirm {
     width: 100%;
-    max-width: 360px;
+  }
+}
+/* ================= MOBILE FIX — SHOP NAME + VERIFIED BADGE ================= */
+/* UI ONLY | No logic touched */
+
+@media (max-width: 480px) {
+  .shop-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+
+  .shop-name {
+    font-size: 17px;
+    line-height: 1.3;
     text-align: center;
   }
 
-  .shop-header {
-    justify-content: center;
+  .verified-badge {
+    margin-top: 2px;
+    font-size: 11px;
   }
-}
-/* ================= DESKTOP GRID STABILITY ================= */
-
-.shop-grid {
-  align-items: stretch;
-}
-
-.shop-card {
-  display: flex;
-  flex-direction: column;
-}
-/* =====================================================
-   FIX: REMOVE PINCODE INPUT LINE / ANIMATION ONLY
-   ===================================================== */
-
-.pincode-section input {
-  box-shadow: none !important;
-  border: 1px solid rgba(255,255,255,0.25);
-}
-
-.pincode-section input:focus {
-  box-shadow: none !important;
-  border-color: rgba(255,255,255,0.45);
-}
-
-/* =====================================================
-   FIX: HIDE BUY MODAL BY DEFAULT (SHOP PROFILE PAGE)
-   ===================================================== */
-
-.buy-modal {
-  display: none;          /* 🔒 hide on page load */
-  position: fixed;
-  inset: 0;
-
-  align-items: center;
-  justify-content: center;
-
-  z-index: 9999;
 }
