@@ -1035,55 +1035,66 @@ nav a {
   }
 }
 /* =====================================================
-   DESKTOP FIX — SHOP CARD ALIGNMENT
-   Visual only | No logic impact
+   HARD DESKTOP FIX — SHOP CARD ALIGNMENT
+   DO NOT MOVE ABOVE THIS POINT
    ===================================================== */
 
 @media (min-width: 769px) {
 
-  /* Ensure card content is vertically structured */
+  /* Force grid items to behave consistently */
+  .shop-grid {
+    align-items: stretch;
+    justify-items: center;
+  }
+
+  /* HARD RESET shop card */
   .shop-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;        /* 🔑 center everything */
-    text-align: center;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100%;
+    max-width: 360px;
   }
 
-  /* Center image cleanly */
-  .shop-image {
-    margin-left: auto;
-    margin-right: auto;
+  /* Shop image always centered */
+  .shop-card .shop-image {
+    display: block;
+    margin: 0 auto 14px;
   }
 
-  /* Perfectly align name + verified badge */
-  .shop-header {
-    display: inline-flex;       /* prevents stretching */
-    align-items: center;
-    justify-content: center;
+  /* Name + verified badge — FINAL FIX */
+  .shop-card .shop-header {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
     gap: 8px;
-    margin: 10px auto 6px;
+    margin: 8px 0 6px;
   }
 
-  /* Shop name refinement */
-  .shop-name {
-    text-align: center;
+  /* Ensure text does not shift */
+  .shop-card .shop-name {
+    text-align: center !important;
+    white-space: normal;
     line-height: 1.35;
   }
 
-  /* Meta & info alignment */
+  /* Meta info perfectly centered */
   .shop-card p,
-  .shop-rating,
-  .shop-status,
-  .peak-status {
-    text-align: center;
+  .shop-card .shop-rating,
+  .shop-card .shop-status,
+  .shop-card .peak-status {
+    text-align: center !important;
     width: 100%;
   }
 
-  /* Buttons centered */
-  .view-products-btn,
-  .profile-btn {
+  /* Buttons aligned */
+  .shop-card .view-products-btn,
+  .shop-card .profile-btn {
     margin-left: auto;
     margin-right: auto;
   }
-
 }
+
