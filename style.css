@@ -1034,3 +1034,56 @@ nav a {
     font-size: 11px;
   }
 }
+/* =====================================================
+   DESKTOP FIX — SHOP CARD ALIGNMENT
+   Visual only | No logic impact
+   ===================================================== */
+
+@media (min-width: 769px) {
+
+  /* Ensure card content is vertically structured */
+  .shop-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* 🔑 center everything */
+    text-align: center;
+  }
+
+  /* Center image cleanly */
+  .shop-image {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Perfectly align name + verified badge */
+  .shop-header {
+    display: inline-flex;       /* prevents stretching */
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 10px auto 6px;
+  }
+
+  /* Shop name refinement */
+  .shop-name {
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  /* Meta & info alignment */
+  .shop-card p,
+  .shop-rating,
+  .shop-status,
+  .peak-status {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Buttons centered */
+  .view-products-btn,
+  .profile-btn {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
