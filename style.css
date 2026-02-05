@@ -876,7 +876,170 @@ p {
     flex-direction: column;
   }
 }
+/* =====================================================
+   APNABUY — EXECUTIVE PREMIUM UI OVERRIDE
+   Visual only | Safe override | No logic touched
+   ===================================================== */
 
+/* ===== GLOBAL BACKGROUND (LIGHT, PREMIUM, NON-BLACK) ===== */
+body {
+  background:
+    radial-gradient(1200px 600px at top, #ffffff 0%, transparent 60%),
+    linear-gradient(180deg, #f7f9fc, #eef2f7);
+  color: #0b1220;
+}
+
+/* ===== HEADER — EXECUTIVE GLASS ===== */
+.header {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(15,23,42,0.06);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+}
+
+/* ===== SECTION RHYTHM (DESKTOP & MOBILE SAFE) ===== */
+.how, .why, .shops, .products, .about, .reviews, .contact {
+  padding-top: clamp(64px, 8vw, 120px);
+  padding-bottom: clamp(64px, 8vw, 120px);
+}
+
+/* ===== CARD SYSTEM — EXECUTIVE MATERIAL ===== */
+.shop-card,
+.product-card,
+.review-card,
+.activity-box,
+.about-highlights div {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(15,23,42,0.06);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(15,23,42,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shop-card:hover,
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 35px 80px rgba(15,23,42,0.12);
+}
+
+/* ===== SHOP IMAGE — CLEAN DEPTH ===== */
+.shop-image,
+.product-card img {
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15,23,42,0.15);
+}
+
+/* ===== SHOP HEADER ALIGNMENT (DESKTOP + MOBILE FIX) ===== */
+.shop-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.shop-name {
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* ===== VERIFIED BADGE — PREMIUM SEAL ===== */
+.verified-badge {
+  background: rgba(59,92,255,0.12);
+  color: #3b5cff;
+  border: 1px solid rgba(59,92,255,0.25);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ===== TEXT HIERARCHY ===== */
+h1, h2, h3 {
+  letter-spacing: 0.3px;
+  color: #0b1220;
+}
+
+p {
+  color: #4b5563;
+}
+
+/* ===== BUTTONS — EXECUTIVE CONFIDENCE ===== */
+button,
+.buy-btn,
+.view-products-btn,
+.cta {
+  background: linear-gradient(135deg, #3b5cff, #5fa8ff);
+  color: #ffffff;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: 0 12px 30px rgba(59,92,255,0.25);
+  transition: all 0.25s ease;
+}
+
+button:hover,
+.buy-btn:hover,
+.view-products-btn:hover,
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(59,92,255,0.35);
+}
+
+/* ===== INPUTS — PREMIUM FORM FEEL ===== */
+input {
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(15,23,42,0.15);
+  border-radius: 14px;
+}
+
+input:focus {
+  border-color: #3b5cff;
+  box-shadow: 0 0 0 4px rgba(59,92,255,0.18);
+}
+
+/* ===== BUY MODAL — SOLID, NOT TRANSPARENT ===== */
+.buy-modal {
+  background: rgba(247,249,252,0.85);
+  backdrop-filter: blur(10px);
+}
+
+.buy-modal-content {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 1px solid rgba(15,23,42,0.08);
+  box-shadow: 0 40px 90px rgba(15,23,42,0.18);
+}
+
+/* ===== MODAL BUTTONS ===== */
+.buy-modal .modal-cancel {
+  background: rgba(15,23,42,0.06);
+  border: 1px solid rgba(15,23,42,0.15);
+  color: #374151;
+}
+
+.buy-modal .modal-confirm {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(37,211,102,0.35);
+}
+
+/* ===== FOOTER — QUIET LUXURY ===== */
+.site-footer {
+  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  border-top: 1px solid rgba(15,23,42,0.06);
+  color: #6b7280;
+}
+
+/* ===== MOBILE SAFETY (NO BREAKS) ===== */
+@media (max-width: 768px) {
+  .shop-header {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .shop-name {
+    font-size: 17px;
+  }
+}
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
