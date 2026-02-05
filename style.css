@@ -1,31 +1,3 @@
-/* ===============================
-   APNABUY – PEARL GREY LUXURY CORE
-   Visual only | Logic untouched
-================================ */
-
-:root {
-  /* Base backgrounds */
-  --bg-main: #f4f6fb;        /* Pearl white */
-  --bg-soft: #eef1f7;        /* Soft grey */
-
-  /* Card & surfaces */
-  --card-bg: rgba(255,255,255,0.78);
-  --card-border: rgba(0,0,0,0.06);
-
-  /* Brand accents */
-  --primary: #4f7cff;        /* Trust blue */
-  --accent: #38bdf8;         /* Soft tech blue */
-  --gold: #c9a227;           /* Luxury hint */
-
-  /* Text */
-  --text-main: #0f172a;      /* Deep navy */
-  --text-muted: #64748b;     /* Calm grey */
-
-  /* Shadows */
-  --shadow-soft: 0 18px 40px rgba(15,23,42,0.08);
-  --shadow-hover: 0 28px 70px rgba(15,23,42,0.12);
-}
-
 /* ================= THEME VARIABLES ================= */
 :root {
   /* ===== BACKGROUND ===== */
@@ -61,18 +33,26 @@
 body {
   font-family: "Inter", sans-serif;
   background:
-    radial-gradient(900px 450px at top, #ffffff 0%, transparent 60%),
-    linear-gradient(180deg, var(--bg-main), var(--bg-soft));
+    radial-gradient(1000px 500px at top, #1a2250 0%, transparent 60%),
+    linear-gradient(180deg, var(--bg-main), #0a0d1a);
   color: var(--text-main);
   line-height: 1.7;
+  padding-top: 110px;
 }
 
 /* ================= HEADER ================= */
 .header {
-  background: rgba(255,255,255,0.75);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 48px;
+  background: rgba(14,18,36,0.75);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--card-border);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  border-bottom: 1px solid var(--border-soft);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 }
 
 .brand {
@@ -282,10 +262,10 @@ nav a {
 
 .about-highlights div {
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
+  padding: 24px;
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
   box-shadow: var(--shadow-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .about-highlights h4 {
@@ -319,16 +299,12 @@ nav a {
 }
 
 .shop-card {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.shop-card:hover{
+.shop-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-hover);
 }
 
 .shop-image {
@@ -410,11 +386,9 @@ nav a {
 
 /* ================= PRODUCTS ================= */
 .product-card img {
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 16px;
 }
 
 .quantity-box {
@@ -439,12 +413,14 @@ nav a {
 }
 
 .buy-btn {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
+  margin-top: 12px;
+  padding: 12px 26px;
   border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
   font-weight: 600;
-  box-shadow: 0 10px 28px rgba(79,124,255,0.25);
-  transition: all 0.25s ease;
 }
 
 /* ================= CITY PRESENCE ================= */
@@ -525,12 +501,14 @@ nav a {
 }
 
 .cta {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
+  display: inline-block;
+  margin-top: 24px;
+  padding: 15px 40px;
   border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 10px 28px rgba(79,124,255,0.25);
-  transition: all 0.25s ease;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  text-decoration: none;
+  box-shadow: 0 10px 28px rgba(79,124,255,0.35);
 }
 
 .site-footer {
@@ -585,11 +563,15 @@ nav a {
 }
 
 .activity-box {
+  max-width: 520px;
+  margin: 24px auto 0;
+  padding: 18px 24px;
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-size: 14px;
+  color: var(--text-main);
 }
 
 #activityText {
@@ -667,17 +649,27 @@ nav a {
 /* ================= VIEW PRODUCTS BUTTON ================= */
 
 .view-products-btn {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
+  margin-top: 12px;
+  padding: 10px 22px;
+  width: 100%;
+
   border-radius: 999px;
+  border: none;
+  cursor: pointer;
+
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+
+  font-size: 14px;
   font-weight: 600;
-  box-shadow: 0 10px 28px rgba(79,124,255,0.25);
-  transition: all 0.25s ease;
+  box-shadow: 0 8px 22px rgba(79,124,255,0.35);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .view-products-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 36px rgba(79,124,255,0.35);
+  box-shadow: 0 12px 30px rgba(79,124,255,0.45);
 }
 
 /* ================= TRENDING PRODUCTS HEADING ================= */
@@ -702,18 +694,6 @@ nav a {
   margin-bottom: 28px;
 }
 
-h1, h2, h3 {
-  letter-spacing: 0.3px;
-}
-
-p {
-  color: var(--text-muted);
-}
-
-.shop-name {
-  color: var(--text-main);
-  font-weight: 600;
-}
 /* ================= FIX SHOP HEADER ALIGNMENT ================= */
 
 .shop-header {
@@ -732,9 +712,8 @@ p {
 }
 
 .verified-badge {
-  background: rgba(79,124,255,0.12);
-  color: var(--primary);
-  border: 1px solid rgba(79,124,255,0.25);
+  flex-shrink: 0;
+  line-height: 1;
 }
 /* ================= MOBILE CARD CENTERING ================= */
 
@@ -876,170 +855,7 @@ p {
     flex-direction: column;
   }
 }
-/* =====================================================
-   APNABUY — EXECUTIVE PREMIUM UI OVERRIDE
-   Visual only | Safe override | No logic touched
-   ===================================================== */
 
-/* ===== GLOBAL BACKGROUND (LIGHT, PREMIUM, NON-BLACK) ===== */
-body {
-  background:
-    radial-gradient(1200px 600px at top, #ffffff 0%, transparent 60%),
-    linear-gradient(180deg, #f7f9fc, #eef2f7);
-  color: #0b1220;
-}
-
-/* ===== HEADER — EXECUTIVE GLASS ===== */
-.header {
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(15,23,42,0.06);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-}
-
-/* ===== SECTION RHYTHM (DESKTOP & MOBILE SAFE) ===== */
-.how, .why, .shops, .products, .about, .reviews, .contact {
-  padding-top: clamp(64px, 8vw, 120px);
-  padding-bottom: clamp(64px, 8vw, 120px);
-}
-
-/* ===== CARD SYSTEM — EXECUTIVE MATERIAL ===== */
-.shop-card,
-.product-card,
-.review-card,
-.activity-box,
-.about-highlights div {
-  background: rgba(255,255,255,0.9);
-  border: 1px solid rgba(15,23,42,0.06);
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(15,23,42,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.shop-card:hover,
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 35px 80px rgba(15,23,42,0.12);
-}
-
-/* ===== SHOP IMAGE — CLEAN DEPTH ===== */
-.shop-image,
-.product-card img {
-  border-radius: 18px;
-  box-shadow: 0 18px 40px rgba(15,23,42,0.15);
-}
-
-/* ===== SHOP HEADER ALIGNMENT (DESKTOP + MOBILE FIX) ===== */
-.shop-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-}
-
-.shop-name {
-  font-weight: 600;
-  line-height: 1.35;
-  text-align: center;
-}
-
-/* ===== VERIFIED BADGE — PREMIUM SEAL ===== */
-.verified-badge {
-  background: rgba(59,92,255,0.12);
-  color: #3b5cff;
-  border: 1px solid rgba(59,92,255,0.25);
-  font-size: 11px;
-  font-weight: 600;
-}
-
-/* ===== TEXT HIERARCHY ===== */
-h1, h2, h3 {
-  letter-spacing: 0.3px;
-  color: #0b1220;
-}
-
-p {
-  color: #4b5563;
-}
-
-/* ===== BUTTONS — EXECUTIVE CONFIDENCE ===== */
-button,
-.buy-btn,
-.view-products-btn,
-.cta {
-  background: linear-gradient(135deg, #3b5cff, #5fa8ff);
-  color: #ffffff;
-  border-radius: 999px;
-  font-weight: 600;
-  box-shadow: 0 12px 30px rgba(59,92,255,0.25);
-  transition: all 0.25s ease;
-}
-
-button:hover,
-.buy-btn:hover,
-.view-products-btn:hover,
-.cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(59,92,255,0.35);
-}
-
-/* ===== INPUTS — PREMIUM FORM FEEL ===== */
-input {
-  background: rgba(255,255,255,0.95);
-  border: 1px solid rgba(15,23,42,0.15);
-  border-radius: 14px;
-}
-
-input:focus {
-  border-color: #3b5cff;
-  box-shadow: 0 0 0 4px rgba(59,92,255,0.18);
-}
-
-/* ===== BUY MODAL — SOLID, NOT TRANSPARENT ===== */
-.buy-modal {
-  background: rgba(247,249,252,0.85);
-  backdrop-filter: blur(10px);
-}
-
-.buy-modal-content {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid rgba(15,23,42,0.08);
-  box-shadow: 0 40px 90px rgba(15,23,42,0.18);
-}
-
-/* ===== MODAL BUTTONS ===== */
-.buy-modal .modal-cancel {
-  background: rgba(15,23,42,0.06);
-  border: 1px solid rgba(15,23,42,0.15);
-  color: #374151;
-}
-
-.buy-modal .modal-confirm {
-  background: linear-gradient(135deg, #25D366, #128C7E);
-  color: #ffffff;
-  box-shadow: 0 12px 30px rgba(37,211,102,0.35);
-}
-
-/* ===== FOOTER — QUIET LUXURY ===== */
-.site-footer {
-  background: linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
-  border-top: 1px solid rgba(15,23,42,0.06);
-  color: #6b7280;
-}
-
-/* ===== MOBILE SAFETY (NO BREAKS) ===== */
-@media (max-width: 768px) {
-  .shop-header {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .shop-name {
-    font-size: 17px;
-  }
-}
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
@@ -1203,12 +1019,14 @@ input:focus {
   text-align: center;
 }
 
-.review-card div {
+.review-card {
+  max-width: 420px;
+  margin: 16px auto;
+  padding: 18px;
+  border-radius: 14px;
   background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
   box-shadow: var(--shadow-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  font-size: 14px;
 }
 
 .profile-btn {
