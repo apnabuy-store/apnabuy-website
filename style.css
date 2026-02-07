@@ -1124,172 +1124,182 @@ nav a {
   }
 }
 /* =====================================================
-   APNABUY — NEXT LEVEL UI ENHANCEMENT LAYER
-   Visual polish only | Zero logic impact
+   APNABUY — ELITE BRAND EXPERIENCE
+   Depth • Brand • Trust • Wow
+   UI-only | Zero logic impact
    ===================================================== */
 
-/* ===== GLOBAL SMOOTHNESS ===== */
-* {
-  scroll-behavior: smooth;
+/* ================= DEPTH ================= */
+
+/* Ambient depth glow */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 400px at 15% 20%, rgba(79,124,255,0.12), transparent 60%),
+    radial-gradient(700px 350px at 85% 80%, rgba(56,189,248,0.10), transparent 60%);
+  pointer-events: none;
+  z-index: -2;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+/* Elevation stacking */
+.shop-card,
+.product-card,
+.review-card,
+.activity-box,
+.buy-modal-content {
+  position: relative;
+  transform-style: preserve-3d;
 }
 
-/* ===== SOFT PAGE FADE-IN ===== */
-body {
-  animation: pageFade 0.6s ease-out;
+/* ================= BRAND ================= */
+
+/* Brand rhythm: spacing + calm */
+section {
+  margin-bottom: clamp(60px, 8vw, 120px);
 }
 
-@keyframes pageFade {
+/* Headline authority */
+h1 {
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+/* Brand accent underline (subtle) */
+h2::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin: 14px auto 0;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  opacity: 0.75;
+}
+
+/* ================= TRUST ================= */
+
+/* Trust border shimmer (very subtle) */
+.shop-card::before,
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(255,255,255,0.12),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+@media (hover:hover) {
+  .shop-card:hover::before,
+  .product-card:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Verified badge authority */
+.verified-badge {
+  backdrop-filter: blur(6px);
+  box-shadow:
+    0 6px 18px rgba(56,189,248,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+/* ================= WOW ================= */
+
+/* Card entrance — stagger feel */
+.shop-card,
+.product-card {
+  animation: riseIn 0.7s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes riseIn {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(14px) scale(0.98);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* ===== CARD MICRO-MOTION ===== */
-.shop-card,
-.product-card,
-.review-card {
-  transition:
-    transform 0.35s cubic-bezier(.2,.8,.2,1),
-    box-shadow 0.35s ease;
-}
-
-/* Lift on hover (desktop only) */
-@media (hover: hover) {
+/* Premium hover depth */
+@media (hover:hover) {
   .shop-card:hover,
   .product-card:hover {
-    transform: translateY(-8px) scale(1.01);
+    transform: translateY(-10px) scale(1.015);
+    box-shadow:
+      0 40px 120px rgba(0,0,0,0.85),
+      inset 0 1px 0 rgba(255,255,255,0.25);
   }
 }
 
-/* ===== IMAGE ELEGANCE ===== */
-.shop-image,
-.product-card img {
-  transition: transform 0.6s ease, filter 0.6s ease;
-}
-
-@media (hover: hover) {
-  .shop-card:hover .shop-image,
-  .product-card:hover img {
-    transform: scale(1.04);
-    filter: brightness(1.05);
-  }
-}
-
-/* ===== BUTTON CONFIDENCE ===== */
-button,
+/* Button cinematic glow */
 .buy-btn,
 .view-products-btn,
 .cta {
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    filter 0.25s ease;
+  position: relative;
 }
 
-@media (hover: hover) {
-  button:hover,
-  .buy-btn:hover,
-  .view-products-btn:hover,
-  .cta:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.05);
-  }
+.buy-btn::after,
+.view-products-btn::after,
+.cta::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.45),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-/* ===== BUTTON PRESS FEEL ===== */
-button:active,
-.buy-btn:active,
-.view-products-btn:active {
-  transform: translateY(0) scale(0.98);
-}
-
-/* ===== INPUT FOCUS POLISH ===== */
-input,
-textarea {
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
-}
-
-input:focus,
-textarea:focus {
-  background: rgba(255,255,255,0.10);
-}
-
-/* ===== SECTION FLOW ===== */
-section {
-  animation: sectionEnter 0.7s ease both;
-}
-
-@keyframes sectionEnter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
+@media (hover:hover) {
+  .buy-btn:hover::after,
+  .view-products-btn:hover::after,
+  .cta:hover::after {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-/* ===== MODAL ENTRY (PREMIUM) ===== */
-.buy-modal {
-  animation: modalFade 0.35s ease;
-}
-
-@keyframes modalFade {
-  from {
-    opacity: 0;
-    backdrop-filter: blur(0);
-  }
-  to {
-    opacity: 1;
-    backdrop-filter: blur(6px);
-  }
-}
-
+/* Modal luxury entrance */
 .buy-modal-content {
-  animation: modalScale 0.35s cubic-bezier(.2,.8,.2,1);
+  animation: vaultOpen 0.45s cubic-bezier(.2,.8,.2,1);
 }
 
-@keyframes modalScale {
+@keyframes vaultOpen {
   from {
     opacity: 0;
-    transform: scale(0.96);
+    transform: translateY(16px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1);
   }
 }
 
-/* ===== TEXT SUBTLE GLOW ===== */
-h1, h2, h3 {
-  transition: text-shadow 0.3s ease;
-}
-
-@media (hover: hover) {
-  h1:hover,
-  h2:hover {
-    text-shadow: 0 6px 28px rgba(79,124,255,0.35);
-  }
-}
-
-/* ===== MOBILE SAFETY (NO OVER-ANIMATION) ===== */
+/* ================= MOBILE SAFETY ================= */
 @media (max-width: 768px) {
-  .shop-card:hover,
-  .product-card:hover {
-    transform: none;
+  .shop-card,
+  .product-card {
+    animation: none;
   }
 }
