@@ -1123,53 +1123,173 @@ nav a {
     font-size: 11px;
   }
 }
-/* ================= RETURN REALITY — PREMIUM UI ================= */
-/* UI ONLY | No logic touched */
+/* =====================================================
+   APNABUY — NEXT LEVEL UI ENHANCEMENT LAYER
+   Visual polish only | Zero logic impact
+   ===================================================== */
 
-.return-reality {
-  margin-top: 14px;
-  padding: 12px 14px;
-
-  background: linear-gradient(
-    180deg,
-    rgba(255,255,255,0.10),
-    rgba(255,255,255,0.04)
-  );
-
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 14px;
-
-  font-size: 12.5px;
-  line-height: 1.55;
-  color: var(--text-muted);
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,0.25),
-    0 8px 22px rgba(0,0,0,0.45);
+/* ===== GLOBAL SMOOTHNESS ===== */
+* {
+  scroll-behavior: smooth;
 }
 
-/* Title */
-.return-reality .rr-title {
-  display: block;
-  margin-bottom: 6px;
-
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-
-  color: #facc15;
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* Highlight line */
-.return-reality strong {
-  color: var(--text-main);
-  font-weight: 600;
+/* ===== SOFT PAGE FADE-IN ===== */
+body {
+  animation: pageFade 0.6s ease-out;
 }
 
-/* Mobile polish */
-@media (max-width: 480px) {
-  .return-reality {
-    text-align: center;
-    font-size: 12px;
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== CARD MICRO-MOTION ===== */
+.shop-card,
+.product-card,
+.review-card {
+  transition:
+    transform 0.35s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.35s ease;
+}
+
+/* Lift on hover (desktop only) */
+@media (hover: hover) {
+  .shop-card:hover,
+  .product-card:hover {
+    transform: translateY(-8px) scale(1.01);
+  }
+}
+
+/* ===== IMAGE ELEGANCE ===== */
+.shop-image,
+.product-card img {
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+@media (hover: hover) {
+  .shop-card:hover .shop-image,
+  .product-card:hover img {
+    transform: scale(1.04);
+    filter: brightness(1.05);
+  }
+}
+
+/* ===== BUTTON CONFIDENCE ===== */
+button,
+.buy-btn,
+.view-products-btn,
+.cta {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+@media (hover: hover) {
+  button:hover,
+  .buy-btn:hover,
+  .view-products-btn:hover,
+  .cta:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+  }
+}
+
+/* ===== BUTTON PRESS FEEL ===== */
+button:active,
+.buy-btn:active,
+.view-products-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ===== INPUT FOCUS POLISH ===== */
+input,
+textarea {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+input:focus,
+textarea:focus {
+  background: rgba(255,255,255,0.10);
+}
+
+/* ===== SECTION FLOW ===== */
+section {
+  animation: sectionEnter 0.7s ease both;
+}
+
+@keyframes sectionEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== MODAL ENTRY (PREMIUM) ===== */
+.buy-modal {
+  animation: modalFade 0.35s ease;
+}
+
+@keyframes modalFade {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(6px);
+  }
+}
+
+.buy-modal-content {
+  animation: modalScale 0.35s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes modalScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== TEXT SUBTLE GLOW ===== */
+h1, h2, h3 {
+  transition: text-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+  h1:hover,
+  h2:hover {
+    text-shadow: 0 6px 28px rgba(79,124,255,0.35);
+  }
+}
+
+/* ===== MOBILE SAFETY (NO OVER-ANIMATION) ===== */
+@media (max-width: 768px) {
+  .shop-card:hover,
+  .product-card:hover {
+    transform: none;
   }
 }
