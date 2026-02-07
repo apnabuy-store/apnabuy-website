@@ -1303,3 +1303,120 @@ h2::after {
     animation: none;
   }
 }
+/* =====================================================
+   APNABUY — PREMIUM PRESENCE OVERRIDE
+   Visual upgrade only | ZERO logic impact
+   ===================================================== */
+
+/* ---------- GLOBAL IDENTITY ---------- */
+body {
+  letter-spacing: 0.15px;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-shadow: 0 8px 40px rgba(79,124,255,0.25);
+}
+
+/* ---------- SMOOTH PREMIUM MOTION ---------- */
+* {
+  transition:
+    background-color 0.35s ease,
+    color 0.25s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* ---------- CARD DEPTH & MOTION ---------- */
+.shop-card,
+.product-card,
+.review-card {
+  will-change: transform;
+}
+
+.shop-card:hover,
+.product-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow:
+    0 45px 120px rgba(0,0,0,0.85),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* ---------- IMAGE LIFE ---------- */
+.shop-image,
+.product-card img {
+  transition: transform 0.6s ease;
+}
+
+.shop-card:hover .shop-image,
+.product-card:hover img {
+  transform: scale(1.04);
+}
+
+/* ---------- TRUST SIGNALS ---------- */
+.verified-badge {
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 8px 22px rgba(56,189,248,0.55);
+}
+
+.shop-rating {
+  text-shadow: 0 0 12px rgba(250,204,21,0.35);
+}
+
+/* ---------- AVAILABILITY PANEL ---------- */
+.availability {
+  background: rgba(255,255,255,0.05);
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+/* ---------- PREMIUM CTA EFFECT ---------- */
+.buy-btn,
+.view-products-btn,
+.modal-confirm {
+  position: relative;
+  overflow: hidden;
+}
+
+.buy-btn::after,
+.view-products-btn::after,
+.modal-confirm::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(255,255,255,0.45),
+    transparent 75%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.8s ease;
+}
+
+.buy-btn:hover::after,
+.view-products-btn:hover::after,
+.modal-confirm:hover::after {
+  transform: translateX(120%);
+}
+
+/* ---------- PREMIUM MODAL FIX ---------- */
+.buy-modal {
+  background: rgba(5, 8, 25, 0.88) !important;
+  backdrop-filter: blur(14px);
+}
+
+.buy-modal-content {
+  background: linear-gradient(180deg, #1b2142, #0f1430);
+  border: 1px solid rgba(255,255,255,0.22);
+  box-shadow: 0 50px 140px rgba(0,0,0,0.9);
+}
+
+/* ---------- SCALE & BREATH ---------- */
+.shop-grid,
+.product-grid {
+  align-items: stretch;
+}
