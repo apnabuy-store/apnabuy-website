@@ -1420,3 +1420,115 @@ h1, h2, h3 {
 .product-grid {
   align-items: stretch;
 }
+/* =====================================================
+   APNABUY — ELECTRO-STYLE VISUAL ENHANCEMENT
+   UI ONLY | NO LOGIC OR FUNCTION CHANGES
+   ===================================================== */
+
+/* GLOBAL BRAND COLOR */
+:root {
+  --brand-primary: #0787ea; /* Similar to Electro default blue */ /* Electro uses blue accents */ :contentReference[oaicite:2]{index=2}
+  --brand-muted: rgba(255,255,255,0.75);
+  --text-base: #f8fafc;
+  --text-muted-e: rgba(255,255,255,0.65);
+}
+
+/* HERO SECTION SOFT TEXT */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--brand-primary);
+}
+
+.hero p {
+  color: var(--text-muted-e);
+  font-size: 1.125rem;
+}
+
+/* PRODUCT GRID — BIGGER AND CLEANER */
+.product-grid {
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.product-card {
+  padding: 22px;
+  border: 0;
+  border-radius: 12px;
+  background: #0f1227;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.product-card h3,
+.product-card strong {
+  color: var(--text-base);
+}
+
+/* BUTTONS — ACCENT COLOR */
+.buy-btn,
+.view-products-btn,
+.cta {
+  background: var(--brand-primary) !important;
+  color: white !important;
+  border-radius: 999px;
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.buy-btn:hover,
+.view-products-btn:hover,
+.cta:hover {
+  background: #056bbd !important;
+  transform: translateY(-2px);
+}
+
+/* PRODUCT IMAGE — CENTER & SCALE */
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* PRODUCT CARD HOVER DETAIL */
+@media (hover: hover) {
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.65);
+  }
+}
+
+/* PRICING — EMPHASIZED */
+.product-card strong {
+  font-size: 1.3rem;
+  color: var(--brand-primary);
+  margin-top: 8px;
+}
+
+/* SECTION SPACING — ELECTRO FEEL */
+.how, .why, .shops, .products {
+  padding: 100px 48px;
+}
+
+@media (max-width: 768px) {
+  .how, .why, .shops, .products {
+    padding: 64px 16px;
+  }
+}
+
+/* HEADER NAV — ELECTRO-STYLE */
+nav a {
+  font-weight: 600;
+  color: var(--text-base);
+}
+
+nav a:hover {
+  color: var(--brand-primary);
+}
+
+/* FOOTER LEGIBILITY */
+.site-footer {
+  background: #0b0e1e;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-muted-e);
+}
