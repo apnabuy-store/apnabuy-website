@@ -855,6 +855,118 @@ nav a {
     flex-direction: column;
   }
 }
+/* =====================================================
+   APNABUY — ELECTRO-STYLE VISUAL ENHANCEMENT
+   UI ONLY | NO LOGIC OR FUNCTION CHANGES
+   ===================================================== */
+
+/* GLOBAL BRAND COLOR */
+:root {
+  --brand-primary: #0787ea; /* Similar to Electro default blue */ /* Electro uses blue accents */ :contentReference[oaicite:2]{index=2}
+  --brand-muted: rgba(255,255,255,0.75);
+  --text-base: #f8fafc;
+  --text-muted-e: rgba(255,255,255,0.65);
+}
+
+/* HERO SECTION SOFT TEXT */
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+  color: var(--brand-primary);
+}
+
+.hero p {
+  color: var(--text-muted-e);
+  font-size: 1.125rem;
+}
+
+/* PRODUCT GRID — BIGGER AND CLEANER */
+.product-grid {
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.product-card {
+  padding: 22px;
+  border: 0;
+  border-radius: 12px;
+  background: #0f1227;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.product-card h3,
+.product-card strong {
+  color: var(--text-base);
+}
+
+/* BUTTONS — ACCENT COLOR */
+.buy-btn,
+.view-products-btn,
+.cta {
+  background: var(--brand-primary) !important;
+  color: white !important;
+  border-radius: 999px;
+  font-weight: bold;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+}
+
+.buy-btn:hover,
+.view-products-btn:hover,
+.cta:hover {
+  background: #056bbd !important;
+  transform: translateY(-2px);
+}
+
+/* PRODUCT IMAGE — CENTER & SCALE */
+.product-card img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* PRODUCT CARD HOVER DETAIL */
+@media (hover: hover) {
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.65);
+  }
+}
+
+/* PRICING — EMPHASIZED */
+.product-card strong {
+  font-size: 1.3rem;
+  color: var(--brand-primary);
+  margin-top: 8px;
+}
+
+/* SECTION SPACING — ELECTRO FEEL */
+.how, .why, .shops, .products {
+  padding: 100px 48px;
+}
+
+@media (max-width: 768px) {
+  .how, .why, .shops, .products {
+    padding: 64px 16px;
+  }
+}
+
+/* HEADER NAV — ELECTRO-STYLE */
+nav a {
+  font-weight: 600;
+  color: var(--text-base);
+}
+
+nav a:hover {
+  color: var(--brand-primary);
+}
+
+/* FOOTER LEGIBILITY */
+.site-footer {
+  background: #0b0e1e;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-muted-e);
+}
 
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
@@ -1122,413 +1234,4 @@ nav a {
     margin-top: 2px;
     font-size: 11px;
   }
-}
-/* =====================================================
-   APNABUY — ELITE BRAND EXPERIENCE
-   Depth • Brand • Trust • Wow
-   UI-only | Zero logic impact
-   ===================================================== */
-
-/* ================= DEPTH ================= */
-
-/* Ambient depth glow */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(900px 400px at 15% 20%, rgba(79,124,255,0.12), transparent 60%),
-    radial-gradient(700px 350px at 85% 80%, rgba(56,189,248,0.10), transparent 60%);
-  pointer-events: none;
-  z-index: -2;
-}
-
-/* Elevation stacking */
-.shop-card,
-.product-card,
-.review-card,
-.activity-box,
-.buy-modal-content {
-  position: relative;
-  transform-style: preserve-3d;
-}
-
-/* ================= BRAND ================= */
-
-/* Brand rhythm: spacing + calm */
-section {
-  margin-bottom: clamp(60px, 8vw, 120px);
-}
-
-/* Headline authority */
-h1 {
-  font-weight: 800;
-  letter-spacing: -0.6px;
-}
-
-h2 {
-  font-weight: 700;
-  letter-spacing: -0.3px;
-}
-
-/* Brand accent underline (subtle) */
-h2::after {
-  content: "";
-  display: block;
-  width: 42px;
-  height: 3px;
-  margin: 14px auto 0;
-  border-radius: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  opacity: 0.75;
-}
-
-/* ================= TRUST ================= */
-
-/* Trust border shimmer (very subtle) */
-.shop-card::before,
-.product-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    120deg,
-    transparent 30%,
-    rgba(255,255,255,0.12),
-    transparent 70%
-  );
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-@media (hover:hover) {
-  .shop-card:hover::before,
-  .product-card:hover::before {
-    opacity: 1;
-  }
-}
-
-/* Verified badge authority */
-.verified-badge {
-  backdrop-filter: blur(6px);
-  box-shadow:
-    0 6px 18px rgba(56,189,248,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.35);
-}
-
-/* ================= WOW ================= */
-
-/* Card entrance — stagger feel */
-.shop-card,
-.product-card {
-  animation: riseIn 0.7s cubic-bezier(.2,.8,.2,1) both;
-}
-
-@keyframes riseIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Premium hover depth */
-@media (hover:hover) {
-  .shop-card:hover,
-  .product-card:hover {
-    transform: translateY(-10px) scale(1.015);
-    box-shadow:
-      0 40px 120px rgba(0,0,0,0.85),
-      inset 0 1px 0 rgba(255,255,255,0.25);
-  }
-}
-
-/* Button cinematic glow */
-.buy-btn,
-.view-products-btn,
-.cta {
-  position: relative;
-}
-
-.buy-btn::after,
-.view-products-btn::after,
-.cta::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.45),
-    transparent
-  );
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-@media (hover:hover) {
-  .buy-btn:hover::after,
-  .view-products-btn:hover::after,
-  .cta:hover::after {
-    opacity: 1;
-  }
-}
-
-/* Modal luxury entrance */
-.buy-modal-content {
-  animation: vaultOpen 0.45s cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes vaultOpen {
-  from {
-    opacity: 0;
-    transform: translateY(16px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ================= MOBILE SAFETY ================= */
-@media (max-width: 768px) {
-  .shop-card,
-  .product-card {
-    animation: none;
-  }
-}
-/* =====================================================
-   APNABUY — PREMIUM PRESENCE OVERRIDE
-   Visual upgrade only | ZERO logic impact
-   ===================================================== */
-
-/* ---------- GLOBAL IDENTITY ---------- */
-body {
-  letter-spacing: 0.15px;
-}
-
-h1, h2, h3 {
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  text-shadow: 0 8px 40px rgba(79,124,255,0.25);
-}
-
-/* ---------- SMOOTH PREMIUM MOTION ---------- */
-* {
-  transition:
-    background-color 0.35s ease,
-    color 0.25s ease,
-    box-shadow 0.35s ease,
-    transform 0.35s ease;
-}
-
-/* ---------- CARD DEPTH & MOTION ---------- */
-.shop-card,
-.product-card,
-.review-card {
-  will-change: transform;
-}
-
-.shop-card:hover,
-.product-card:hover {
-  transform: translateY(-8px) scale(1.01);
-  box-shadow:
-    0 45px 120px rgba(0,0,0,0.85),
-    inset 0 1px 0 rgba(255,255,255,0.2);
-}
-
-/* ---------- IMAGE LIFE ---------- */
-.shop-image,
-.product-card img {
-  transition: transform 0.6s ease;
-}
-
-.shop-card:hover .shop-image,
-.product-card:hover img {
-  transform: scale(1.04);
-}
-
-/* ---------- TRUST SIGNALS ---------- */
-.verified-badge {
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255,255,255,0.35);
-  box-shadow: 0 8px 22px rgba(56,189,248,0.55);
-}
-
-.shop-rating {
-  text-shadow: 0 0 12px rgba(250,204,21,0.35);
-}
-
-/* ---------- AVAILABILITY PANEL ---------- */
-.availability {
-  background: rgba(255,255,255,0.05);
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.18);
-}
-
-/* ---------- PREMIUM CTA EFFECT ---------- */
-.buy-btn,
-.view-products-btn,
-.modal-confirm {
-  position: relative;
-  overflow: hidden;
-}
-
-.buy-btn::after,
-.view-products-btn::after,
-.modal-confirm::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    120deg,
-    transparent 25%,
-    rgba(255,255,255,0.45),
-    transparent 75%
-  );
-  transform: translateX(-120%);
-  transition: transform 0.8s ease;
-}
-
-.buy-btn:hover::after,
-.view-products-btn:hover::after,
-.modal-confirm:hover::after {
-  transform: translateX(120%);
-}
-
-/* ---------- PREMIUM MODAL FIX ---------- */
-.buy-modal {
-  background: rgba(5, 8, 25, 0.88) !important;
-  backdrop-filter: blur(14px);
-}
-
-.buy-modal-content {
-  background: linear-gradient(180deg, #1b2142, #0f1430);
-  border: 1px solid rgba(255,255,255,0.22);
-  box-shadow: 0 50px 140px rgba(0,0,0,0.9);
-}
-
-/* ---------- SCALE & BREATH ---------- */
-.shop-grid,
-.product-grid {
-  align-items: stretch;
-}
-/* =====================================================
-   APNABUY — ELECTRO-STYLE VISUAL ENHANCEMENT
-   UI ONLY | NO LOGIC OR FUNCTION CHANGES
-   ===================================================== */
-
-/* GLOBAL BRAND COLOR */
-:root {
-  --brand-primary: #0787ea; /* Similar to Electro default blue */ /* Electro uses blue accents */ :contentReference[oaicite:2]{index=2}
-  --brand-muted: rgba(255,255,255,0.75);
-  --text-base: #f8fafc;
-  --text-muted-e: rgba(255,255,255,0.65);
-}
-
-/* HERO SECTION SOFT TEXT */
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -0.6px;
-  color: var(--brand-primary);
-}
-
-.hero p {
-  color: var(--text-muted-e);
-  font-size: 1.125rem;
-}
-
-/* PRODUCT GRID — BIGGER AND CLEANER */
-.product-grid {
-  gap: 28px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.product-card {
-  padding: 22px;
-  border: 0;
-  border-radius: 12px;
-  background: #0f1227;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.product-card h3,
-.product-card strong {
-  color: var(--text-base);
-}
-
-/* BUTTONS — ACCENT COLOR */
-.buy-btn,
-.view-products-btn,
-.cta {
-  background: var(--brand-primary) !important;
-  color: white !important;
-  border-radius: 999px;
-  font-weight: bold;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-}
-
-.buy-btn:hover,
-.view-products-btn:hover,
-.cta:hover {
-  background: #056bbd !important;
-  transform: translateY(-2px);
-}
-
-/* PRODUCT IMAGE — CENTER & SCALE */
-.product-card img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* PRODUCT CARD HOVER DETAIL */
-@media (hover: hover) {
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.65);
-  }
-}
-
-/* PRICING — EMPHASIZED */
-.product-card strong {
-  font-size: 1.3rem;
-  color: var(--brand-primary);
-  margin-top: 8px;
-}
-
-/* SECTION SPACING — ELECTRO FEEL */
-.how, .why, .shops, .products {
-  padding: 100px 48px;
-}
-
-@media (max-width: 768px) {
-  .how, .why, .shops, .products {
-    padding: 64px 16px;
-  }
-}
-
-/* HEADER NAV — ELECTRO-STYLE */
-nav a {
-  font-weight: 600;
-  color: var(--text-base);
-}
-
-nav a:hover {
-  color: var(--brand-primary);
-}
-
-/* FOOTER LEGIBILITY */
-.site-footer {
-  background: #0b0e1e;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: var(--text-muted-e);
 }
