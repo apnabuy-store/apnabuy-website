@@ -855,119 +855,6 @@ nav a {
     flex-direction: column;
   }
 }
-/* =====================================================
-   APNABUY — ELECTRO-STYLE VISUAL ENHANCEMENT
-   UI ONLY | NO LOGIC OR FUNCTION CHANGES
-   ===================================================== */
-
-/* GLOBAL BRAND COLOR */
-:root {
-  --brand-primary: #0787ea; /* Similar to Electro default blue */ /* Electro uses blue accents */ :contentReference[oaicite:2]{index=2}
-  --brand-muted: rgba(255,255,255,0.75);
-  --text-base: #f8fafc;
-  --text-muted-e: rgba(255,255,255,0.65);
-}
-
-/* HERO SECTION SOFT TEXT */
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -0.6px;
-  color: var(--brand-primary);
-}
-
-.hero p {
-  color: var(--text-muted-e);
-  font-size: 1.125rem;
-}
-
-/* PRODUCT GRID — BIGGER AND CLEANER */
-.product-grid {
-  gap: 28px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.product-card {
-  padding: 22px;
-  border: 0;
-  border-radius: 12px;
-  background: #0f1227;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-}
-
-.product-card h3,
-.product-card strong {
-  color: var(--text-base);
-}
-
-/* BUTTONS — ACCENT COLOR */
-.buy-btn,
-.view-products-btn,
-.cta {
-  background: var(--brand-primary) !important;
-  color: white !important;
-  border-radius: 999px;
-  font-weight: bold;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-}
-
-.buy-btn:hover,
-.view-products-btn:hover,
-.cta:hover {
-  background: #056bbd !important;
-  transform: translateY(-2px);
-}
-
-/* PRODUCT IMAGE — CENTER & SCALE */
-.product-card img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* PRODUCT CARD HOVER DETAIL */
-@media (hover: hover) {
-  .product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 28px rgba(0,0,0,0.65);
-  }
-}
-
-/* PRICING — EMPHASIZED */
-.product-card strong {
-  font-size: 1.3rem;
-  color: var(--brand-primary);
-  margin-top: 8px;
-}
-
-/* SECTION SPACING — ELECTRO FEEL */
-.how, .why, .shops, .products {
-  padding: 100px 48px;
-}
-
-@media (max-width: 768px) {
-  .how, .why, .shops, .products {
-    padding: 64px 16px;
-  }
-}
-
-/* HEADER NAV — ELECTRO-STYLE */
-nav a {
-  font-weight: 600;
-  color: var(--text-base);
-}
-
-nav a:hover {
-  color: var(--brand-primary);
-}
-
-/* FOOTER LEGIBILITY */
-.site-footer {
-  background: #0b0e1e;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  color: var(--text-muted-e);
-}
-
 
 /* ================= MOBILE (UNCHANGED LOGIC) ================= */
 @media (max-width: 768px) {
@@ -1234,4 +1121,120 @@ nav a:hover {
     margin-top: 2px;
     font-size: 11px;
   }
+}
+/* =====================================================
+   APNABUY — ELECTRO UI FORCE OVERRIDE
+   VISUAL ONLY | ZERO LOGIC IMPACT
+   ===================================================== */
+
+/* FORCE BRAND COLORS */
+body {
+  background: #0b0e1e !important;
+  color: #f8fafc !important;
+}
+
+/* HEADER — CLEAN E-COMMERCE LOOK */
+.header {
+  background: #ffffff !important;
+  color: #111 !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+}
+
+.header * {
+  color: #111 !important;
+}
+
+/* HERO — BIG, CLEAN, ELECTRO FEEL */
+.hero {
+  background: linear-gradient(135deg, #0b5ed7, #0dcaf0) !important;
+  padding: 120px 24px !important;
+}
+
+.hero h1 {
+  font-size: 48px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+}
+
+.hero p {
+  font-size: 18px !important;
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* PRODUCTS SECTION */
+.products {
+  background: #ffffff !important;
+  color: #111 !important;
+}
+
+/* PRODUCT GRID — ELECTRO STYLE */
+.products .product-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+  gap: 28px !important;
+}
+
+/* PRODUCT CARD — CLEAN & MODERN */
+.products .product-card {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.12) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.products .product-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.18) !important;
+}
+
+/* PRODUCT IMAGE */
+.products .product-card img {
+  border-radius: 10px !important;
+  background: #f4f6f8 !important;
+}
+
+/* PRODUCT TITLE */
+.products .product-card h3,
+.products .product-card h4 {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #111 !important;
+}
+
+/* PRICE — HIGHLIGHT */
+.products .product-card strong {
+  font-size: 20px !important;
+  color: #0b5ed7 !important;
+}
+
+/* BUY BUTTON — ELECTRO STYLE */
+.products .buy-btn {
+  background: #0b5ed7 !important;
+  color: #fff !important;
+  border-radius: 999px !important;
+  padding: 12px 20px !important;
+  font-weight: 700 !important;
+}
+
+.products .buy-btn:hover {
+  background: #084298 !important;
+}
+
+/* SHOPS SECTION */
+.shops {
+  background: #f8f9fa !important;
+}
+
+/* SHOP CARD */
+.shops .shop-card {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.12) !important;
+}
+
+/* FOOTER */
+.site-footer {
+  background: #111827 !important;
+  color: rgba(255,255,255,0.7) !important;
 }
