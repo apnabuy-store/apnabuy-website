@@ -1238,3 +1238,139 @@ body {
   background: #111827 !important;
   color: rgba(255,255,255,0.7) !important;
 }
+
+/* =====================================================
+   APNABUY — NEXT UPGRADE PACK (1–5)
+   UI ONLY | ZERO LOGIC IMPACT
+   ===================================================== */
+
+/* -------------------------------
+   1️⃣ CATEGORY RIBBON (ELECTRO)
+-------------------------------- */
+.category-ribbon {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 14px 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.category-ribbon::-webkit-scrollbar {
+  display: none;
+}
+
+.category-ribbon span {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #f1f5f9;
+  color: #0f172a;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.category-ribbon span:hover {
+  background: #0b5ed7;
+  color: #ffffff;
+}
+
+/* -------------------------------
+   2️⃣ HOT / NEW PRODUCT BADGES
+-------------------------------- */
+.product-card {
+  position: relative;
+}
+
+.product-card::before {
+  content: "HOT";
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: linear-gradient(135deg, #ef4444, #fb7185);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(239,68,68,0.45);
+}
+
+.product-card.new::before {
+  content: "NEW";
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  box-shadow: 0 6px 18px rgba(34,197,94,0.45);
+}
+
+/* -------------------------------
+   3️⃣ TRUST / SALE COUNTDOWN STRIP
+-------------------------------- */
+.sale-strip {
+  width: 100%;
+  padding: 10px 16px;
+  text-align: center;
+  background: linear-gradient(90deg, #0b5ed7, #0dcaf0);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.sale-strip span {
+  font-weight: 800;
+}
+
+/* -------------------------------
+   4️⃣ SKELETON LOADER EFFECT
+-------------------------------- */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e5e7eb;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  animation: skeletonMove 1.4s infinite;
+}
+
+@keyframes skeletonMove {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Apply skeleton look */
+.product-card img {
+  background: #e5e7eb;
+}
+
+/* -------------------------------
+   5️⃣ STICKY BUY CTA (MOBILE)
+-------------------------------- */
+@media (max-width: 768px) {
+  .buy-btn {
+    position: sticky;
+    bottom: 14px;
+    z-index: 50;
+    width: calc(100% - 32px);
+    margin: 16px auto 0;
+    display: block;
+
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    box-shadow: 0 14px 36px rgba(37,211,102,0.45);
+    font-size: 15px;
+    font-weight: 800;
+  }
+}
