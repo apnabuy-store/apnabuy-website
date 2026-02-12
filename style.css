@@ -1122,255 +1122,107 @@ nav a {
     font-size: 11px;
   }
 }
-/* =====================================================
-   APNABUY — ELECTRO UI FORCE OVERRIDE
-   VISUAL ONLY | ZERO LOGIC IMPACT
-   ===================================================== */
+/* ===========================================
+   APPARANCE BOOSTER — SOULED STORE STYLE UI
+   VISUAL ONLY — NO LOGIC / JS CHANGES
+   =========================================== */
 
-/* FORCE BRAND COLORS */
-body {
-  background: #0b0e1e !important;
-  color: #f8fafc !important;
-}
-
-/* HEADER — CLEAN E-COMMERCE LOOK */
-.header {
-  background: #ffffff !important;
-  color: #111 !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
-}
-
-.header * {
+/* 1️⃣ HEADER CLEAN & FIXED */
+header.header {
+  background: #fff !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08) !important;
   color: #111 !important;
 }
 
-/* HERO — BIG, CLEAN, ELECTRO FEEL */
-.hero {
-  background: linear-gradient(135deg, #0b5ed7, #0dcaf0) !important;
-  padding: 120px 24px !important;
-}
-
-.hero h1 {
-  font-size: 48px !important;
-  font-weight: 800 !important;
-  color: #ffffff !important;
-}
-
-.hero p {
-  font-size: 18px !important;
-  color: rgba(255,255,255,0.9) !important;
-}
-
-/* PRODUCTS SECTION */
-.products {
-  background: #ffffff !important;
+header.header nav a {
   color: #111 !important;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
-/* PRODUCT GRID — ELECTRO STYLE */
-.products .product-grid {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-  gap: 28px !important;
+header.header nav a:hover {
+  color: var(--primary) !important;
 }
 
-/* PRODUCT CARD — CLEAN & MODERN */
-.products .product-card {
-  background: #ffffff !important;
+/* 2️⃣ PRODUCT GRID ENHANCED */
+.products .product-grid,
+.shops .shop-grid {
+  gap: 24px !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+}
+
+/* 3️⃣ CARD SHADOW & DEPTH */
+.product-card,
+.shop-card {
+  background: #fff !important;
+  border: none !important;
   border-radius: 12px !important;
-  padding: 20px !important;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.12) !important;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
-.products .product-card:hover {
+.product-card:hover,
+.shop-card:hover {
   transform: translateY(-6px) !important;
-  box-shadow: 0 12px 36px rgba(0,0,0,0.18) !important;
+  box-shadow: 0 12px 36px rgba(0,0,0,0.12) !important;
 }
 
-/* PRODUCT IMAGE */
-.products .product-card img {
+/* 4️⃣ IMAGE FINISH */
+.product-card img,
+.shop-image {
   border-radius: 10px !important;
-  background: #f4f6f8 !important;
+  object-fit: cover !important;
 }
 
-/* PRODUCT TITLE */
-.products .product-card h3,
-.products .product-card h4 {
-  font-size: 16px !important;
+/* 5️⃣ BUTTON RESKIN */
+button,
+.buy-btn,
+.view-products-btn,
+.cta {
+  background: var(--primary) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border-radius: 999px !important;
+  padding: 12px 22px !important;
+  transition: all 0.25s ease !important;
+}
+
+button:hover,
+.buy-btn:hover,
+.view-products-btn:hover,
+.cta:hover {
+  background: #2a61c0 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.15) !important;
+}
+
+/* 6️⃣ TAG BADGES */
+.product-card::before,
+.shop-card::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* 7️⃣ RICH TYPOGRAPHY */
+.products h4,
+.shops .shop-name {
   font-weight: 700 !important;
   color: #111 !important;
 }
 
-/* PRICE — HIGHLIGHT */
-.products .product-card strong {
-  font-size: 20px !important;
-  color: #0b5ed7 !important;
+/* 8️⃣ PRICE HIGHLIGHT */
+.product-card strong {
+  color: var(--primary) !important;
+  font-size: 1.2rem !important;
 }
 
-/* BUY BUTTON — ELECTRO STYLE */
-.products .buy-btn {
-  background: #0b5ed7 !important;
-  color: #fff !important;
-  border-radius: 999px !important;
-  padding: 12px 20px !important;
-  font-weight: 700 !important;
-}
-
-.products .buy-btn:hover {
-  background: #084298 !important;
-}
-
-/* SHOPS SECTION */
-.shops {
-  background: #f8f9fa !important;
-}
-
-/* SHOP CARD */
-.shops .shop-card {
-  background: #ffffff !important;
-  border-radius: 12px !important;
-  box-shadow: 0 6px 22px rgba(0,0,0,0.12) !important;
-}
-
-/* FOOTER */
-.site-footer {
-  background: #111827 !important;
-  color: rgba(255,255,255,0.7) !important;
-}
-
-/* =====================================================
-   APNABUY — NEXT UPGRADE PACK (1–5)
-   UI ONLY | ZERO LOGIC IMPACT
-   ===================================================== */
-
-/* -------------------------------
-   1️⃣ CATEGORY RIBBON (ELECTRO)
--------------------------------- */
-.category-ribbon {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding: 14px 16px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.category-ribbon::-webkit-scrollbar {
-  display: none;
-}
-
-.category-ribbon span {
-  flex-shrink: 0;
-  padding: 8px 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 600;
-  background: #f1f5f9;
-  color: #0f172a;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.category-ribbon span:hover {
-  background: #0b5ed7;
-  color: #ffffff;
-}
-
-/* -------------------------------
-   2️⃣ HOT / NEW PRODUCT BADGES
--------------------------------- */
-.product-card {
-  position: relative;
-}
-
-.product-card::before {
-  content: "HOT";
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: linear-gradient(135deg, #ef4444, #fb7185);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(239,68,68,0.45);
-}
-
-.product-card.new::before {
-  content: "NEW";
-  background: linear-gradient(135deg, #22c55e, #4ade80);
-  box-shadow: 0 6px 18px rgba(34,197,94,0.45);
-}
-
-/* -------------------------------
-   3️⃣ TRUST / SALE COUNTDOWN STRIP
--------------------------------- */
-.sale-strip {
-  width: 100%;
-  padding: 10px 16px;
-  text-align: center;
-  background: linear-gradient(90deg, #0b5ed7, #0dcaf0);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-.sale-strip span {
-  font-weight: 800;
-}
-
-/* -------------------------------
-   4️⃣ SKELETON LOADER EFFECT
--------------------------------- */
-.skeleton {
-  position: relative;
-  overflow: hidden;
-  background: #e5e7eb;
-}
-
-.skeleton::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  transform: translateX(-100%);
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.6),
-    transparent
-  );
-  animation: skeletonMove 1.4s infinite;
-}
-
-@keyframes skeletonMove {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-/* Apply skeleton look */
-.product-card img {
-  background: #e5e7eb;
-}
-
-/* -------------------------------
-   5️⃣ STICKY BUY CTA (MOBILE)
--------------------------------- */
+/* 9️⃣ MOBILE BUY BAR */
 @media (max-width: 768px) {
   .buy-btn {
-    position: sticky;
-    bottom: 14px;
-    z-index: 50;
-    width: calc(100% - 32px);
-    margin: 16px auto 0;
-    display: block;
-
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    box-shadow: 0 14px 36px rgba(37,211,102,0.45);
-    font-size: 15px;
-    font-weight: 800;
+    position: sticky !important;
+    bottom: 14px !important;
+    width: calc(100% - 28px) !important;
+    margin: 12px auto 0 !important;
+    z-index: 999 !important;
   }
 }
